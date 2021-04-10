@@ -1,7 +1,16 @@
 {
-  "ContentRepo": "https://github.com/nota-game/nota.git",
-  "SchemaRepo": "https://github.com/nota-game/nota-schema.git",
+  "ContentRepo": {
+    "Url": "https://github.com/nota-game/nota.git",
+    "PrimaryBranchName": "main"
+  },
+  "SchemaRepo": {
+    "Url": "https://github.com/nota-game/nota-schema.git",
+    "PrimaryBranchName": "master"
+  },
   "Layouts": "layout",
   "Host": "https://nota-game2.azurewebsites.net",
-  "WebsiteRepo": "./../deploy/.git/"
+  "WebsiteRepo": {
+    "Url": "./../deploy/",
+    "PrimaryBranchName": "page"
+  }
 }
