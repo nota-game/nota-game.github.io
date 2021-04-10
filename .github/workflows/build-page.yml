@@ -29,11 +29,21 @@ jobs:
           path: main
 
       - uses: actions/checkout@v2
-        name: checkout deploy
+        name: checkout deployTemp
         with: 
-          path: deploy
+          path: deployTemp
           ref: page
           fetch-depth: 0
+
+      - name: run deploy
+        run: |
+          
+          git clone ./deployTemp/.git deploy --bare
+          cd deployTemp
+          git config --local receive.denyCurrentBranch updateInstead
+          
+
+
 
       - uses: actions/checkout@v2
         name: checkout tool
@@ -55,4 +65,16 @@ jobs:
         run: |
           cd main
           dotnet run --no-restore --project ./../tool/Nota.Site.Generator/Nota.Site.Generator.csproj
+
+      - name: deploy to temp
+        run: |
+          cd ./deploy
+          git push origin page:page
+
+
+      - name: deploy to page
+        run: |
+          cd ./deployTemp
+          git reset --hard
+          git push 
 
