@@ -65,3 +65,9 @@ jobs:
           cd main
           dotnet run --no-restore --project ./../tool/Nota.Site.Generator/Nota.Site.Generator.csproj
 
+      - name: deploy
+        run: |
+          cd ./../deploy
+          git config --local receive.denyCurrentBranch updateInstead
+          git push origin page:page
+
