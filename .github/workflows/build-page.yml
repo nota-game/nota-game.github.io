@@ -39,8 +39,9 @@ jobs:
         run: |
           
           git clone ./deployTemp/.git deploy --bare
-          ls
-          ls deploy
+          git config --local receive.denyCurrentBranch updateInstead
+          cd deployTemp
+          
 
 
 
@@ -65,9 +66,15 @@ jobs:
           cd main
           dotnet run --no-restore --project ./../tool/Nota.Site.Generator/Nota.Site.Generator.csproj
 
-      - name: deploy
+      - name: deploy to temp
         run: |
           cd ./deploy
-          git config --local receive.denyCurrentBranch updateInstead
           git push origin page:page
+
+
+      - name: deploy to page
+        run: |
+          cd ./deployTemp
+          git reset --hard
+          git push 
 
