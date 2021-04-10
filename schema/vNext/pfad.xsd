@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:nota="https://nota-game2.azurewebsites.net/schema/vNext/nota"
+        xmlns:misc="https://nota-game2.azurewebsites.net/schema/vNext/misc"
+        xmlns:wesen="https://nota-game2.azurewebsites.net/schema/vNext/lebewesen"
+        xmlns:pfad="https://nota-game2.azurewebsites.net/schema/vNext/pfad"
+        xmlns:profession="https://nota-game2.azurewebsites.net/schema/vNext/profession"
+        xmlns:talent="https://nota-game2.azurewebsites.net/schema/vNext/talent"
+        xmlns:fertigkeit="https://nota-game2.azurewebsites.net/schema/vNext/fertigkeit"
+        xmlns:besonderheit="https://nota-game2.azurewebsites.net/schema/vNext/besonderheit"
+        targetNamespace="https://nota-game2.azurewebsites.net/schema/vNext/pfad"
+        elementFormDefault="qualified"
+        >
+  <import namespace="https://nota-game2.azurewebsites.net/schema/vNext/misc" schemaLocation="misc.xsd"></import>
+
+  <element name="PfadGruppen">
+    <complexType>
+      <sequence>
+
+        <element name="Pfade" minOccurs="1" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element name="Name" type="misc:Lokalisierungen">
+                <unique name="SpracheUnique1">
+                  <selector xpath="misc:Lokalisirung"/>
+                  <field xpath="./@Sparche"/>
+                  <field xpath="./@Geschlecht"/>
+                </unique>
+              </element>
+              <element name="Beschreibung" type="misc:Lokalisierungen">
+                <unique name="SpracheUnique3">
+                  <selector xpath="misc:Lokalisirung"/>
+                  <field xpath="./@Sparche"/>
+                  <field xpath="./@Geschlecht"/>
+                </unique>
+              </element>
+
+              <element name="Pfad" maxOccurs="unbounded" minOccurs="1">
+                <complexType>
+                  <sequence>
+                    <element name="Name" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique">
+                        <selector xpath="misc:Lokalisirung"/>
+                        <field xpath="./@Sparche"/>
+                        <field xpath="./@Geschlecht"/>
+                      </unique>
+                    </element>
+                    <element name="Beschreibung" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique2">
+                        <selector xpath="misc:Lokalisirung"/>
+                        <field xpath="./@Sparche"/>
+                        <field xpath="./@Geschlecht"/>
+                      </unique>
+                    </element>
+                    <element name="NächstePfade" minOccurs="0">
+                      <complexType>
+                        <sequence>
+                          <element ref="pfad:Pfad" maxOccurs="unbounded" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element ref="misc:Levels" />
+                  </sequence>
+                  <attributeGroup ref="misc:NamedElement"/>
+                </complexType>
+              </element>
+            </sequence>
+            <attributeGroup ref="misc:NamedElement"/>
+            <attribute name="WiderholungMinimum" type="int" default="1" use="optional" />
+            <attribute name="WiderholungMaximum" type="int" default="1" use="optional" />
+          </complexType>
+
+        </element>
+      </sequence>
+    </complexType>
+
+    <key name="PfadPK">
+      <selector xpath="./pfad:Pfade/pfad:Pfad"/>
+      <field xpath="@Id"/>
+    </key>
+    <keyref name="PfadFK" refer="pfad:PfadPK">
+      <selector xpath="./pfad:Pfade/pfad:Pfad/pfad:NächstePfade/pfad:Pfad"/>
+      <field xpath="@Id"/>
+    </keyref>
+  </element>
+
+  <element name="Pfad" type="misc:NamedType"/>
+  <element name="Pfade" type="misc:NamedType"/>
+
+  <!--<complexType name="KulturAuswahl">
+    <choice>
+      <element ref="pfad:Or"></element>
+      <element ref="pfad:And"></element>
+      <element ref="pfad:Not"></element>
+      <element ref="pfad:Kultur"/>
+    </choice>
+  </complexType>
+  <complexType name="KulturAuswahlen">
+    <choice maxOccurs="unbounded">
+      <element ref="pfad:Or"></element>
+      <element ref="pfad:And"></element>
+      <element ref="pfad:Not"></element>
+      <element ref="pfad:Kultur"/>
+    </choice>
+  </complexType>
+
+  <element name="Or" type="pfad:KulturAuswahlen" />
+  <element name="And" type="pfad:KulturAuswahlen" />
+  <element name="Not" type="pfad:KulturAuswahl" />-->
+
+
+
+</schema>
