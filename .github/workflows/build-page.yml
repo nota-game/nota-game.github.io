@@ -39,8 +39,8 @@ jobs:
         run: |
           
           git clone ./deployTemp/.git deploy --bare
-          git config --local receive.denyCurrentBranch updateInstead
           cd deployTemp
+          git config --local receive.denyCurrentBranch updateInstead
           
 
 
