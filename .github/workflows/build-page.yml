@@ -67,7 +67,7 @@ jobs:
 
       - name: deploy
         run: |
-          cd ./../deploy
+          cd ./deploy
           git config --local receive.denyCurrentBranch updateInstead
           git push origin page:page
 
