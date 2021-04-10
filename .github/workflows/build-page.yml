@@ -69,6 +69,7 @@ jobs:
       - name: deploy to temp
         run: |
           cd ./deploy
+          ls
           git push origin page:page
 
 
