@@ -23,6 +23,11 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: run deploy
+        run: |
+          
+          git config --global core.symlinks false
+
       - uses: actions/checkout@v2
         name: checkout main code
         with: 
@@ -42,7 +47,6 @@ jobs:
           cd deployTemp
           git config --local receive.denyCurrentBranch updateInstead
           
-
 
 
       - uses: actions/checkout@v2
