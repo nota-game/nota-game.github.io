@@ -29,11 +29,19 @@ jobs:
           path: main
 
       - uses: actions/checkout@v2
-        name: checkout deploy
+        name: checkout deployTemp
         with: 
-          path: deploy
+          path: deployTemp
           ref: page
           fetch-depth: 0
+
+      - name: run deploy
+        run: |
+          mkdir deploy
+          cd deploy
+          git clone ../deployTemp/.git --bare .
+
+
 
       - uses: actions/checkout@v2
         name: checkout tool
