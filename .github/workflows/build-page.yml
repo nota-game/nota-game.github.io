@@ -76,6 +76,8 @@ jobs:
       - name: deploy to page
         run: |
           cd ./deployTemp
+          ls
           git reset --hard
+          ls
           git push 
 
