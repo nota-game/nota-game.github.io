@@ -37,9 +37,10 @@ jobs:
 
       - name: run deploy
         run: |
-          mkdir deploy
-          cd deploy
-          git clone ../deployTemp/.git --bare .
+          
+          git clone ./deployTemp/.git deploy --bare
+          ls
+          ls deploy
 
 
 
