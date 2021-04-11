@@ -1,75 +1,15 @@
 @using Nota.Site.Generator
 @using Nota.Site.Generator.Stages
 
-<p>Test</p>
+<h1>Willkommen auf Nota-Game</h1>
 
+<p><em>Diese Projekt befindet sich noch in einem frühen Stadium und diese Seite
+befindet sich in der alpha phase. Sie enthält noch viele Fehler und wird sich im laufe der Zeit noch Stark ändern biss sie fertig ist. </em></p>
+
+<p>Nota ist ein High Fantasy Rollenspiel System, dem ein detailreiches Regelsystem zu grunde liegt.</p>
+
+<p>Es sind noch nicht viele Regeln geschrieben, aber man kann bereits einen
+grundlegenden eindruck von Talent und Kampfsystem erhalten.</p>
 
 
  
-@{
-                        var books = Model.Metadata.TryGetValue<LicencedFiles>();
-
-if(books is null){
-<p>No Licenses found</p>
-} else {
-
-
- @:<ul>
-foreach (var b in books.LicenseInfos)
-{
-
- @:<li>@(b.Id)
-if(Nota.IsImage(b.Id) ){
-@:<img src='@(b.Id)' />
-}   
-
- @:<ul>
-
-var references = b.Metadata.TryGetValue<ImageReferences>();
-    if(references != null){
-
- @:<li><ul>
-
-foreach (var r in references.References)
-{
- @:<li>@(r.ReferencedId)</li>
- @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Header ?? r.Document)</a></li>
- @:<li></li>
-    
-}
-
-
- @:</ul></li>
-
- @:<ul>
-    }
-
-var xmp = b.Metadata.TryGetValue<XmpMetadata>();
-
-if(xmp != null){
- @:<li>@(xmp.RightsReserved)</li>
-
-if(xmp.License != null){
-
-
- @:<li>@Html.Raw(Nota.Sanitize(xmp.License))</li>
-}
- if(xmp.Creators != null){
- @:<li>@(string.Join(", ", xmp.Creators))</li>
- }
-
-}
- @:</ul>
-
- @:</ul>
- 
- @:</li>
-}
-}
- @:</ul>
-
-} 
-
-<p>LicencedFiles</p>
-
-
