@@ -80,14 +80,14 @@ nav.outline > *:last-child {
   margin-bottom: 2em; }
 
 /* END OUTLINE*/
-main {
+body > main {
   margin-left: var(--outline-width); }
   @media (max-width: 1312px) {
-    main {
+    body > main {
       margin-left: unset; } }
-  main > .edit-box:last-child {
+  body > main > .edit-box:last-child {
     border-bottom: 1px #A13646 solid; }
-  main > .edit-box {
+  body > main > .edit-box {
     border-left: 1px #A13646 solid;
     border-right: 1px #A13646 solid;
     padding-left: 1rem;
@@ -95,23 +95,23 @@ main {
     margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2);
     margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2); }
     @media (max-width: 1312px) {
-      main > .edit-box {
+      body > main > .edit-box {
         margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2);
         margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2); } }
     @media (max-width: 992px) {
-      main > .edit-box {
+      body > main > .edit-box {
         margin-left: calc((100% - var(--main-content-width)) / 2);
         margin-right: calc((100% - var(--main-content-width)) / 2); } }
     @media (max-width: 592px) {
-      main > .edit-box {
+      body > main > .edit-box {
         margin-left: 1rem;
         margin-right: 1rem; } }
-    main > .edit-box > :not(aside) {
+    body > main > .edit-box > :not(aside) {
       width: var(--main-content-width); }
       @media (max-width: 592px) {
-        main > .edit-box > :not(aside) {
+        body > main > .edit-box > :not(aside) {
           width: unset; } }
-    main > .edit-box > aside {
+    body > main > .edit-box > aside {
       float: right;
       width: calc(var(--info-content-width));
       margin-left: var(--info-main-margin);
@@ -127,30 +127,30 @@ main {
       border-color: var(--box-color);
       border-style: solid;
       border-width: 2px; }
-      main > .edit-box > aside.Undefined {
+      body > main > .edit-box > aside.Undefined {
         --box-color: magenta;
         --header: 'ERROR'; }
-      main > .edit-box > aside.Sample {
+      body > main > .edit-box > aside.Sample {
         --box-color: #A13646;
         --header: 'Beispiel'; }
-      main > .edit-box > aside.GameMaster {
+      body > main > .edit-box > aside.GameMaster {
         --box-color: #AA6439;
         --header: 'Spielleiter'; }
-      main > .edit-box > aside.Optional {
+      body > main > .edit-box > aside.Optional {
         --box-color: #256E5D;
         --header: 'Optional'; }
-      main > .edit-box > aside.Information {
+      body > main > .edit-box > aside.Information {
         --box-color: #4B9130;
         --header: 'Info'; }
       @media (max-width: 992px) {
-        main > .edit-box > aside {
+        body > main > .edit-box > aside {
           float: none;
           width: var(--main-content-width);
           margin-left: unset; } }
       @media (max-width: 592px) {
-        main > .edit-box > aside {
+        body > main > .edit-box > aside {
           width: unset; } }
-      main > .edit-box > aside::before {
+      body > main > .edit-box > aside::before {
         content: var(--header);
         font: 1.5em Georgia, Serif;
         background: var(--box-color);
@@ -163,13 +163,13 @@ main {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
         transform-origin: center center; }
-      main > .edit-box > aside table > tbody > tr {
+      body > main > .edit-box > aside table > tbody > tr {
         background-color: var(--secondary-color);
         color: var(--secondary-inverse-color); }
-      main > .edit-box > aside table > tbody > tr:nth-child(even) {
+      body > main > .edit-box > aside table > tbody > tr:nth-child(even) {
         background-color: var(--primary-color);
         color: var(--primary-inverse-color); }
-    main > .edit-box aside ~ aside {
+    body > main > .edit-box aside ~ aside {
       clear: right; }
 
 .edit-box > a {
