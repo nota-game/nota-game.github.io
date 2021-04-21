@@ -1,9 +1,30 @@
 .edit-box {
   border-top: transparent dashed 1px;
-  border-bottom: transparent dashed 1px; }
+  border-bottom: transparent dashed 1px;
+  transition-property: border-color;
+  transition-duration: 1s; }
+  .edit-box > .timecode {
+    background-color: var(--secondary-color);
+    border-bottom-right-radius: 99rem;
+    border-top-right-radius: 99rem;
+    display: inline-block;
+    height: 2rem;
+    width: 1.5rem;
+    margin-left: -1rem;
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    text-overflow: clip;
+    overflow: hidden;
+    color: var(--secondary-color);
+    transition-property: width, color;
+    transition-duration: 1s; }
   .edit-box:hover {
     border-top: var(--secondary-color) dashed 1px;
     border-bottom: var(--secondary-color) dashed 1px; }
+    .edit-box:hover > .timecode {
+      width: 8rem;
+      color: var(--secondary-inverse-color); }
   .edit-box > a {
     display: block;
     grid-row: 1/999;
