@@ -6,9 +6,31 @@
     border-top: transparent dashed 1px;
     border-bottom: transparent dashed 1px;
 
+    transition-property: border-color;
+    transition-duration: 1s;
+
+    >.timecode {
+        background-color: var(--secondary-color);
+        border-bottom-right-radius: 99rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        text-overflow: clip;
+        overflow: hidden;
+        color: var(--secondary-color);
+
+        transition-property: width, color;
+        transition-duration: 1s;
+
+    }
+
     &:hover {
         border-top: var(--secondary-color) dashed 1px;
         border-bottom: var(--secondary-color) dashed 1px;
+
+        >.timecode {
+            width: 8rem;
+            color: var(--secondary-inverse-color);
+        }
     }
 
     >a {
