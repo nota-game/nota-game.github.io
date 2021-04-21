@@ -12,8 +12,14 @@
     >.timecode {
         background-color: var(--secondary-color);
         border-bottom-right-radius: 99rem;
-        height: 1.5rem;
+        border-top-right-radius: 99rem;
+        display: inline-block;
+        height: 2rem;
         width: 1.5rem;
+        margin-left: -1rem;
+        padding-left: 1rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
         text-overflow: clip;
         overflow: hidden;
         color: var(--secondary-color);
