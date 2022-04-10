@@ -8,6 +8,7 @@
        @{
         var backReferences = string.Join("", Model.Id.Where(x=>x == '/').Select(x=> "../"));
     }
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="stylesheet" type="text/css" href="@(backReferences)css/style.css">
     @RenderSection("Head", required: false)
 </head>
