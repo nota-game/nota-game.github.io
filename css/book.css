@@ -13,14 +13,12 @@
     .noScript {
       visibility: visible;
       display: unset; } }
-
 .script {
   visibility: visible; }
   @media (scripting: none) {
     .script {
       visibility: collapse;
       display: none; } }
-
 /**
  * BEGIN OUTLINE
  **/
@@ -68,7 +66,6 @@ nav.outline {
       width: unset;
       margin-left: 1rem;
       margin-right: 1rem; } }
-
 nav.outline::before {
   clear: both; }
 
