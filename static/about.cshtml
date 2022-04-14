@@ -24,7 +24,7 @@
 
 
                 @:<header>
-                @:@(string.Join(", ",  Enumerable.Distinct(Enumerable.Select(references.References,new Func<ImageReference, String>( x=>System.IO.Path.GetFileName( x.ReferencedId))))))
+                @: @(string.Join(", ",  Enumerable.Distinct(Enumerable.Select(references.References,new Func<ImageReference, String>( x=>System.IO.Path.GetFileName( x.ReferencedId))))))
                 @:</header>
 
                 @:<img src='@(b.Id)' />
@@ -63,9 +63,9 @@
                     @:Wurde erstellt von @(string.Join(", ", xmp.Creators)) und
                 }
                 if(xmp.RightsReserved){
-                    ist Urheberrechtlich geschützt.
+                    @:ist Urheberrechtlich geschützt.
                 } else {
-                    ist frei von Rechten.
+                    @:ist frei von Rechten.
                 }
 
                 if(xmp.License != null){
@@ -79,7 +79,7 @@
 
             }
 
-            </article>
+            @:</article>
         }
 
     }
