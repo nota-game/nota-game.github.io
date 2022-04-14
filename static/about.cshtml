@@ -3,7 +3,15 @@
 @using System.Linq;
 
 
-<p>Test</p>
+@section Head{
+    <link rel="stylesheet" type="text/css" href="@(backReferences)css/book.css">
+    @if(meta.Version.IsDraft){
+        <link rel="stylesheet" type="text/css" href="@(backReferences)css/about.css">
+    }
+}
+
+
+<p>Dies befindet sich noch im Aufbau....</p>
 
 
 
@@ -33,7 +41,7 @@
 
 
 
-
+                @:Verwendet in
                 @:<ul>
                 foreach (var r in references.References)
                 {
@@ -60,7 +68,7 @@
                     @:Dieses Bild
                 }
                 if(xmp.Creators != null){
-                    @:Wurde erstellt von @(string.Join(", ", xmp.Creators)) und
+                    @:wurde erstellt von @(string.Join(", ", xmp.Creators)) und
                 }
                 if(xmp.RightsReserved){
                     @:ist Urheberrechtlich geschützt.

@@ -1,0 +1,35 @@
+@import "color.scss";
+@import "size.scss";
+
+
+:root {
+    --info-content-width: 400px;
+    --main-content-width: 560px;
+    --info-main-margin: 16px;
+    --outline-width: 320px;
+
+    --edit-box-padding: 1rem;
+
+    --compact-width: #{ $info-content-width + $main-content-width + $info-main-margin + $outline-width};
+}
+
+.license-information{
+    max-width: var(--main-content-width);
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
+    .license-information+.license-information{
+    border-top: 1px solid $color-primary-0;
+    
+    }
+    .license-information>header{
+    font-weight: bold;
+    margin-bottom: 1rem;
+    }
+    
+    .license-information>img{
+    max-width: 20rem;
+    max-height: 20rem;
+    }
+    
