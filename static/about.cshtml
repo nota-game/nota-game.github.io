@@ -7,7 +7,7 @@
 
 
 
- 
+ <h1>Bilder und andere Lizensierte Dateien</h1>
 @{
     var licencedFiles = Model.Metadata.TryGetValue<LicencedFiles>();
 
@@ -16,70 +16,76 @@
     } else {
 
 
-        @:<ul>
         foreach (var b in licencedFiles.LicenseInfos)
         {
             var references = b.Metadata.TryGetValue<ImageReferences>();
-
+            @:<article class="license-information">
             if(references != null){
 
 
+                @:<header>
+                @:@(string.Join(", ",  Enumerable.Distinct(Enumerable.Select(references.References,new Func<ImageReference, String>( x=>System.IO.Path.GetFileName( x.ReferencedId))))))
+                @:</header>
 
-                @:<li>@(string.Join(", ",  Enumerable.Distinct(Enumerable.Select(references.References,new Func<ImageReference, String>( x=>System.IO.Path.GetFileName( x.ReferencedId))))))
                 @:<img src='@(b.Id)' />
                 
 
+
+
+
+
                 @:<ul>
-
-
-                @:<li><ul>
-
-
                 foreach (var r in references.References)
                 {
-                    @:<li>@(r.ReferencedId)</li>
-                    @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Version) - @(r.Header ?? r.Document)</a></li>
-                    @:<li></li>
-                    
+                    @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Version) - @(r.Book) - @(r.Header ?? r.Document)</a></li>
                 }
+                @:</ul>
 
 
-                @:</ul></li>
 
-                @:<ul>
             }else if(Nota.IsImage(b.Id) ){
-                @:<li>@(b.Id)
+                @:<header>@(b.Id)</header>
                 @:<img src='@(b.Id)' />
             } else{
-                @:<li>@(b.Id)
+                @:<header>@(b.Id)</header>
             }
 
             var xmp = b.Metadata.TryGetValue<XmpMetadata>();
 
             if(xmp != null){
-                @:<li>@(xmp.RightsReserved)</li>
+                @:<p>
+                if(xmp.Title != null){
+                    @:<cite>@(xmp.Title)</cite>
+                } else {
+                    @:Dieses Bild
+                }
+                if(xmp.Creators != null){
+                    @:Wurde erstellt von @(string.Join(", ", xmp.Creators)) und
+                }
+                if(xmp.RightsReserved){
+                    ist Urheberrechtlich geschützt.
+                } else {
+                    ist frei von Rechten.
+                }
 
                 if(xmp.License != null){
-                    @:<li>@Html.Raw(Nota.Sanitize(xmp.License))</li>
+                    @:<blockquote>
+                        @Html.Raw(Nota.Sanitize(xmp.License))
+                    @:</blockquote>
                 }
 
-                if(xmp.Creators != null){
-                    @:<li>@(string.Join(", ", xmp.Creators))</li>
-                }
+                
+                @:</p>
 
             }
-            @:</ul>
 
-            @:</ul>
-            
-            @:</li>
+            </article>
         }
 
     }
-    @:</ul>
 
 } 
 
-<p>LicencedFiles</p>
+
 
 
