@@ -149,7 +149,6 @@ foreach (var category in categorys)
                             if(book.Version.IsDraft && seccondBook != null){
                                 book = seccondBook;
                             }
-
                             @:<li><a href="/@(book.Location)/index.html">@(category.Key.ToId())@bookVersions.Key @book.Title - @book.Version</a></li>
                         }
 

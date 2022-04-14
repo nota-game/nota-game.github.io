@@ -1,5 +1,7 @@
 @using Nota.Site.Generator
 @using Nota.Site.Generator.Stages
+@using System.Linq;
+
 
 <p>Test</p>
 
@@ -7,66 +9,74 @@
 
  
 @{
-                        var books = Model.Metadata.TryGetValue<LicencedFiles>();
+    var licencedFiles = Model.Metadata.TryGetValue<LicencedFiles>();
 
-if(books is null){
-<p>No Licenses found</p>
-} else {
-
-
- @:<ul>
-foreach (var b in books.LicenseInfos)
-{
-
- @:<li>@(b.Id)
-if(Nota.IsImage(b.Id) ){
-@:<img src='@(b.Id)' />
-}   
-
- @:<ul>
-
-var references = b.Metadata.TryGetValue<ImageReferences>();
-    if(references != null){
-
- @:<li><ul>
-
-foreach (var r in references.References)
-{
- @:<li>@(r.ReferencedId)</li>
- @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Header ?? r.Document)</a></li>
- @:<li></li>
-    
-}
+    if(licencedFiles is null) {
+        <p>No Licenses found</p>
+    } else {
 
 
- @:</ul></li>
+        @:<ul>
+        foreach (var b in licencedFiles.LicenseInfos)
+        {
+            var references = b.Metadata.TryGetValue<ImageReferences>();
 
- @:<ul>
+            if(references != null){
+
+
+
+                @:<li>@(string.Join(", ",  Enumerable.Distinct(Enumerable.Select(references.References,new Func<ImageReference, String>( x=>System.IO.Path.GetFileName( x.ReferencedId))))))
+                @:<img src='@(b.Id)' />
+                
+
+                @:<ul>
+
+
+                @:<li><ul>
+
+
+                foreach (var r in references.References)
+                {
+                    @:<li>@(r.ReferencedId)</li>
+                    @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Version) - @(r.Header ?? r.Document)</a></li>
+                    @:<li></li>
+                    
+                }
+
+
+                @:</ul></li>
+
+                @:<ul>
+            }else if(Nota.IsImage(b.Id) ){
+                @:<li>@(b.Id)
+                @:<img src='@(b.Id)' />
+            } else{
+                @:<li>@(b.Id)
+            }
+
+            var xmp = b.Metadata.TryGetValue<XmpMetadata>();
+
+            if(xmp != null){
+                @:<li>@(xmp.RightsReserved)</li>
+
+                if(xmp.License != null){
+                    @:<li>@Html.Raw(Nota.Sanitize(xmp.License))</li>
+                }
+
+                if(xmp.Creators != null){
+                    @:<li>@(string.Join(", ", xmp.Creators))</li>
+                }
+
+            }
+            @:</ul>
+
+            @:</ul>
+            
+            @:</li>
+        }
+
     }
-
-var xmp = b.Metadata.TryGetValue<XmpMetadata>();
-
-if(xmp != null){
- @:<li>@(xmp.RightsReserved)</li>
-
-if(xmp.License != null){
-
-
- @:<li>@Html.Raw(Nota.Sanitize(xmp.License))</li>
-}
- if(xmp.Creators != null){
- @:<li>@(string.Join(", ", xmp.Creators))</li>
- }
-
-}
- @:</ul>
-
- @:</ul>
- 
- @:</li>
-}
-}
- @:</ul>
+    @:</ul>
 
 } 
 
