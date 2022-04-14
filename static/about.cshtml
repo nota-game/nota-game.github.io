@@ -1,14 +1,10 @@
 @using Nota.Site.Generator
 @using Nota.Site.Generator.Stages
-@using System.Linq;
-
+@using System.Linq
 
 @section Head{
-    <link rel="stylesheet" type="text/css" href="@(backReferences)css/book.css">
-    @if(meta.Version.IsDraft){
-        <link rel="stylesheet" type="text/css" href="@(backReferences)css/about.css">
+        <link rel="stylesheet" type="text/css" href="css/about.css">
     }
-}
 
 
 <p>Dies befindet sich noch im Aufbau....</p>
@@ -52,10 +48,10 @@
 
 
             }else if(Nota.IsImage(b.Id) ){
-                @:<header>@(b.Id)</header>
+                @:<header>@(System.IO.Path.GetFileName(b.Id))</header>
                 @:<img src='@(b.Id)' />
             } else{
-                @:<header>@(b.Id)</header>
+                @:<header>@(System.IO.Path.GetFileName(b.Id))</header>
             }
 
             var xmp = b.Metadata.TryGetValue<XmpMetadata>();
