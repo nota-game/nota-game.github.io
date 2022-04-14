@@ -1,0 +1,16 @@
+{
+  "ContentRepo": {
+    "Url": "{ABSOLUTE_PATH}\\..\\nota\\.git",
+    "PrimaryBranchName": "master"
+  },
+  "SchemaRepo": {
+    "Url": "{ABSOLUTE_PATH}\\..\\nota-schema\\.git",
+    "PrimaryBranchName": "master"
+  },
+  "Layouts": "layout",
+  "Host": "http://localhost:3000/",
+  "WebsiteRepo": {
+    "Url": "{ABSOLUTE_PATH}\\..\\Nota.Site.Generator.Test\\remoteGit\\target",
+    "PrimaryBranchName": "master"
+  }
+}
