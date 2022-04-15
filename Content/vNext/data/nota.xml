@@ -11,7 +11,7 @@
   xmlns:besonderheit="https://nota-game.github.io//schema/besonderheit" 
   xmlns:Belastung="https://nota-game.github.io//schema/kampf/aktionen" 
   xmlns:ausstattung="https://nota-game.github.io//schema/kampf/ausstattung" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io//schema/nota ../schema/nota.xsd https://nota-game.github.io//schema/lebewesen ../schema/Lebewesen.xsd https://nota-game.github.io//schema/pfad ../schema/pfad.xsd https://nota-game.github.io//schema/talent ../schema/talent.xsd https://nota-game.github.io//schema/fertigkeit ../schema/fertigkeit.xsd https://nota-game.github.io//schema/besonderheit ../schema/besonderheit.xsd https://nota-game.github.io//schema/kampf/aktionen ../schema/kampf/aktionen.xsd https://nota-game.github.io//schema/kampf/ausstattung ../schema/kampf/ausstattung.xsd https://nota-game.github.io//schema/misc ../schema/misc.xsd">
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io//schema/nota ../../nota-schema/nota.xsd https://nota-game.github.io//schema/lebewesen ../../nota-schema/Lebewesen.xsd https://nota-game.github.io//schema/pfad ../../nota-schema/pfad.xsd https://nota-game.github.io//schema/talent ../../nota-schema/talent.xsd https://nota-game.github.io//schema/fertigkeit ../../nota-schema/fertigkeit.xsd https://nota-game.github.io//schema/besonderheit ../../nota-schema/besonderheit.xsd https://nota-game.github.io//schema/kampf/aktionen ../../nota-schema/kampf/aktionen.xsd https://nota-game.github.io//schema/kampf/ausstattung ../../nota-schema/kampf/ausstattung.xsd https://nota-game.github.io//schema/misc ../../nota-schema/misc.xsd">
   <!--<Pfade>
     <PfadAuswahl Id="Götter">
       <Name>
