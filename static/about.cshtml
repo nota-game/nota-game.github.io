@@ -75,7 +75,7 @@
                 }
 
                 if(xmp.License != null){
-                    if(xmp.License.Length > 50){
+                    if(Enumerable.Count(xmp.License, new Func<char,bool>(x=>!char.IsWhiteSpace(x))) > 500){
                         @:<details>
                             @:<summary>Lizenz</summary>
                             @:<blockquote>
