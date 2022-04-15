@@ -41,7 +41,7 @@
                 @:<ul>
                 foreach (var r in references.References)
                 {
-                    @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Version) - @(r.Book) - @(r.Header ?? r.Document)</a></li>
+                    @:<li> <a href="@(r.Document)#@(r.Header)">@(r.Version) - @(r.Book.Title) - @(r.Header ?? r.Document)</a></li>
                 }
                 @:</ul>
 
@@ -60,8 +60,10 @@
                 @:<p>
                 if(xmp.Title != null){
                     @:<cite>@(xmp.Title)</cite>
-                } else {
+                } else if(Nota.IsImage(b.Id)) {
                     @:Dieses Bild
+                }else {
+                    @:Diese Datei
                 }
                 if(xmp.Creators != null){
                     @:wurde erstellt von @(string.Join(", ", xmp.Creators)) und
@@ -73,9 +75,18 @@
                 }
 
                 if(xmp.License != null){
-                    @:<blockquote>
-                        @Html.Raw(Nota.Sanitize(xmp.License))
-                    @:</blockquote>
+                    if(xmp.License.Length > 50){
+                        @:<details>
+                            @:<summary>Lizenz</summary>
+                            @:<blockquote>
+                                @Html.Raw(Nota.Sanitize(xmp.License))
+                            @:</blockquote>
+                        @:</details>
+                    }else{
+                        @:<blockquote>
+                            @Html.Raw(Nota.Sanitize(xmp.License))
+                        @:</blockquote>
+                    }
                 }
 
                 
