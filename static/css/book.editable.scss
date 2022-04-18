@@ -9,7 +9,7 @@
     transition-property: border-color;
     transition-duration: 1s;
 
-    >.timecode {
+    >.edit-info{
         background-color: var(--secondary-color);
         border-bottom-right-radius: 99rem;
         border-top-right-radius: 99rem;
@@ -26,47 +26,65 @@
 
         transition-property: width, color;
         transition-duration: 1s;
+        // >.timecode {
+        //     background-color: var(--secondary-color);
+        //     border-bottom-right-radius: 99rem;
+        //     border-top-right-radius: 99rem;
+        //     display: inline-block;
+        //     height: 2rem;
+        //     width: 1.5rem;
+        //     margin-left: -1rem;
+        //     padding-left: 1rem;
+        //     padding-top: 0.5rem;
+        //     padding-bottom: 0.5rem;
+        //     text-overflow: clip;
+        //     overflow: hidden;
+        //     color: var(--secondary-color);
 
-    }
+        //     transition-property: width, color;
+        //     transition-duration: 1s;
 
-    &:hover {
-        border-top: var(--secondary-color) dashed 1px;
-        border-bottom: var(--secondary-color) dashed 1px;
+        // }
 
-        >.timecode {
-            width: 8rem;
-            color: var(--secondary-inverse-color);
+        &:hover {
+            border-top: var(--secondary-color) dashed 1px;
+            border-bottom: var(--secondary-color) dashed 1px;
+
+            // >.timecode {
+                width: 8rem;
+                color: var(--secondary-inverse-color);
+            // }
         }
-    }
 
-    >a {
-        display: block;
-        grid-row: 1/999;
-        visibility: hidden;
-        float: left;
-        padding: 0.3em 0em;
-        text-align: end;
+        >a {
+            display: block;
+            grid-row: 1/999;
+            visibility: hidden;
+            float: left;
+            padding: 0.3em 0em;
+            text-align: end;
 
-        writing-mode: vertical-rl;
-        transform: rotate(180deg);
-        width: 2rem !important;
-        margin: 0px;
-        margin-left: -2rem;
-        margin-top: -1px
-            /* the boarder of editbox*/
-        ;
-        position: absolute;
-
-        background-color: var(--secondary-color);
-        color: var(--secondary-inverse-color);
-
-        &::after {
+            writing-mode: vertical-rl;
             transform: rotate(180deg);
-            content: '\270E';
-        }
-    }
+            width: 2rem !important;
+            margin: 0px;
+            margin-left: -2rem;
+            margin-top: -1px
+                /* the boarder of editbox*/
+            ;
+            position: absolute;
 
-    &:hover>a {
-        visibility: visible;
+            background-color: var(--secondary-color);
+            color: var(--secondary-inverse-color);
+
+            &::after {
+                transform: rotate(180deg);
+                content: '\270E';
+            }
+        }
+
+        &:hover>a {
+            visibility: visible;
+        }
     }
 }

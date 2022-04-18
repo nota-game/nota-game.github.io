@@ -322,9 +322,34 @@ body > main {
         margin-right: 1rem;
         width: unset;
     }
+}
 
+.taktiken{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    .taktik{
+        border: 3px solid var(--secondary-color);
+        width: 18rem;
+        padding: 1rem;
+        margin: 1rem;
+    }
+}
 
-
-
-
+.talente{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: auto !important;
+    align-items: flex-start;
+    justify-content: space-between;
+    .talent{
+        border: 3px solid var(--secondary-color);
+        width: 18rem;
+        padding: 1rem;
+        margin: 1rem;
+    }
 }
