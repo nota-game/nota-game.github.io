@@ -22,7 +22,7 @@
     .edit-box > .edit-info:hover {
       border-top: var(--secondary-color) dashed 1px;
       border-bottom: var(--secondary-color) dashed 1px;
-      width: 12rem;
+      width: 30rem;
       color: var(--secondary-inverse-color); }
     .edit-box > .edit-info > a {
       visibility: hidden;
