@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io//schema/vNext/nota"
-        xmlns:misc="https://nota-game.github.io//schema/vNext/misc"
-        xmlns:aktionen="https://nota-game.github.io//schema/vNext/kampf/aktionen"
-        targetNamespace="https://nota-game.github.io//schema/vNext/kampf/aktionen"
-        elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io//schema/vNext/nota" xmlns:misc="https://nota-game.github.io//schema/vNext/misc" xmlns:aktionen="https://nota-game.github.io//schema/vNext/kampf/aktionen" targetNamespace="https://nota-game.github.io//schema/vNext/kampf/aktionen" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io//schema/vNext/misc" schemaLocation="..\misc.xsd"></import>
 
   <element name="Taktiken">
@@ -13,46 +8,46 @@
         <element name="Taktik" maxOccurs="unbounded" minOccurs="0">
           <complexType>
             <sequence>
-              <element name="Beschreibung" type="string"/>
-              <element name="Bedingung" type="string" minOccurs="0"/>
-              <element name="SofortigerEffekt" type="string" minOccurs="0"/>
-              <element name="GarantierterEffekt" type="string" minOccurs="0"/>
-              <element name="Erfolg" type="string" minOccurs="0"/>
-              <element name="Misserfolg" type="string" minOccurs="0"/>
-              <element name="Mod" minOccurs="0" >
+              <element name="Beschreibung" type="string" />
+              <element name="Bedingung" type="string" minOccurs="0" />
+              <element name="SofortigerEffekt" type="string" minOccurs="0" />
+              <element name="GarantierterEffekt" type="string" minOccurs="0" />
+              <element name="Erfolg" type="string" minOccurs="0" />
+              <element name="Misserfolg" type="string" minOccurs="0" />
+              <element name="Mod" minOccurs="0">
                 <complexType>
                   <choice>
-                    <element ref="aktionen:ConcreteModValueType"/>
-                    <element ref="aktionen:VariableModValueType"/>
-                    <element ref="aktionen:SubstractModValueType"/>
-                    <element ref="aktionen:AddModValueType"/>
-                    <element ref="aktionen:MultiplyModValueType"/>
+                    <element ref="aktionen:ConcreteModValueType" />
+                    <element ref="aktionen:VariableModValueType" />
+                    <element ref="aktionen:SubstractModValueType" />
+                    <element ref="aktionen:AddModValueType" />
+                    <element ref="aktionen:MultiplyModValueType" />
                   </choice>
-                  <attribute name="ModifierType" use="required" type="aktionen:ModifierType"/>
+                  <attribute name="ModifierType" use="required" type="aktionen:ModifierType" />
                 </complexType>
               </element>
               <element name="Eigenschaften" minOccurs="0">
                 <complexType>
                   <sequence maxOccurs="unbounded">
-                    <element ref="aktionen:Eigenschaft"/>
+                    <element ref="aktionen:Eigenschaft" />
                   </sequence>
                 </complexType>
               </element>
             </sequence>
-            <attributeGroup ref="misc:NamedElement"/>
-            <attribute name="Kosten" type="int" use="required"/>
-            <attribute name="Belastung"  use="required">
+            <attributeGroup ref="misc:NamedElement" />
+            <attribute name="Kosten" type="int" use="required" />
+            <attribute name="Belastung" use="required">
               <simpleType>
                 <restriction base="float">
-                  <enumeration value="0"/>
-                  <enumeration value="0.5"/>
-                  <enumeration value="1"/>
-                  <enumeration value="1.5"/>
-                  <enumeration value="2"/>
+                  <enumeration value="0" />
+                  <enumeration value="0.5" />
+                  <enumeration value="1" />
+                  <enumeration value="1.5" />
+                  <enumeration value="2" />
                 </restriction>
               </simpleType>
             </attribute>
-            <attribute name="Typ" type="aktionen:ActionType" use="required"/>
+            <attribute name="Typ" type="aktionen:ActionType" use="required" />
           </complexType>
         </element>
         <element name="Eigenschaften" maxOccurs="unbounded" minOccurs="0">
@@ -63,20 +58,20 @@
                   <sequence>
                     <element name="Name" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sparche" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Beschreibung" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sparche" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                   </sequence>
-                  <attribute type="string" name="Id" use="required"/>
+                  <attribute type="string" name="Id" use="required" />
                 </complexType>
               </element>
             </sequence>
@@ -86,9 +81,9 @@
     </complexType>
   </element>
 
-  <element name="Eigenschaft" >
+  <element name="Eigenschaft">
     <complexType>
-      <attributeGroup ref="misc:NamedElement"/>
+      <attributeGroup ref="misc:NamedElement" />
     </complexType>
   </element>
 
@@ -105,64 +100,63 @@
     </complexType>
   </element>
 
-  <element name="AddModValueType" >
+  <element name="AddModValueType">
     <complexType>
       <choice maxOccurs="unbounded">
-        <element ref="aktionen:ConcreteModValueType"/>
-        <element ref="aktionen:VariableModValueType"/>
-        <element ref="aktionen:SubstractModValueType"/>
-        <element ref="aktionen:AddModValueType"/>
-        <element ref="aktionen:MultiplyModValueType"/>
+        <element ref="aktionen:ConcreteModValueType" />
+        <element ref="aktionen:VariableModValueType" />
+        <element ref="aktionen:SubstractModValueType" />
+        <element ref="aktionen:AddModValueType" />
+        <element ref="aktionen:MultiplyModValueType" />
       </choice>
     </complexType>
   </element>
 
-  <element name="SubstractModValueType" >
+  <element name="SubstractModValueType">
     <complexType>
       <choice maxOccurs="unbounded">
-        <element ref="aktionen:ConcreteModValueType"/>
-        <element ref="aktionen:VariableModValueType"/>
-        <element ref="aktionen:AddModValueType"/>
-        <element ref="aktionen:SubstractModValueType"/>
-        <element ref="aktionen:MultiplyModValueType"/>
+        <element ref="aktionen:ConcreteModValueType" />
+        <element ref="aktionen:VariableModValueType" />
+        <element ref="aktionen:AddModValueType" />
+        <element ref="aktionen:SubstractModValueType" />
+        <element ref="aktionen:MultiplyModValueType" />
       </choice>
     </complexType>
   </element>
 
-  <element name="MultiplyModValueType" >
+  <element name="MultiplyModValueType">
     <complexType>
       <choice maxOccurs="unbounded">
-        <element ref="aktionen:ConcreteModValueType"/>
-        <element ref="aktionen:VariableModValueType"/>
-        <element ref="aktionen:SubstractModValueType"/>
-        <element ref="aktionen:AddModValueType"/>
-        <element ref="aktionen:MultiplyModValueType"/>
+        <element ref="aktionen:ConcreteModValueType" />
+        <element ref="aktionen:VariableModValueType" />
+        <element ref="aktionen:SubstractModValueType" />
+        <element ref="aktionen:AddModValueType" />
+        <element ref="aktionen:MultiplyModValueType" />
       </choice>
     </complexType>
   </element>
-
 
 
   <simpleType name="ActionType">
     <restriction base="string">
-      <enumeration value="Offensiv"/>
-      <enumeration value="Defensiv"/>
-      <enumeration value="Unterstützend"/>
-      <enumeration value="Neutral"/>
+      <enumeration value="Offensiv" />
+      <enumeration value="Defensiv" />
+      <enumeration value="Unterstützend" />
+      <enumeration value="Neutral" />
     </restriction>
   </simpleType>
 
   <simpleType name="ModType">
     <restriction base="string">
-      <enumeration value="Percent"/>
-      <enumeration value="Absolute"/>
+      <enumeration value="Percent" />
+      <enumeration value="Absolute" />
     </restriction>
   </simpleType>
 
   <simpleType name="ModifierType">
     <restriction base="string">
-      <enumeration value="Malus"/>
-      <enumeration value="Bonus"/>
+      <enumeration value="Malus" />
+      <enumeration value="Bonus" />
     </restriction>
   </simpleType>
 

@@ -190,3 +190,28 @@ body > main {
       margin-left: 1rem;
       margin-right: 1rem;
       width: unset; } }
+.taktiken {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto !important;
+  align-items: flex-start;
+  justify-content: space-between; }
+  .taktiken .taktik {
+    border: 3px solid var(--secondary-color);
+    width: 18rem;
+    padding: 1rem;
+    margin: 1rem; }
+
+.talente {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto !important;
+  align-items: flex-start;
+  justify-content: space-between; }
+  .talente .talent {
+    border: 3px solid var(--secondary-color);
+    width: 18rem;
+    padding: 1rem;
+    margin: 1rem; }
