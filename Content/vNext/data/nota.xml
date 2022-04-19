@@ -1,17 +1,17 @@
 <?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->
 <Daten Version='1' 
-  xmlns='https://nota-game.github.io//schema/nota' 
-  xmlns:misc='https://nota-game.github.io//schema/misc' 
-  xmlns:lebewesen="https://nota-game.github.io//schema/wesen" 
-  xmlns:pfad="https://nota-game.github.io//schema/pfad" 
-  xmlns:profession="https://nota-game.github.io//schema/profession" 
-  xmlns:talent="https://nota-game.github.io//schema/talent" 
-  xmlns:fertigkeit="https://nota-game.github.io//schema/fertigkeit" 
-  xmlns:besonderheit="https://nota-game.github.io//schema/besonderheit" 
-  xmlns:Belastung="https://nota-game.github.io//schema/kampf/aktionen" 
-  xmlns:ausstattung="https://nota-game.github.io//schema/kampf/ausstattung" 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io//schema/nota ../../nota-schema/nota.xsd https://nota-game.github.io//schema/lebewesen ../../nota-schema/Lebewesen.xsd https://nota-game.github.io//schema/pfad ../../nota-schema/pfad.xsd https://nota-game.github.io//schema/talent ../../nota-schema/talent.xsd https://nota-game.github.io//schema/fertigkeit ../../nota-schema/fertigkeit.xsd https://nota-game.github.io//schema/besonderheit ../../nota-schema/besonderheit.xsd https://nota-game.github.io//schema/kampf/aktionen ../../nota-schema/kampf/aktionen.xsd https://nota-game.github.io//schema/kampf/ausstattung ../../nota-schema/kampf/ausstattung.xsd https://nota-game.github.io//schema/misc ../../nota-schema/misc.xsd">
+  xmlns='https://nota-game.github.io/schema/nota' 
+  xmlns:misc='https://nota-game.github.io/schema/misc' 
+  xmlns:lebewesen="https://nota-game.github.io/schema/wesen" 
+  xmlns:pfad="https://nota-game.github.io/schema/pfad" 
+  xmlns:profession="https://nota-game.github.io/schema/profession" 
+  xmlns:talent="https://nota-game.github.io/schema/talent" 
+  xmlns:fertigkeit="https://nota-game.github.io/schema/fertigkeit" 
+  xmlns:besonderheit="https://nota-game.github.io/schema/besonderheit" 
+  xmlns:Belastung="https://nota-game.github.io/schema/kampf/aktionen" 
+  xmlns:ausstattung="https://nota-game.github.io/schema/kampf/ausstattung" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io/schema/nota ../../nota-schema/nota.xsd https://nota-game.github.io/schema/lebewesen ../../nota-schema/Lebewesen.xsd https://nota-game.github.io/schema/pfad ../../nota-schema/pfad.xsd https://nota-game.github.io/schema/talent ../../nota-schema/talent.xsd https://nota-game.github.io/schema/fertigkeit ../../nota-schema/fertigkeit.xsd https://nota-game.github.io/schema/besonderheit ../../nota-schema/besonderheit.xsd https://nota-game.github.io/schema/kampf/aktionen ../../nota-schema/kampf/aktionen.xsd https://nota-game.github.io/schema/kampf/ausstattung ../../nota-schema/kampf/ausstattung.xsd https://nota-game.github.io/schema/misc ../../nota-schema/misc.xsd">
   <!--<Pfade>
     <PfadAuswahl Id="Götter">
       <Name>
@@ -28,7 +28,7 @@
           <misc:Lokalisirung Sparche="de"><![CDATA[Der Charakter ist ein Diener des Gottes Alsa.]]></misc:Lokalisirung>
         </Beschreibung>
         <Modifikationen>
-          <Besonderheiten xmlns="https://nota-game.github.io//schema/lebewesen">
+          <Besonderheiten xmlns="https://nota-game.github.io/schema/lebewesen">
             <besonderheit:Besonderheit Id="Auserwählter"/>
             <besonderheit:Besonderheit Id="Auserwählter Alsas"/>
           </Besonderheiten>
@@ -37,7 +37,7 @@
     </PfadAuswahl>
   </Pfade>-->
   <GenerierungsDaten GenerierungsPunkte="120" MinimumVerbreitung="3" />
-  <Organismen xmlns="https://nota-game.github.io//schema/lebewesen">
+  <Organismen xmlns="https://nota-game.github.io/schema/lebewesen">
     <Gattung Id="Homo">
       <Name>
         <misc:Lokalisirung Sparche="de"><![CDATA[]]></misc:Lokalisirung>
@@ -133,7 +133,7 @@
       </Beschreibung>
     </Organismus>
   </Organismen>
-  <PfadGruppen xmlns="https://nota-game.github.io//schema/pfad">
+  <PfadGruppen xmlns="https://nota-game.github.io/schema/pfad">
     <Pfade Id="Kultur" WiderholungMaximum="2">
       <Name >
         <misc:Lokalisirung Sparche="de">
@@ -263,7 +263,7 @@
     </Pfade>
   </PfadGruppen>
   <!--<Kulturen
-    xmlns="https://nota-game.github.io//schema/kultur">
+    xmlns="https://nota-game.github.io/schema/kultur">
     <Kultur Id="Alan">
       <Name>
         <misc:Lokalisirung Sparche="de"><![CDATA[Alan]]></misc:Lokalisirung>
@@ -274,7 +274,7 @@
       <Professionen>
         <profession:Profession Id="Bäcker"/>
       </Professionen>
-      <Levels xmlns="https://nota-game.github.io//schema/misc">
+      <Levels xmlns="https://nota-game.github.io/schema/misc">
         <Level Id="2">
           <Bedingungen>
             <LevelVoraussetzung>
@@ -287,7 +287,7 @@
     </Kultur>
   </Kulturen>-->
   <!--<Professionen
-    xmlns="https://nota-game.github.io//schema/profession">
+    xmlns="https://nota-game.github.io/schema/profession">
     <Profession Id="Bäcker">
       <Name>
         <misc:Lokalisirung Sparche="de"><![CDATA[Bäcker]]></misc:Lokalisirung>
@@ -295,7 +295,7 @@
       <Beschreibung>
         <misc:Lokalisirung Sparche="de"><![CDATA[]]></misc:Lokalisirung>
       </Beschreibung>
-      <Levels xmlns="https://nota-game.github.io//schema/misc">
+      <Levels xmlns="https://nota-game.github.io/schema/misc">
         <Level Id="Test3">
           <talent:Talent Id="Backen" Level="3"/>
           <talent:Talent Id="Backen" Level="2"/>
@@ -311,7 +311,7 @@
       </Levels>
     </Profession>
   </Professionen>-->
-  <Talente xmlns="https://nota-game.github.io//schema/talent">
+  <Talente xmlns="https://nota-game.github.io/schema/talent">
     <Talent Id="Kampfgespür" Komplexität="D" Kategorie="Kampf">
       <Probe>
         <Intuition/>
@@ -2812,7 +2812,7 @@
 
   </Talente>
   <!-- Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ Ⅺ Ⅻ -->
-  <Fertigkeiten xmlns="https://nota-game.github.io//schema/fertigkeit">
+  <Fertigkeiten xmlns="https://nota-game.github.io/schema/fertigkeit">
     <Fertigkeit Id="Kulturkunde Alan" Kosten="100">
       <Name>
         <misc:Lokalisirung Sparche="de"><![CDATA[Kulturkunde Alan]]></misc:Lokalisirung>
@@ -2838,7 +2838,7 @@
       </Tags>
     </Fertigkeit>
   </Fertigkeiten>
-  <Besonderheiten xmlns="https://nota-game.github.io//schema/besonderheit">
+  <Besonderheiten xmlns="https://nota-game.github.io/schema/besonderheit">
     <Besonderheit Id="Auserwählter" Gebunden="true" Kosten="0">
       <Name>
         <misc:Lokalisirung Sparche="de"><![CDATA[Auserwählter]]></misc:Lokalisirung>
@@ -2914,7 +2914,7 @@
     </Besonderheit>
   </Besonderheiten>
 
-  <Taktiken xmlns="https://nota-game.github.io//schema/kampf/aktionen">
+  <Taktiken xmlns="https://nota-game.github.io/schema/kampf/aktionen">
     <Taktik Id="Angriff" Kosten="2" Belastung="1" Typ="Offensiv">
       <Beschreibung><![CDATA[Ein standard angriff.]]></Beschreibung>
     </Taktik>
@@ -3182,7 +3182,7 @@ Ausserdem darf eine Waffe Plazieren Taktik die das selbe Ziel wie diese hat in d
 
   </Taktiken>
 
-  <Ausstattung xmlns="https://nota-game.github.io//schema/kampf/ausstattung">
+  <Ausstattung xmlns="https://nota-game.github.io/schema/kampf/ausstattung">
     <Waffen>
       <Nahkampfwaffe Id="Floret" Distanzklasse="2">
         <Name>
@@ -3555,7 +3555,7 @@ Ausserdem darf eine Waffe Plazieren Taktik die das selbe Ziel wie diese hat in d
       </Eigenschaft>
     </Eigenschaften>
   </Ausstattung>
-  <Tags xmlns="https://nota-game.github.io//schema/misc">
+  <Tags xmlns="https://nota-game.github.io/schema/misc">
     <Tag Id="Lesen/Schreiben">
       <Name>
         <misc:Lokalisirung Sparche="de">

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io//schema/vNext/nota"
-        xmlns:misc="https://nota-game.github.io//schema/vNext/misc"
-        xmlns:lebewesen="https://nota-game.github.io//schema/vNext/lebewesen"
-        xmlns:pfad="https://nota-game.github.io//schema/vNext/pfad"
-        xmlns:profession="https://nota-game.github.io//schema/vNext/profession"
-        xmlns:talent="https://nota-game.github.io//schema/vNext/talent"
-        xmlns:fertigkeit="https://nota-game.github.io//schema/vNext/fertigkeit"
-        xmlns:besonderheit="https://nota-game.github.io//schema/vNext/besonderheit"
-        xmlns:aktion="https://nota-game.github.io//schema/vNext/kampf/aktionen"
-        xmlns:ausstattung="https://nota-game.github.io//schema/vNext/kampf/ausstattung"
-        targetNamespace="https://nota-game.github.io//schema/vNext/nota"
+        xmlns:nota="https://nota-game.github.io/schema/vNext/nota"
+        xmlns:misc="https://nota-game.github.io/schema/vNext/misc"
+        xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen"
+        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad"
+        xmlns:profession="https://nota-game.github.io/schema/vNext/profession"
+        xmlns:talent="https://nota-game.github.io/schema/vNext/talent"
+        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit"
+        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit"
+        xmlns:aktion="https://nota-game.github.io/schema/vNext/kampf/aktionen"
+        xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung"
+        targetNamespace="https://nota-game.github.io/schema/vNext/nota"
         elementFormDefault="qualified"   >
-  <import namespace="https://nota-game.github.io//schema/vNext/misc" schemaLocation="misc.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/lebewesen" schemaLocation="lebewesen.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/pfad" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/talent" schemaLocation="talent.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/besonderheit" schemaLocation="besonderheit.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/kampf/aktionen" schemaLocation="kampf/aktionen.xsd"></import>
-  <import namespace="https://nota-game.github.io//schema/vNext/kampf/ausstattung" schemaLocation="kampf/ausstattung.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/misc" schemaLocation="misc.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen" schemaLocation="lebewesen.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad" schemaLocation="pfad.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/talent" schemaLocation="talent.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit" schemaLocation="besonderheit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen" schemaLocation="kampf/aktionen.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung" schemaLocation="kampf/ausstattung.xsd"></import>
   <element name="Daten">
     <complexType>
       <sequence>
