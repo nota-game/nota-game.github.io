@@ -160,7 +160,9 @@
           <attribute name="Verbreitung" use="required" type="int" />
         </complexType>
         <keyref name="PfadeFK" refer="nota:PfadePK">
-          <selector xpath="." />
+          <!-- <selector xpath="." /> -->
+          <selector xpath=".//pfad:PfadGruppen/pfad:Pfade"/>
+
           <field xpath="@Id" />
         </keyref>
       </element>
