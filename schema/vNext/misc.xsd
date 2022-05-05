@@ -1,27 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:misc="https://nota-game.github.io/schema/vNext/misc"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit"
-        xmlns:nota="https://nota-game.github.io/schema/vNext/nota"
-        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit"
-        targetNamespace="https://nota-game.github.io/schema/vNext/misc"
-        elementFormDefault="qualified"   >
-  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit" schemaLocation="besonderheit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/pfad" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/talent" schemaLocation="talent.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/nota" schemaLocation="nota.xsd"></import>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/misc.xsd" elementFormDefault="qualified">
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/nota.xsd" schemaLocation="nota.xsd"></import>
 
   <complexType name="NamedType">
-    <attributeGroup ref="misc:NamedElement"/>
+    <attributeGroup ref="misc:NamedElement" />
   </complexType>
 
   <complexType name="NamedTypeReqiredeValue">
     <complexContent>
       <extension base="misc:NamedType">
-        <attribute name="Wert" type="int" use="required"/>
+        <attribute name="Wert" type="int" use="required" />
       </extension>
     </complexContent>
   </complexType>
@@ -29,12 +21,12 @@
   <complexType name="NamedTypeOptionalValue">
     <complexContent>
       <extension base="misc:NamedType">
-        <attribute name="Wert" type="int" use="optional"/>
+        <attribute name="Wert" type="int" use="optional" />
       </extension>
     </complexContent>
   </complexType>
 
-  <element name="Tag" type="misc:NamedType"/>
+  <element name="Tag" type="misc:NamedType" />
 
   <complexType name="Tag">
     <complexContent>
@@ -42,16 +34,16 @@
         <sequence>
           <element name="Name" type="misc:Lokalisierungen">
             <unique name="SpracheUnique">
-              <selector xpath="misc:Lokalisirung"/>
-              <field xpath="./@Sparche"/>
-              <field xpath="./@Geschlecht"/>
+              <selector xpath="misc:Lokalisirung" />
+              <field xpath="./@Sparche" />
+              <field xpath="./@Geschlecht" />
             </unique>
           </element>
           <element name="Beschreibung" type="misc:Lokalisierungen">
             <unique name="SpracheUnique1">
-              <selector xpath="misc:Lokalisirung"/>
-              <field xpath="./@Sparche"/>
-              <field xpath="./@Geschlecht"/>
+              <selector xpath="misc:Lokalisirung" />
+              <field xpath="./@Sparche" />
+              <field xpath="./@Geschlecht" />
             </unique>
           </element>
         </sequence>
@@ -60,7 +52,7 @@
   </complexType>
 
   <element name="Levels">
-    <complexType >
+    <complexType>
       <annotation>
         <documentation xml:lang="de">
           Eine Liste von leveln die in der jeweiligen Proffesion oder ähnlihcem erlernt werden kann.
@@ -77,16 +69,16 @@
             <sequence>
               <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
                 <unique name="SpracheUnique2">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sparche"/>
-                  <field xpath="./@Geschlecht"/>
+                  <selector xpath="misc:Lokalisirung" />
+                  <field xpath="./@Sparche" />
+                  <field xpath="./@Geschlecht" />
                 </unique>
               </element>
               <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0">
                 <unique name="SpracheUnique3">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sparche"/>
-                  <field xpath="./@Geschlecht"/>
+                  <selector xpath="misc:Lokalisirung" />
+                  <field xpath="./@Sparche" />
+                  <field xpath="./@Geschlecht" />
                 </unique>
               </element>
               <element name="Bedingungen" minOccurs="0">
@@ -97,14 +89,14 @@
                 </annotation>
                 <complexType>
                   <sequence>
-                    <element name="LevelVoraussetzung" type="misc:LevelAuswahl" minOccurs="0"  maxOccurs="1">
+                    <element name="LevelVoraussetzung" type="misc:LevelAuswahl" minOccurs="0" maxOccurs="1">
                       <annotation>
                         <documentation xml:lang="de">
                           Andere Level die der Charakter bereist besitzen muss um dieses Level zu erlernen.
                         </documentation>
                       </annotation>
                     </element>
-                    <element name="Zusätzlich" type="misc:BedingungsAuswahl" minOccurs="0"  maxOccurs="1">
+                    <element name="Zusätzlich" type="misc:BedingungsAuswahl" minOccurs="0" maxOccurs="1">
                       <annotation>
                         <documentation xml:lang="de">
                           Weitres bedingungen die der Charakter erfüllen muss. ACHTUNG, zu diesem Zeitpunkt gab es noch keine möglichkeit Vorteile und Fertigkeiten zu erwerben.
@@ -116,16 +108,16 @@
                 </complexType>
               </element>
               <choice maxOccurs="unbounded" minOccurs="0">
-                <element ref="fertigkeit:Fertigkeit"/>
-                <element ref="talent:Talent"/>
-                <element ref="besonderheit:Besonderheit"/>
-                <element ref="misc:Tag"/>
+                <element ref="fertigkeit:Fertigkeit" />
+                <element ref="talent:Talent" />
+                <element ref="besonderheit:Besonderheit" />
+                <element ref="misc:Tag" />
               </choice>
             </sequence>
-            <attribute name="PfadKosten"  type="int" use="optional" default="0"/>
-            <attribute name="WiederhoteNutzung"  type="int" use="optional" default="1"/>
-            <attributeGroup ref="misc:KostenElement"/>
-            <attribute name="Id" use="optional" >
+            <attribute name="PfadKosten" type="int" use="optional" default="0" />
+            <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
+            <attributeGroup ref="misc:KostenElement" />
+            <attribute name="Id" use="optional">
               <annotation>
                 <documentation xml:lang="de">
                   Die Id des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)
@@ -136,41 +128,40 @@
           </complexType>
 
 
-
         </element>
       </sequence>
     </complexType>
     <key name="LevelPK">
-      <selector xpath='./misc:Level'/>
-      <field xpath="@Id"/>
+      <selector xpath='./misc:Level' />
+      <field xpath="@Id" />
     </key>
 
     <keyref name="LevelFK" refer="misc:LevelPK">
-      <selector xpath=".//misc:LevelVoraussetzung/misc:Level"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//misc:LevelVoraussetzung/misc:Level" />
+      <field xpath="@Id" />
     </keyref>
   </element>
 
-  <element name="Level" type="misc:NamedType"/>
+  <element name="Level" type="misc:NamedType" />
 
   <element name="Tags">
     <complexType>
       <sequence>
-        <element maxOccurs="unbounded" minOccurs="1" name="Tag" type="misc:Tag"/>
+        <element maxOccurs="unbounded" minOccurs="1" name="Tag" type="misc:Tag" />
       </sequence>
     </complexType>
   </element>
 
   <complexType name="Verbreitung">
     <sequence>
-      <element name="Pfad" minOccurs="0" maxOccurs="unbounded" >
+      <element name="Pfad" minOccurs="0" maxOccurs="unbounded">
         <complexType>
-          <attributeGroup ref="misc:NamedElement"/>
-          <attribute name="Verbreitung" use="required" />
+          <attributeGroup ref="misc:NamedElement" />
+          <attribute name="Verbreitung" use="required" type="int" />
         </complexType>
         <keyref name="PfadeFK" refer="nota:PfadePK">
-          <selector xpath="."/>
-          <field xpath="@Id"/>
+          <selector xpath="." />
+          <field xpath="@Id" />
         </keyref>
       </element>
     </sequence>
@@ -180,10 +171,10 @@
 
   <simpleType name="positiveInt">
     <restriction base="int">
-      <minInclusive value="1"/>
+      <minInclusive value="1" />
     </restriction>
   </simpleType>
-  
+
   <attributeGroup name="NamedElement">
     <attribute name="Id" use="required" type="string"></attribute>
   </attributeGroup>
@@ -197,7 +188,7 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element ref="misc:Level"/>
+      <element ref="misc:Level" />
     </choice>
   </complexType>
   <complexType name="LevelAuswahlen">
@@ -205,7 +196,8 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element ref="misc:Level"/>
+      <element ref="misc:Level" />
+
     </choice>
   </complexType>
 
@@ -215,10 +207,10 @@
       <element name="Or" type="misc:BedingungsAuswahlen" />
       <element name="And" type="misc:BedingungsAuswahlen" />
       <element name="Not" type="misc:BedingungsAuswahl" />
-      <element ref="fertigkeit:Fertigkeit"/>
-      <element ref="talent:Talent"/>
-      <element ref="besonderheit:Besonderheit"/>
-      <element ref="misc:Tag"  />
+      <element ref="fertigkeit:Fertigkeit" />
+      <element ref="talent:Talent" />
+      <element ref="besonderheit:Besonderheit" />
+      <element ref="misc:Tag" />
     </choice>
   </complexType>
   <complexType name="BedingungsAuswahlen">
@@ -226,13 +218,12 @@
       <element name="Or" type="misc:BedingungsAuswahlen" />
       <element name="And" type="misc:BedingungsAuswahlen" />
       <element name="Not" type="misc:BedingungsAuswahl" />
-      <element ref="fertigkeit:Fertigkeit"/>
-      <element ref="talent:Talent"/>
-      <element ref="besonderheit:Besonderheit"/>
-      <element ref="misc:Tag"  />
+      <element ref="fertigkeit:Fertigkeit" />
+      <element ref="talent:Talent" />
+      <element ref="besonderheit:Besonderheit" />
+      <element ref="misc:Tag" />
     </choice>
   </complexType>
-
 
 
   <complexType name="Lokalisierungen">
@@ -252,17 +243,16 @@
 
   <simpleType name="Geschlecht">
     <restriction base="token">
-      <enumeration value="Neutral"/>
-      <enumeration value="Mänlich"/>
-      <enumeration value="Weiblich"/>
-      <enumeration value="Unspezifiziert"/>
+      <enumeration value="Neutral" />
+      <enumeration value="Mänlich" />
+      <enumeration value="Weiblich" />
+      <enumeration value="Unspezifiziert" />
     </restriction>
   </simpleType>
 
   <!--<element name="Or" type="misc:LevelAuswahlen" />
   <element name="And" type="misc:LevelAuswahlen" />
   <element name="Not" type="misc:LevelAuswahl" />-->
-
 
 
 </schema>

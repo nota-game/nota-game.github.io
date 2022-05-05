@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota" xmlns:misc="https://nota-game.github.io/schema/vNext/misc" xmlns:aktionen="https://nota-game.github.io/schema/vNext/kampf/aktionen" targetNamespace="https://nota-game.github.io/schema/vNext/kampf/aktionen" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/misc" schemaLocation="..\misc.xsd"></import>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:aktionen="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" elementFormDefault="qualified">
+  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="..\misc.xsd"></import>
 
   <element name="Taktiken">
     <complexType>
