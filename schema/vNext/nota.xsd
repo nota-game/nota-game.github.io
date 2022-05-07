@@ -49,13 +49,9 @@
       <field xpath="@Id"/>
     </key>
 
-    <key name="KulturPK">
-      <selector xpath="./pfad:Kulturen/pfad:Kultur"/>
-      <field xpath="@Id"/>
-    </key>
-
-    <key name="ProfessionPK">
-      <selector xpath="./profession:Professionen/profession:Profession"/>
+    <key name="PfadPK">
+      <!-- <selector xpath="./pfad:Kulturen/pfad:Kultur"/> -->
+      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad"/>
       <field xpath="@Id"/>
     </key>
 
@@ -99,14 +95,21 @@
       <field xpath="@Id"/>
     </keyref>
 
-    <keyref name="KulturFK" refer="nota:KulturPK">
-      <selector xpath=".//pfad:Kultur"/>
+    <keyref name="PfadeFK" refer="nota:PfadePK">
+      <selector xpath=".//pfad:Pfad"/>
       <field xpath="@Id"/>
     </keyref>
 
-    <keyref name="ProfessionFK" refer="nota:ProfessionPK">
-      <selector xpath=".//profession:Profession"/>
+    <key name="Pfad2PK">
+      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad"/>
       <field xpath="@Id"/>
+    </key>
+        <keyref name="Pfade2FK" refer="nota:Pfad2PK">
+      <!-- <selector xpath="." /> -->
+      <!-- <selector xpath=".//pfad:PfadGruppen/pfad:Pfade"/> -->
+      <selector xpath=".//misc:Pfad"/>
+
+      <field xpath="@Id" />
     </keyref>
 
     <keyref name="ausstattungEigenschaftFK" refer="nota:ausstattungEigenschaftPK">
