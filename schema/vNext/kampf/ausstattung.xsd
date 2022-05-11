@@ -1,16 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-       xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
-       xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd"
-        xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
-        xmlns:kultur="https://nota-game.github.io/schema/vNext/kultur.xsd"
-        xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
-        xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd"
-        targetNamespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd"
-        elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:kultur="https://nota-game.github.io/schema/vNext/kultur.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="../lebewesen.xsd"></import>
   <!--<import namespace="https://nota-game.github.io/schema/vNext/kultur.xsd" schemaLocation="kultur.xsd"></import>-->
   <!--<import namespace="https://nota-game.github.io/schema/vNext/profession.xsd" schemaLocation="profession.xsd"></import>-->
@@ -31,46 +20,50 @@
                   <sequence>
                     <element name="Name" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique7">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Beschreibung" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique8">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Schaden">
                       <complexType>
                         <sequence>
-                          <element name="Wucht"   type="ausstattung:Schaden" minOccurs="0"/>
-                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0"/>
+                          <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
+                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Eigenschaften" minOccurs="0">
                       <complexType>
                         <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft"/>
+                          <element ref="ausstattung:Eigenschaft" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Talente" minOccurs="0">
                       <complexType>
                         <sequence maxOccurs="unbounded">
-                          <element ref="talent:Talent"/>
+                          <element name="Talent">
+                            <complexType>
+                              <attributeGroup ref="misc:NamedElement" />
+                            </complexType>
+                          </element>
                         </sequence>
                       </complexType>
                     </element>
                   </sequence>
-                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv"/>
-                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0"/>
-                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0"/>
-                  <attribute name="Distanzklasse" type="int" use="required"/>
-                  <attributeGroup ref="misc:NamedElement"/>
+                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
+                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
+                  <attribute name="Distanzklasse" type="int" use="required" />
+                  <attributeGroup ref="misc:NamedElement" />
                 </complexType>
               </element>
               <element name="Fernkampfwaffe" maxOccurs="unbounded" minOccurs="0">
@@ -78,40 +71,40 @@
                   <sequence>
                     <element name="Name" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique5">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Beschreibung" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique6">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Schaden">
                       <complexType>
                         <sequence>
-                          <element name="Wucht"   type="ausstattung:Schaden" minOccurs="0"/>
-                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0"/>
+                          <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
+                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Schusseigenschaften">
                       <complexType>
-                        <attribute name="Schussfrequenz" type="positiveInteger" use="required"/>
-                        <attribute name="Magazingröße" type="positiveInteger" use="required"/>
+                        <attribute name="Schussfrequenz" type="positiveInteger" use="required" />
+                        <attribute name="Magazingröße" type="positiveInteger" use="required" />
                       </complexType>
                     </element>
-                    <element name="Reichweiten" >
+                    <element name="Reichweiten">
                       <complexType>
                         <sequence>
                           <element name="Reichweite" maxOccurs="unbounded">
                             <complexType>
-                              <attribute name="Distanz" type="ausstattung:Schussreichweite" use="required"/>
-                              <attribute name="Modifikator" type="int" use="required"/>
-                              <attribute name="Schadensreduktion" type="positiveInteger"  use="optional"/>
+                              <attribute name="Distanz" type="ausstattung:Schussreichweite" use="required" />
+                              <attribute name="Modifikator" type="int" use="required" />
+                              <attribute name="Schadensreduktion" type="positiveInteger" use="optional" />
                             </complexType>
                           </element>
                         </sequence>
@@ -119,29 +112,33 @@
                     </element>
                     <element name="Nachladezeit">
                       <complexType>
-                        <attribute name="Wert" type="positiveInteger" use="required"/>
-                        <attribute name="Einheit" type="ausstattung:Nachladeeinheit" use="required"/>
+                        <attribute name="Wert" type="positiveInteger" use="required" />
+                        <attribute name="Einheit" type="ausstattung:Nachladeeinheit" use="required" />
                       </complexType>
                     </element>
                     <element name="Eigenschaften" minOccurs="0">
                       <complexType>
                         <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft"/>
+                          <element ref="ausstattung:Eigenschaft" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Talente" minOccurs="0">
                       <complexType>
                         <sequence maxOccurs="unbounded">
-                          <element ref="talent:Talent"/>
+                          <element name="Talent">
+                            <complexType>
+                              <attributeGroup ref="misc:NamedElement" />
+                            </complexType>
+                          </element>
                         </sequence>
                       </complexType>
                     </element>
                   </sequence>
-                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv"/>
-                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0"/>
-                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0"/>
-                  <attributeGroup ref="misc:NamedElement"/>
+                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
+                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
+                  <attributeGroup ref="misc:NamedElement" />
 
                 </complexType>
               </element>
@@ -157,51 +154,51 @@
                   <sequence>
                     <element name="Name" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique2">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Beschreibung" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique3">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Schutz">
                       <complexType>
                         <sequence>
-                          <element name="Flexibilität" type="ausstattung:Rüstwert" minOccurs="0"/>
-                          <element name="Härte"        type="ausstattung:Rüstwert" minOccurs="0"/>
-                          <element name="Dämpfung"     type="ausstattung:Rüstwert" minOccurs="0"/>
+                          <element name="Flexibilität" type="ausstattung:Rüstwert" minOccurs="0" />
+                          <element name="Härte" type="ausstattung:Rüstwert" minOccurs="0" />
+                          <element name="Dämpfung" type="ausstattung:Rüstwert" minOccurs="0" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Trefferzonen">
                       <complexType>
                         <sequence>
-                          <element name="Kopf" type ="ausstattung:Schutzwert"         minOccurs="0"/>
-                          <element name="Brust" type ="ausstattung:Schutzwert"        minOccurs="0"/>
-                          <element name="Rücken" type ="ausstattung:Schutzwert"       minOccurs="0"/>
-                          <element name="Bauch" type ="ausstattung:Schutzwert"        minOccurs="0"/>
-                          <element name="LinkerArm" type ="ausstattung:Schutzwert"    minOccurs="0"/>
-                          <element name="RechterArm" type ="ausstattung:Schutzwert"   minOccurs="0"/>
-                          <element name="LinkesBein" type ="ausstattung:Schutzwert"   minOccurs="0"/>
-                          <element name="RechtesBein" type ="ausstattung:Schutzwert"  minOccurs="0"/>
+                          <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="Brust" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="Rücken" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="Bauch" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="LinkerArm" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="RechterArm" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="LinkesBein" type="ausstattung:Schutzwert" minOccurs="0" />
+                          <element name="RechtesBein" type="ausstattung:Schutzwert" minOccurs="0" />
                         </sequence>
                       </complexType>
                     </element>
                     <element name="Eigenschaften" minOccurs="0">
                       <complexType>
                         <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft"/>
+                          <element ref="ausstattung:Eigenschaft" />
                         </sequence>
                       </complexType>
                     </element>
                   </sequence>
-                  <attribute name="Erschwernis" type="int" use="required"/>
-                  <attributeGroup ref="misc:NamedElement"/>
+                  <attribute name="Erschwernis" type="int" use="required" />
+                  <attributeGroup ref="misc:NamedElement" />
                 </complexType>
               </element>
             </sequence>
@@ -216,20 +213,20 @@
                   <sequence>
                     <element name="Name" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                     <element name="Beschreibung" type="misc:Lokalisierungen">
                       <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sparche"/>
-                        <field xpath="./@Geschlecht"/>
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
                       </unique>
                     </element>
                   </sequence>
-                  <attribute type="string" name="Id" use="required"/>
+                  <attribute type="string" name="Id" use="required" />
                 </complexType>
               </element>
             </sequence>
@@ -242,7 +239,7 @@
   </element>
 
   <complexType name="Schaden">
-    <attribute type="ausstattung:SchadensWurf" name="Schaden"/>
+    <attribute type="ausstattung:SchadensWurf" name="Schaden" />
   </complexType>
 
   <simpleType name="SchadensWurf">
@@ -253,16 +250,16 @@
 
   <simpleType name="WaffenTyp">
     <restriction base="string">
-      <enumeration value="Offensiv"/>
-      <enumeration value="Defensiv"/>
-      <enumeration value="Offensiv|Defensiv"/>
+      <enumeration value="Offensiv" />
+      <enumeration value="Defensiv" />
+      <enumeration value="Offensiv|Defensiv" />
     </restriction>
   </simpleType>
 
   <simpleType name="Nachladeeinheit">
     <restriction base="string">
-      <enumeration value="KR"/>
-      <enumeration value="S"/>
+      <enumeration value="KR" />
+      <enumeration value="S" />
     </restriction>
   </simpleType>
 
@@ -270,7 +267,7 @@
     <union memberTypes="positiveInteger">
       <simpleType>
         <restriction base="string">
-          <enumeration value="Nahkampf"/>
+          <enumeration value="Nahkampf" />
         </restriction>
       </simpleType>
     </union>
@@ -283,16 +280,16 @@
           <attribute name="Von">
             <simpleType>
               <restriction base="int">
-                <minInclusive value="1"/>
-                <maxInclusive value="10"/>
+                <minInclusive value="1" />
+                <maxInclusive value="10" />
               </restriction>
             </simpleType>
           </attribute>
           <attribute name="Bis">
             <simpleType>
               <restriction base="int">
-                <minInclusive value="1"/>
-                <maxInclusive value="10"/>
+                <minInclusive value="1" />
+                <maxInclusive value="10" />
               </restriction>
             </simpleType>
           </attribute>
@@ -302,13 +299,13 @@
   </complexType>
 
   <complexType name="Rüstwert">
-    <attribute type="nonNegativeInteger" name="Wert"/>
+    <attribute type="nonNegativeInteger" name="Wert" />
   </complexType>
 
 
-  <element name="Eigenschaft" >
+  <element name="Eigenschaft">
     <complexType>
-      <attributeGroup ref="misc:NamedElement"/>
+      <attributeGroup ref="misc:NamedElement" />
     </complexType>
   </element>
 

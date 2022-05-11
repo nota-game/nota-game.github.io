@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
-        xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd"
-        xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
-        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd"
-        xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
-        xmlns:aktion="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd"
-        xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd"
-        targetNamespace="https://nota-game.github.io/schema/vNext/nota.xsd"
-        elementFormDefault="qualified"   >
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:aktion="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/nota.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
@@ -23,118 +11,125 @@
   <element name="Daten">
     <complexType>
       <sequence>
+        <element ref="misc:KostenDefinitionen" />
         <element name="GenerierungsDaten">
           <complexType>
-            <attribute name="GenerierungsPunkte"  use="required" type="misc:positiveInt" />
-            <attribute name="MinimumVerbreitung"  use="required" type="int" />
+            <sequence>
+              <element ref="misc:Kosten" maxOccurs="unbounded" />
+            </sequence>
+
+            <attribute name="MinimumVerbreitung" use="required" type="int" />
           </complexType>
         </element>
-        <element ref="lebewesen:Organismen"/>
+        <element ref="lebewesen:Organismen" />
 
-        <element ref="pfad:PfadGruppen"/>
-        <element ref="talent:Talente"/>
-        <element ref="fertigkeit:Fertigkeiten"/>
-        <element ref="besonderheit:Besonderheiten"/>
-        <element ref="aktion:Taktiken"/>
-        <element ref="ausstattung:Ausstattung"/>
+        <element ref="pfad:PfadGruppen" />
+        <element ref="talent:Talente" />
+        <element ref="fertigkeit:Fertigkeiten" />
+        <element ref="besonderheit:Besonderheiten" />
+        <element ref="aktion:Taktiken" />
+        <element ref="ausstattung:Ausstattung" />
         <element ref="misc:Tags" />
 
       </sequence>
-      <attribute  name="Version" use="required" type="misc:positiveInt">
-      </attribute>
+      <attribute name="Version" use="required" type="misc:positiveInt"></attribute>
     </complexType>
 
     <key name="BesonderheitPK">
-      <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit"/>
-      <field xpath="@Id"/>
+      <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit" />
+      <field xpath="@Id" />
     </key>
 
     <key name="PfadPK">
       <!-- <selector xpath="./pfad:Kulturen/pfad:Kultur"/> -->
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad"/>
-      <field xpath="@Id"/>
+      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <field xpath="@Id" />
     </key>
 
     <key name="TalentPK">
-      <selector xpath="./talent:Talente/talent:Talent"/>
-      <field xpath="@Id"/>
+      <selector xpath="./talent:Talente/talent:Talent" />
+      <field xpath="@Id" />
     </key>
 
+    <keyref name="TalentFK1" refer="nota:TalentPK">
+      <selector xpath=".//talent:Talent" />
+      <field xpath="@Id" />
+    </keyref>
+
+
+
     <key name="FertigkeitPK">
-      <selector xpath="./fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit"/>
-      <field xpath="@Id"/>
+      <selector xpath="./fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit" />
+      <field xpath="@Id" />
     </key>
 
     <key name="ausstattungEigenschaftPK">
-      <selector xpath="./ausstattung:Ausstattung/ausstattung:Eigenschaften/ausstattung:Eigenschaft"/>
-      <field xpath="@Id"/>
+      <selector xpath="./ausstattung:Ausstattung/ausstattung:Eigenschaften/ausstattung:Eigenschaft" />
+      <field xpath="@Id" />
     </key>
 
     <key name="TagPK">
-      <selector xpath="./misc:Tags/misc:Tag"/>
-      <field xpath="@Id"/>
+      <selector xpath="./misc:Tags/misc:Tag" />
+      <field xpath="@Id" />
     </key>
 
     <keyref name="TagFK" refer="nota:TagPK">
-      <selector xpath=".//misc:Tag"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//misc:Tag" />
+      <field xpath="@Id" />
     </keyref>
 
-    <keyref name="TalentFK" refer="nota:TalentPK">
-      <selector xpath=".//talent:Talent"/>
-      <field xpath="@Id"/>
+    <key name="KostenPK">
+      <selector xpath="./misc:KostenDefinitionen/misc:KostenDefinition" />
+      <field xpath="@Id" />
+    </key>
+
+    <keyref name="KostenFK" refer="nota:KostenPK">
+      <selector xpath=".//misc:Kosten" />
+      <field xpath="@Id" />
     </keyref>
+
+
 
     <keyref name="FertigkeitFK" refer="nota:FertigkeitPK">
-      <selector xpath=".//fertigkeit:Fertigkeit"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//fertigkeit:Fertigkeit" />
+      <field xpath="@Id" />
     </keyref>
 
     <keyref name="BesonderheitFK" refer="nota:BesonderheitPK">
-      <selector xpath=".//besonderheit:Besonderheit"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//besonderheit:Besonderheit" />
+      <field xpath="@Id" />
     </keyref>
 
+
+
     <keyref name="PfadeFK" refer="nota:PfadePK">
-      <selector xpath=".//pfad:Pfad"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//pfad:Pfad" />
+      <field xpath="@Id" />
     </keyref>
 
     <key name="Pfad2PK">
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad"/>
-      <field xpath="@Id"/>
+      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <field xpath="@Id" />
     </key>
-        <keyref name="Pfade2FK" refer="nota:Pfad2PK">
+    <keyref name="Pfade2FK" refer="nota:Pfad2PK">
       <!-- <selector xpath="." /> -->
       <!-- <selector xpath=".//pfad:PfadGruppen/pfad:Pfade"/> -->
-      <selector xpath=".//misc:Pfad"/>
+      <selector xpath=".//misc:Pfad" />
 
       <field xpath="@Id" />
     </keyref>
 
     <keyref name="ausstattungEigenschaftFK" refer="nota:ausstattungEigenschaftPK">
-      <selector xpath=".//ausstattung:Eigenschaft"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//ausstattung:Eigenschaft" />
+      <field xpath="@Id" />
     </keyref>
 
-
-    <key name="PfadPunktePK">
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade"/>
-      <field xpath="@Id"/>
-    </key>
-
-    <keyref name="PfadPunkteFK" refer="nota:PfadPunktePK">
-      <selector xpath=".//lebewesen:PfadPunkte"/>
-      <field xpath="./@Pfade"/>
-    </keyref>
 
     <key name="PfadePK">
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad"/>
-      <field xpath="@Id"/>
+      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <field xpath="@Id" />
     </key>
 
-
- 
 
   </element>
 

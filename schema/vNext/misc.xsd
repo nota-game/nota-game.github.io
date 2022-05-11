@@ -35,14 +35,14 @@
           <element name="Name" type="misc:Lokalisierungen">
             <unique name="SpracheUnique">
               <selector xpath="misc:Lokalisirung" />
-              <field xpath="./@Sparche" />
+              <field xpath="./@Sprache" />
               <field xpath="./@Geschlecht" />
             </unique>
           </element>
           <element name="Beschreibung" type="misc:Lokalisierungen">
             <unique name="SpracheUnique1">
               <selector xpath="misc:Lokalisirung" />
-              <field xpath="./@Sparche" />
+              <field xpath="./@Sprache" />
               <field xpath="./@Geschlecht" />
             </unique>
           </element>
@@ -67,17 +67,18 @@
           </annotation>
           <complexType>
             <sequence>
+              <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
               <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
                 <unique name="SpracheUnique2">
                   <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sparche" />
+                  <field xpath="./@Sprache" />
                   <field xpath="./@Geschlecht" />
                 </unique>
               </element>
               <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0">
                 <unique name="SpracheUnique3">
                   <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sparche" />
+                  <field xpath="./@Sprache" />
                   <field xpath="./@Geschlecht" />
                 </unique>
               </element>
@@ -109,14 +110,17 @@
               </element>
               <choice maxOccurs="unbounded" minOccurs="0">
                 <element ref="fertigkeit:Fertigkeit" />
-                <element ref="talent:Talent" />
+                <element name="Talent">
+                  <complexType>
+                    <attribute name="EP" type="positiveInteger"/>
+                    <attributeGroup ref="misc:NamedElement" />
+                  </complexType>
+                </element>
                 <element ref="besonderheit:Besonderheit" />
                 <element ref="misc:Tag" />
               </choice>
             </sequence>
-            <attribute name="PfadKosten" type="int" use="optional" default="0" />
             <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
-            <attributeGroup ref="misc:KostenElement" />
             <attribute name="Id" use="optional">
               <annotation>
                 <documentation xml:lang="de">
@@ -175,9 +179,47 @@
     <attribute name="Id" use="required" type="string"></attribute>
   </attributeGroup>
 
-  <attributeGroup name="KostenElement">
-    <attribute name="Kosten" use="optional" type="int" default="0"></attribute>
-  </attributeGroup>
+  <element name="Kosten">
+    <complexType>
+      <attributeGroup ref="misc:NamedElement" />
+      <attribute name="Wert" use="required" type="float" />
+    </complexType>
+  </element>
+  <element name="KostenDefinitionen" type="misc:KostenDefinitions" />
+
+  <complexType name="KostenDefinitions">
+    <sequence>
+      <element name="KostenDefinition" maxOccurs="unbounded">
+        <complexType>
+          <sequence>
+            <element name="Name" type="misc:Lokalisierungen">
+              <unique name="SpracheUnique4">
+                <selector xpath="misc:Lokalisirung" />
+                <field xpath="./@Sprache" />
+                <field xpath="./@Geschlecht" />
+              </unique>
+            </element>
+            <element name="Abkürzung" type="misc:Lokalisierungen">
+              <unique name="SpracheUnique6">
+                <selector xpath="misc:Lokalisirung" />
+                <field xpath="./@Sprache" />
+                <field xpath="./@Geschlecht" />
+              </unique>
+            </element>
+            <element name="Beschreibung" type="misc:Lokalisierungen">
+              <unique name="SpracheUnique5">
+                <selector xpath="misc:Lokalisirung" />
+                <field xpath="./@Sprache" />
+                <field xpath="./@Geschlecht" />
+              </unique>
+            </element>
+          </sequence>
+          <attributeGroup ref="misc:NamedElement"></attributeGroup>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
 
   <complexType name="LevelAuswahl">
     <choice>
@@ -207,6 +249,7 @@
       <element ref="talent:Talent" />
       <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
+      <element ref="pfad:Pfad" />
     </choice>
   </complexType>
   <complexType name="BedingungsAuswahlen">
@@ -218,6 +261,7 @@
       <element ref="talent:Talent" />
       <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
+      <element ref="pfad:Pfad" />
     </choice>
   </complexType>
 
@@ -228,7 +272,7 @@
         <complexType>
           <simpleContent>
             <extension base="string">
-              <attribute name="Sparche" type="language" use="required" />
+              <attribute name="Sprache" type="language" use="required" />
               <attribute name="Geschlecht" use="optional" default="Unspezifiziert" type="misc:Geschlecht" />
             </extension>
           </simpleContent>
@@ -245,10 +289,6 @@
       <enumeration value="Unspezifiziert" />
     </restriction>
   </simpleType>
-
-  <!--<element name="Or" type="misc:LevelAuswahlen" />
-  <element name="And" type="misc:LevelAuswahlen" />
-  <element name="Not" type="misc:LevelAuswahl" />-->
 
 
 </schema>
