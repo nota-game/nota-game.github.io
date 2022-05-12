@@ -143,7 +143,7 @@
 
   <simpleType name="Komplexität">
     <restriction base="string">
-      <pattern value="[A-K]"/>
+      <pattern value="[A-Z]"/>
     </restriction>
   </simpleType>
 

@@ -112,7 +112,7 @@
                 <element ref="fertigkeit:Fertigkeit" />
                 <element name="Talent">
                   <complexType>
-                    <attribute name="EP" type="positiveInteger"/>
+                    <attribute name="EP" type="positiveInteger" />
                     <attributeGroup ref="misc:NamedElement" />
                   </complexType>
                 </element>
@@ -217,21 +217,52 @@
           <attributeGroup ref="misc:NamedElement"></attributeGroup>
         </complexType>
       </element>
+      <element name="TalentKostenFunktion">
+        <complexType>
+          <sequence>
+            <sequence>
+              <element name="Funktion" maxOccurs="unbounded">
+                <complexType>
+                  <simpleContent>
+                    <extension base="string">
+                      <annotation>
+                        <documentation>Die Formel kann folgende Variabeln enthalten: KOMPLEXITÄT, KOMPLEXITÄT_NUM, LEVEL. Das Ergebnis ist eine Zahl. </documentation>
+                      </annotation>
+                      <attribute name="KostenArt" type="token" use="required"></attribute>
+                      <attribute name="ResultType" use="required" >
+                        <annotation>
+                          <documentation>Gibt an ob das ergebnis der Funktion die differenz zum vorherigen angibt oder die gesamtkosten von 0.</documentation>
+                        </annotation>
+                        <simpleType>
+                          <restriction base="string"> 
+                            <enumeration value="differenz" />
+                            <enumeration value="total" />
+                          </restriction>
+                        </simpleType>
+                      </attribute>
+                    </extension>
+                  </simpleContent>
+                </complexType>
+              </element>
+            </sequence>
+          </sequence>
+        </complexType>
+      </element>
     </sequence>
   </complexType>
 
   <simpleType name="Attribute">
     <restriction base="string">
-      <enumeration value="Mut"/>
-      <enumeration value="Glück"/>
-      <enumeration value="Klugheit"/>
-      <enumeration value="Intuition"/>
-      <enumeration value="Gewandtheit"/>
-      <enumeration value="Feinmotorik"/>
-      <enumeration value="Sympathie"/>
-      <enumeration value="Antipathie"/>
-      <enumeration value="Stärke"/>
-      <enumeration value="Konstitution"/>
+      <enumeration value="Mut" />
+      <enumeration value="Glück" />
+      <enumeration value="Klugheit" />
+      <enumeration value="Intuition" />
+      <enumeration value="Gewandtheit" />
+      <enumeration value="Feinmotorik" />
+      <enumeration value="Sympathie" />
+      <enumeration value="Antipathie" />
+      <enumeration value="Stärke" />
+      <enumeration value="Konstitution" />
     </restriction>
   </simpleType>
 

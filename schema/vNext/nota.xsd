@@ -88,6 +88,11 @@
       <field xpath="@Id" />
     </keyref>
 
+    <keyref name="KostenFK2" refer="nota:KostenPK">
+      <selector xpath=".//misc:TalentKostenFunktion/misc:Funktion" />
+      <field xpath="@KostenArt" />
+    </keyref>
+
 
 
     <keyref name="FertigkeitFK" refer="nota:FertigkeitPK">
