@@ -220,6 +220,20 @@
     </sequence>
   </complexType>
 
+  <simpleType name="Attribute">
+    <restriction base="string">
+      <enumeration value="Mut"/>
+      <enumeration value="Glück"/>
+      <enumeration value="Klugheit"/>
+      <enumeration value="Intuition"/>
+      <enumeration value="Gewandtheit"/>
+      <enumeration value="Feinmotorik"/>
+      <enumeration value="Sympathie"/>
+      <enumeration value="Antipathie"/>
+      <enumeration value="Stärke"/>
+      <enumeration value="Konstitution"/>
+    </restriction>
+  </simpleType>
 
   <complexType name="LevelAuswahl">
     <choice>

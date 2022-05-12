@@ -62,8 +62,6 @@
               </element>
             </sequence>
             <attributeGroup ref="misc:NamedElement"/>
-            <attribute name="WiderholungMinimum" type="int" default="1" use="optional" />
-            <attribute name="WiderholungMaximum" type="int" default="1" use="optional" />
           </complexType>
 
         </element>
