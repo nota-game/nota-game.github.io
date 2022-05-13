@@ -40,77 +40,58 @@
                 </annotation>
               </element>
               <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
+              <element name="Art" maxOccurs="unbounded" minOccurs="1">
+                <complexType>
+                  <sequence>
+                    <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
+                      <annotation>
+                        <documentation xml:lang='de-de'>
+                          Definiert die Kosten für jeden Punkt der in Eigenschaften gesteckt wird
+                        </documentation>
+                      </annotation>
+                    </element>
+                    <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
 
+                    <element ref="lebewesen:StandardPfade" minOccurs="0" />
+
+                    <element name="Morphe">
+                      <complexType>
+                        <choice>
+                          <element name="Morph" minOccurs="1" maxOccurs="unbounded" type="lebewesen:Morph" />
+                        </choice>
+                      </complexType>
+                    </element>
+                    <element name="Besonderheiten" minOccurs="0">
+                      <complexType>
+                        <sequence>
+                          <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Name" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
+                    <element name="Beschreibung" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique1">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
+                  </sequence>
+                  <attribute type="string" name="Id" use="required" />
+                </complexType>
+              </element>
             </sequence>
             <attributeGroup ref="misc:NamedElement" />
           </complexType>
         </element>
-        <element name="Organismus" maxOccurs="unbounded" minOccurs="1">
-          <complexType>
-            <sequence>
-              <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
-                <annotation>
-                  <documentation xml:lang='de-de'>
-                    Definiert die Kosten für jeden Punkt der in Eigenschaften gesteckt wird
-                  </documentation>
-                </annotation>
-              </element>
-              <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
-
-              <element ref="lebewesen:StandardPfade" minOccurs="0" />
-
-              <element name="Morphe">
-                <complexType>
-                  <choice>
-                    <element name="Morph" minOccurs="1" maxOccurs="unbounded" type="lebewesen:Morph" />
-                  </choice>
-                </complexType>
-              </element>
-              <element name="Besonderheiten" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
-                  </sequence>
-                </complexType>
-              </element>
-              <element name="Name" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Art" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique4">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Beschreibung" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique1">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-            </sequence>
-            <attribute type="string" name="Id" use="required" />
-            <attribute type="string" name="Gattung" use="required" />
-          </complexType>
-        </element>
       </sequence>
     </complexType>
-    <key name="GattungPK">
-      <selector xpath="./lebewesen:Gattung" />
-      <field xpath="@Id" />
-    </key>
-
-    <keyref name="GattungFK" refer="lebewesen:GattungPK">
-      <selector xpath=".//lebewesen:Organismus" />
-      <field xpath="@Gattung" />
-    </keyref>
-
   </element>
 
 
@@ -151,7 +132,7 @@
 
 
   <element name="Gattung" type="misc:NamedType" />
-  <element name="Organismus" type="misc:NamedType" />
+  <element name="Art" type="misc:NamedType" />
   <element name="Morph" type="misc:NamedType" />
   <element name="Lebensabschnitt" type="misc:NamedType" />
 
@@ -173,7 +154,7 @@
       <element ref="lebewesen:Or"></element>
       <element ref="lebewesen:And"></element>
       <element ref="lebewesen:Not"></element>
-      <element ref="lebewesen:Organismus" />
+      <element ref="lebewesen:Art" />
     </choice>
   </complexType>
   <complexType name="LebewesenAuswahlen">
@@ -181,7 +162,7 @@
       <element ref="lebewesen:Or"></element>
       <element ref="lebewesen:And"></element>
       <element ref="lebewesen:Not"></element>
-      <element ref="lebewesen:Organismus" />
+      <element ref="lebewesen:Art" />
     </choice>
   </complexType>
 
