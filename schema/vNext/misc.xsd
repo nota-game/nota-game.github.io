@@ -121,7 +121,7 @@
               </choice>
             </sequence>
             <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
-            <attribute name="Id">
+            <attribute name="Id" type="string">
               <annotation>
                 <documentation xml:lang="de">
                   Die Id des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)
@@ -137,11 +137,12 @@
     </complexType>
     <key name="LevelPK">
       <selector xpath='./misc:Level' />
+      
       <field xpath="@Id" />
     </key>
 
     <keyref name="LevelFK" refer="misc:LevelPK">
-      <selector xpath=".//misc:LevelVoraussetzung/misc:Level" />
+      <selector xpath=".//misc:Level" />
       <field xpath="@Id" />
     </keyref>
   </element>
@@ -271,7 +272,15 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element ref="misc:Level" />
+      <element name="Level"  >
+        <complexType>
+          <complexContent>
+            <extension base="misc:NamedType">
+              <attribute type="int" use="optional" default="1" name="mindestVorkommen" ></attribute>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
     </choice>
   </complexType>
   <complexType name="LevelAuswahlen">
@@ -279,7 +288,15 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element ref="misc:Level" />
+      <element name="Level"  >
+        <complexType>
+          <complexContent>
+            <extension base="misc:NamedType">
+              <attribute type="int" use="optional" default="1" name="mindestVorkommen" ></attribute>
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
 
     </choice>
   </complexType>

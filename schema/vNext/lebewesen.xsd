@@ -43,6 +43,27 @@
               <element name="Art" maxOccurs="unbounded" minOccurs="1">
                 <complexType>
                   <sequence>
+                    <element name="Name" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
+                    <element name="Art" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique7">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
+                    <element name="Beschreibung" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique1">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
                     <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
                       <annotation>
                         <documentation xml:lang='de-de'>
@@ -67,20 +88,6 @@
                           <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
                         </sequence>
                       </complexType>
-                    </element>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
                     </element>
                   </sequence>
                   <attribute type="string" name="Id" use="required" />
