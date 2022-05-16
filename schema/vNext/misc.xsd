@@ -137,7 +137,7 @@
     </complexType>
     <key name="LevelPK">
       <selector xpath='./misc:Level' />
-      
+
       <field xpath="@Id" />
     </key>
 
@@ -230,12 +230,12 @@
                         <documentation>Die Formel kann folgende Variabeln enthalten: KOMPLEXITÄT, KOMPLEXITÄT_NUM, LEVEL. Das Ergebnis ist eine Zahl. </documentation>
                       </annotation>
                       <attribute name="KostenArt" type="token" use="required"></attribute>
-                      <attribute name="ResultType" use="required" >
+                      <attribute name="ResultType" use="required">
                         <annotation>
                           <documentation>Gibt an ob das ergebnis der Funktion die differenz zum vorherigen angibt oder die gesamtkosten von 0.</documentation>
                         </annotation>
                         <simpleType>
-                          <restriction base="string"> 
+                          <restriction base="string">
                             <enumeration value="differenz" />
                             <enumeration value="total" />
                           </restriction>
@@ -272,13 +272,10 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element name="Level"  >
+      <element name="Level">
         <complexType>
-          <complexContent>
-            <extension base="misc:NamedType">
-              <attribute type="int" use="optional" default="1" name="mindestVorkommen" ></attribute>
-            </extension>
-          </complexContent>
+          <attributeGroup ref="misc:NamedElement" />
+          <attribute type="int" use="optional" default="1" name="mindestVorkommen"></attribute>
         </complexType>
       </element>
     </choice>
@@ -288,13 +285,10 @@
       <element name="Or" type="misc:LevelAuswahlen" />
       <element name="And" type="misc:LevelAuswahlen" />
       <element name="Not" type="misc:LevelAuswahl" />
-      <element name="Level"  >
+      <element name="Level">
         <complexType>
-          <complexContent>
-            <extension base="misc:NamedType">
-              <attribute type="int" use="optional" default="1" name="mindestVorkommen" ></attribute>
-            </extension>
-          </complexContent>
+          <attributeGroup ref="misc:NamedElement" />
+          <attribute type="int" use="optional" default="1" name="mindestVorkommen"></attribute>
         </complexType>
       </element>
 
@@ -344,7 +338,7 @@
   </complexType>
 
   <simpleType name="Geschlecht">
-    <restriction base="token">
+    <restriction base="string">
       <enumeration value="Neutral" />
       <enumeration value="Mänlich" />
       <enumeration value="Weiblich" />
