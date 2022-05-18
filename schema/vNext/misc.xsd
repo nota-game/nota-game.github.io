@@ -121,7 +121,7 @@
               </choice>
             </sequence>
             <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
-            <attribute name="Id" type="string">
+            <attribute name="Id" type="string" use="required">
               <annotation>
                 <documentation xml:lang="de">
                   Die Id des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)

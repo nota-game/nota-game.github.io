@@ -29,7 +29,7 @@
               <element name="Ersetzt" minOccurs="0">
                 <complexType>
                   <sequence>
-                    <element ref="besonderheit:Besonderheit" />
+                    <element ref="besonderheit:Besonderheit" minOccurs="1" maxOccurs="unbounded" />
                   </sequence>
                 </complexType>
               </element>
