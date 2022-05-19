@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
-        xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd"
-        xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
-        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd"
-        xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
-        targetNamespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
@@ -23,45 +13,56 @@
             <sequence>
               <element name="Name" type="misc:Lokalisierungen">
                 <unique name="SpracheUnique">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
+                  <selector xpath="misc:Lokalisirung" />
+                  <field xpath="./@Sprache" />
+                  <field xpath="./@Geschlecht" />
                 </unique>
               </element>
-              <element name="Beschreibung" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique1">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
-                </unique>
-              </element>
-              <element name="Verbreitung" type="misc:Verbreitung"/>
-              <element name="Tags" maxOccurs="1" minOccurs="0" >
+              <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
                 <complexType>
                   <sequence>
-                    <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded"/>
+                    <element name="Beschreibung" type="misc:Lokalisierungen">
+                      <unique name="SpracheUnique1">
+                        <selector xpath="misc:Lokalisirung" />
+                        <field xpath="./@Sprache" />
+                        <field xpath="./@Geschlecht" />
+                      </unique>
+                    </element>
+                    <element name="Verbreitung" type="misc:Verbreitung" />
+                    <element name="Tags" maxOccurs="1" minOccurs="0">
+                      <complexType>
+                        <sequence>
+                          <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Ersetzt" minOccurs="0">
+                      <complexType>
+                        <sequence>
+                          <element ref="fertigkeit:Fertigkeit" minOccurs="1" maxOccurs="unbounded" />
+                        </sequence>
+                      </complexType>
+                    </element>
+                    <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
                   </sequence>
+                  <attribute type="int" name="Kosten" use="required" />
                 </complexType>
               </element>
-              <element name="Ersetzt" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element ref="fertigkeit:Fertigkeit" minOccurs="1" maxOccurs="1"/>
-                  </sequence>
-                </complexType>
-              </element>
-              <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0"/>
 
             </sequence>
-            <attribute type="string" name="Id" use="required"/>
-            <attribute type="int" name="Kosten" use="required"/>
+            <attribute type="string" name="Id" use="required" />
           </complexType>
         </element>
       </sequence>
     </complexType>
   </element>
 
-  <element name="Fertigkeit" type="misc:NamedType"/>
+  <element name="Fertigkeit">
+    <complexType>
+      <attribute name="Stufe" use="optional" default="1" />
+      <attributeGroup ref="misc:NamedElement" />
+    </complexType>
+  </element>
 
 
 </schema>
