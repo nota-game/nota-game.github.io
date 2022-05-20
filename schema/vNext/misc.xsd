@@ -112,7 +112,7 @@
                 <element ref="fertigkeit:Fertigkeit" />
                 <element name="Talent">
                   <complexType>
-                    <attribute name="EP" type="positiveInteger" />
+                    <attribute name="EP" type="positiveInteger" use="required" />
                     <attributeGroup ref="misc:NamedElement" />
                   </complexType>
                 </element>

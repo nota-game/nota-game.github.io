@@ -59,7 +59,7 @@
 
   <element name="Fertigkeit">
     <complexType>
-      <attribute name="Stufe" use="optional" default="1" />
+      <attribute name="Stufe" use="optional" default="1" type="positiveInteger" />
       <attributeGroup ref="misc:NamedElement" />
     </complexType>
   </element>
