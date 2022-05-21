@@ -24,7 +24,7 @@
         <element ref="lebewesen:Organismen" />
 
         <element ref="pfad:PfadGruppen" />
-        <element ref="talent:Talente" />
+        <element ref="talent:Talente" maxOccurs="unbounded" />
         <element ref="fertigkeit:Fertigkeiten" maxOccurs="unbounded" />
         <element ref="besonderheit:Besonderheiten" maxOccurs="unbounded" />
         <element ref="aktion:Taktiken" />
@@ -37,12 +37,22 @@
 
     <unique name="BesonderheitenKategorie">
       <selector xpath="./besonderheit:Besonderheiten"></selector>
-      <field xpath="./@Kategorie"></field>
+      <field xpath="./@KategorieId"></field>
     </unique>
     <unique name="FertigkeitenKategorie">
       <selector xpath="./fertigkeit:Fertigkeiten"></selector>
-      <field xpath="./@Kategorie"></field>
+      <field xpath="./@KategorieId"></field>
     </unique>
+    <unique name="TalentKategorie">
+      <selector xpath="./talent:Talente"></selector>
+      <field xpath="./@KategorieId"></field>
+    </unique>
+
+  
+    <keyref name="TalentFKAbleitung" refer="nota:TalentPK">
+      <selector xpath=".//talent:Ableitung" />
+      <field xpath="@Id" />
+    </keyref>
 
     <key name="BesonderheitPK">
       <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit" />

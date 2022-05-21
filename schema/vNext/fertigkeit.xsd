@@ -8,9 +8,17 @@
   <element name="Fertigkeiten">
     <complexType>
       <sequence>
+        <element name="Kategorie" type="misc:Lokalisierungen">
+          <unique name="SpracheUnique2">
+            <selector xpath="misc:Lokalisirung" />
+            <field xpath="./@Sprache" />
+            <field xpath="./@Geschlecht" />
+          </unique>
+        </element>
+
         <element name="Fertigkeit" minOccurs="0" maxOccurs="unbounded" type="fertigkeit:FertigkeitDefinition" />
       </sequence>
-      <attribute use="required" type="string" name="Kategorie" />
+      <attribute use="required" type="string" name="KategorieId" />
     </complexType>
   </element>
 

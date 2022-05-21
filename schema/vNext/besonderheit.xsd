@@ -8,6 +8,14 @@
   <element name="Besonderheiten">
     <complexType>
       <sequence>
+        <element name="Kategorie" type="misc:Lokalisierungen">
+          <unique name="SpracheUnique2">
+            <selector xpath="misc:Lokalisirung" />
+            <field xpath="./@Sprache" />
+            <field xpath="./@Geschlecht" />
+          </unique>
+        </element>
+
         <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0" type="besonderheit:BesonderheitDefinition">
           <unique name="BesonderheitUniqness">
             <selector xpath=".//besonderheit:Besonderheit" />
@@ -15,7 +23,7 @@
           </unique>
         </element>
       </sequence>
-      <attribute use="required" type="string" name="Kategorie" />
+      <attribute use="required" type="string" name="KategorieId" />
     </complexType>
   </element>
 
