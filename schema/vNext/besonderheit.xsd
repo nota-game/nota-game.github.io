@@ -79,7 +79,12 @@
   </complexType>
 
 
-  <element name="Besonderheit" type="misc:NamedType" />
+  <element name="Besonderheit">
+    <complexType>
+      <attribute name="Stufe" use="optional" default="1" type="positiveInteger" />
+      <attributeGroup ref="misc:NamedElement" />
+    </complexType>
+  </element>
 
 
   <complexType name="BedingungsAuswahl">
