@@ -180,12 +180,11 @@
     <attribute name="Id" use="required" type="string"></attribute>
   </attributeGroup>
 
-  <element name="Kosten">
-    <complexType>
-      <attributeGroup ref="misc:NamedElement" />
-      <attribute name="Wert" use="required" type="float" />
-    </complexType>
-  </element>
+  <element name="Kosten" type="misc:KostenDefinition"></element>
+  <complexType name="KostenDefinition">
+    <attributeGroup ref="misc:NamedElement" />
+    <attribute name="Wert" use="required" type="float" />
+  </complexType>
   <element name="KostenDefinitionen" type="misc:KostenDefinitions" />
 
   <complexType name="KostenDefinitions">
