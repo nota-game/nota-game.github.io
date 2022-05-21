@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
-        xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd"
-        xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
-        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd"
-        xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
-        targetNamespace="https://nota-game.github.io/schema/vNext/talent.xsd"
-        elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/talent.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
@@ -19,7 +9,7 @@
   <element name="Talente">
     <complexType>
       <sequence>
-        <element name="Talent"  maxOccurs="unbounded" minOccurs="0" >
+        <element name="Talent" maxOccurs="unbounded" minOccurs="0">
           <complexType>
             <sequence>
               <element name="Probe">
@@ -44,106 +34,94 @@
               </element>
               <element name="Name" type="misc:Lokalisierungen">
                 <unique name="SpracheUnique">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
+                  <selector xpath="misc:Lokalisirung" />
+                  <field xpath="./@Sprache" />
+                  <field xpath="./@Geschlecht" />
                 </unique>
               </element>
               <element name="Beschreibung" type="misc:Lokalisierungen">
                 <unique name="SpracheUnique1">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
+                  <selector xpath="misc:Lokalisirung" />
+                  <field xpath="./@Sprache" />
+                  <field xpath="./@Geschlecht" />
                 </unique>
               </element>
-              <element name="Verbreitung" type="misc:Verbreitung"/>
+              <element name="Verbreitung" type="misc:Verbreitung" />
               <element name="Bedingungen" minOccurs="0">
                 <complexType>
                   <sequence>
                     <element name="Bedingung" maxOccurs="unbounded">
-                      <complexType  >
+                      <complexType>
                         <complexContent>
                           <extension base="misc:BedingungsAuswahl">
-                            <attribute name="Wert" use="required">
+                            <attribute name="Wert" use="required" type="positiveInteger">
                               <annotation>
                                 <documentation xml:lang="de">
                                   Der Wert ab dem die Bedingung erfüllt sein muss.
                                 </documentation>
                               </annotation>
-                              <simpleType>
-                                <restriction base="int">
-                                  <minInclusive value="1"/>
-                                </restriction>
-                              </simpleType>
                             </attribute>
                           </extension>
                         </complexContent>
                       </complexType>
                       <unique name="WertUniqueForBedingung">
                         <selector xpath=".//Bedingung"></selector>
-                        <field xpath="@Wert"/>
+                        <field xpath="@Wert" />
                       </unique>
                     </element>
                   </sequence>
                 </complexType>
               </element>
-              <element name="Ableitungen" minOccurs="0" maxOccurs="1"  type="talent:AbleitungsAuswahl">
-              </element>
+              <element name="Ableitungen" minOccurs="0" maxOccurs="1" type="talent:AbleitungsAuswahl"></element>
             </sequence>
-            <attribute type="string" name="Id" use="required"/>
-            <attribute type="talent:Kategorie" use="required" name="Kategorie"/>
-            <attribute type="talent:Komplexität" use="required" name="Komplexität"/>
+            <attribute type="string" name="Id" use="required" />
+            <attribute type="talent:Kategorie" use="required" name="Kategorie" />
+            <attribute type="talent:Komplexität" use="required" name="Komplexität" />
           </complexType>
         </element>
       </sequence>
     </complexType>
     <key name="TalentPK">
-      <selector xpath="./talent:Talent"/>
-      <field xpath="@Id"/>
+      <selector xpath="./talent:Talent" />
+      <field xpath="@Id" />
     </key>
     <keyref name="TalentFK" refer="talent:TalentPK">
-      <selector xpath=".//talent:Ableitung"/>
-      <field xpath="@Id"/>
+      <selector xpath=".//talent:Ableitung" />
+      <field xpath="@Id" />
     </keyref>
   </element>
 
-  <element name="Talent" >
+  <element name="Talent">
     <complexType>
 
-      <attributeGroup ref="misc:NamedElement"/>
+      <attributeGroup ref="misc:NamedElement" />
       <attribute name="LevelTyp" use="optional" default="Effektiv" type="talent:LevelBedingungsTyp" />
-      <attribute name="Level" use="optional" default="1" >
-        <simpleType>
-          <restriction base="int">
-            <minInclusive value="1"/>
-          </restriction>
-        </simpleType>
-      </attribute>
+      <attribute name="Level" use="optional" default="1" type="positiveInteger" />
     </complexType>
   </element>
 
   <simpleType name="LevelBedingungsTyp">
     <restriction base="string">
-      <enumeration value="Basis"/>
-      <enumeration value="Effektiv"/>
-      <enumeration value="Unterstützung"/>
+      <enumeration value="Basis" />
+      <enumeration value="Effektiv" />
+      <enumeration value="Unterstützung" />
     </restriction>
   </simpleType>
 
   <simpleType name="Kategorie">
     <restriction base="string">
-      <enumeration value="Geist"/>
-      <enumeration value="Körper"/>
-      <enumeration value="Gesellschaft"/>
-      <enumeration value="Kampf"/>
-      <enumeration value="Wissen"/>
-      <enumeration value="Handwerk"/>
+      <enumeration value="Geist" />
+      <enumeration value="Körper" />
+      <enumeration value="Gesellschaft" />
+      <enumeration value="Kampf" />
+      <enumeration value="Wissen" />
+      <enumeration value="Handwerk" />
     </restriction>
   </simpleType>
 
   <simpleType name="Komplexität">
     <restriction base="string">
-      <pattern value="[A-Z]"/>
+      <pattern value="[A-Z]" />
     </restriction>
   </simpleType>
 
@@ -151,27 +129,26 @@
   <complexType name="AbleitungsAuswahl">
     <sequence>
       <choice maxOccurs="unbounded">
-        <element ref="talent:Ableitung"/>
-        <element ref="talent:Max"/>
+        <element ref="talent:Ableitung" />
+        <element ref="talent:Max" />
       </choice>
     </sequence>
   </complexType>
 
 
-
   <element name="Ableitung">
-    <complexType  >
-      <attributeGroup ref="misc:NamedElement"/>
+    <complexType>
+      <attributeGroup ref="misc:NamedElement" />
       <attribute name="Anzahl" type="int" use="required" />
     </complexType>
   </element>
 
-  <element name="Max" >
+  <element name="Max">
     <complexType>
       <sequence>
         <choice maxOccurs="unbounded" minOccurs="1">
-          <element ref="talent:Ableitung"/>
-          <element ref="talent:Max"/>
+          <element ref="talent:Ableitung" />
+          <element ref="talent:Max" />
         </choice>
       </sequence>
       <attribute name="Anzahl" type="int" default="1" use="optional" />

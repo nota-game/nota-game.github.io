@@ -25,8 +25,8 @@
 
         <element ref="pfad:PfadGruppen" />
         <element ref="talent:Talente" />
-        <element ref="fertigkeit:Fertigkeiten" />
-        <element ref="besonderheit:Besonderheiten" />
+        <element ref="fertigkeit:Fertigkeiten" maxOccurs="unbounded" />
+        <element ref="besonderheit:Besonderheiten" maxOccurs="unbounded" />
         <element ref="aktion:Taktiken" />
         <element ref="ausstattung:Ausstattung" />
         <element ref="misc:Tags" />
@@ -34,6 +34,15 @@
       </sequence>
       <attribute name="Version" use="required" type="misc:positiveInt"></attribute>
     </complexType>
+
+    <unique name="BesonderheitenKategorie">
+      <selector xpath="./besonderheit:Besonderheiten"></selector>
+      <field xpath="./@Kategorie"></field>
+    </unique>
+    <unique name="FertigkeitenKategorie">
+      <selector xpath="./fertigkeit:Fertigkeiten"></selector>
+      <field xpath="./@Kategorie"></field>
+    </unique>
 
     <key name="BesonderheitPK">
       <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit" />

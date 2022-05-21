@@ -8,59 +8,62 @@
   <element name="Besonderheiten">
     <complexType>
       <sequence>
-        <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0">
-          <complexType>
-            <sequence>
-              <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-              <element name="Name" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Beschreibung" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique1">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Ersetzt" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element ref="besonderheit:Besonderheit" minOccurs="1" maxOccurs="unbounded" />
-                  </sequence>
-                </complexType>
-              </element>
-              <element name="Bedingung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
-              <element name="Tags" maxOccurs="1" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
-                  </sequence>
-                </complexType>
-              </element>
-
-            </sequence>
-            <attributeGroup ref="misc:NamedElement" />
-
-            <attribute name="Gebunden" type="boolean" use="optional" default="false">
-              <annotation>
-                <documentation xml:lang="de">
-                  Dieses Element beschreibt Besonderheiten, welche nicht frei zur verfügung stehen, sondern nur in Kombination mit einem anderen Element wie Einer Art erhalten werden kann.
-                </documentation>
-              </annotation>
-            </attribute>
-          </complexType>
+        <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0" type="besonderheit:BesonderheitDefinition">
           <unique name="BesonderheitUniqness">
             <selector xpath=".//besonderheit:Besonderheit" />
             <field xpath="@Id" />
           </unique>
         </element>
       </sequence>
+      <attribute use="required" type="string" name="Kategorie" />
     </complexType>
   </element>
+
+  <complexType name="BesonderheitDefinition">
+    <sequence>
+      <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique1">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Ersetzt" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element ref="besonderheit:Besonderheit" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Bedingung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
+      <element name="Tags" maxOccurs="1" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+
+    </sequence>
+    <attributeGroup ref="misc:NamedElement" />
+
+    <attribute name="Gebunden" type="boolean" use="optional" default="false">
+      <annotation>
+        <documentation xml:lang="de">
+          Dieses Element beschreibt Besonderheiten, welche nicht frei zur verfügung stehen, sondern nur in Kombination mit einem anderen Element wie Einer Art erhalten werden kann.
+        </documentation>
+      </annotation>
+    </attribute>
+  </complexType>
+
 
   <element name="Besonderheit" type="misc:NamedType" />
 

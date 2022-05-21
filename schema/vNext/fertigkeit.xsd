@@ -8,52 +8,9 @@
   <element name="Fertigkeiten">
     <complexType>
       <sequence>
-        <element name="Fertigkeit" minOccurs="0" maxOccurs="unbounded">
-          <complexType>
-            <sequence>
-              <element name="Name" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
-                <complexType>
-                  <sequence>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Verbreitung" type="misc:Verbreitung" />
-                    <element name="Tags" maxOccurs="1" minOccurs="0">
-                      <complexType>
-                        <sequence>
-                          <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Ersetzt" minOccurs="0">
-                      <complexType>
-                        <sequence>
-                          <element ref="fertigkeit:Fertigkeit" minOccurs="1" maxOccurs="unbounded" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
-                  </sequence>
-                  <attribute type="int" name="Kosten" use="required" />
-                </complexType>
-              </element>
-
-            </sequence>
-            <attribute type="string" name="Id" use="required" />
-          </complexType>
-        </element>
+        <element name="Fertigkeit" minOccurs="0" maxOccurs="unbounded" type="fertigkeit:FertigkeitDefinition" />
       </sequence>
+      <attribute use="required" type="string" name="Kategorie" />
     </complexType>
   </element>
 
@@ -63,6 +20,50 @@
       <attributeGroup ref="misc:NamedElement" />
     </complexType>
   </element>
+
+  <complexType name="FertigkeitDefinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
+        <complexType>
+          <sequence>
+            <element name="Beschreibung" type="misc:Lokalisierungen">
+              <unique name="SpracheUnique1">
+                <selector xpath="misc:Lokalisirung" />
+                <field xpath="./@Sprache" />
+                <field xpath="./@Geschlecht" />
+              </unique>
+            </element>
+            <element name="Verbreitung" type="misc:Verbreitung" />
+            <element name="Tags" maxOccurs="1" minOccurs="0">
+              <complexType>
+                <sequence>
+                  <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="Ersetzt" minOccurs="0">
+              <complexType>
+                <sequence>
+                  <element ref="fertigkeit:Fertigkeit" minOccurs="1" maxOccurs="unbounded" />
+                </sequence>
+              </complexType>
+            </element>
+            <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
+          </sequence>
+          <attribute type="int" name="Kosten" use="required" />
+        </complexType>
+      </element>
+
+    </sequence>
+    <attribute type="string" name="Id" use="required" />
+  </complexType>
 
 
 </schema>
