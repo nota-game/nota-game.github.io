@@ -29,7 +29,6 @@
 
   <complexType name="BesonderheitDefinition">
     <sequence>
-      <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
       <element name="Name" type="misc:Lokalisierungen">
         <unique name="SpracheUnique">
           <selector xpath="misc:Lokalisirung" />
@@ -54,6 +53,7 @@
                 <field xpath="./@Geschlecht" />
               </unique>
             </element>
+            <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
 
             <element name="Bedingung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
             <element name="Tags" maxOccurs="1" minOccurs="0">
