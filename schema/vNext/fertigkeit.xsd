@@ -41,6 +41,13 @@
       <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
         <complexType>
           <sequence>
+            <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
+              <unique name="SpracheUnique3">
+                <selector xpath="misc:Lokalisirung" />
+                <field xpath="./@Sprache" />
+                <field xpath="./@Geschlecht" />
+              </unique>
+            </element>
             <element name="Beschreibung" type="misc:Lokalisierungen">
               <unique name="SpracheUnique1">
                 <selector xpath="misc:Lokalisirung" />
@@ -53,13 +60,6 @@
               <complexType>
                 <sequence>
                   <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
-                </sequence>
-              </complexType>
-            </element>
-            <element name="Ersetzt" minOccurs="0">
-              <complexType>
-                <sequence>
-                  <element ref="fertigkeit:Fertigkeit" minOccurs="1" maxOccurs="unbounded" />
                 </sequence>
               </complexType>
             </element>
