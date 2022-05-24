@@ -51,6 +51,73 @@
     </complexContent>
   </complexType>
 
+
+  <complexType name="LevelDefinition">
+    <sequence>
+      <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+      <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
+        <unique name="SpracheUnique2">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0">
+        <unique name="SpracheUnique3">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Bedingungen" minOccurs="0">
+        <annotation>
+          <documentation xml:lang="de">
+            Die voraussetzungenm welche zum erlernen des Levels gegeben sein müssen.
+          </documentation>
+        </annotation>
+        <complexType>
+          <sequence>
+            <element name="LevelVoraussetzung" type="misc:LevelAuswahl" minOccurs="0" maxOccurs="1">
+              <annotation>
+                <documentation xml:lang="de">
+                  Andere Level die der Charakter bereist besitzen muss um dieses Level zu erlernen.
+                </documentation>
+              </annotation>
+            </element>
+            <element name="Zusätzlich" type="misc:BedingungsAuswahl" minOccurs="0" maxOccurs="1">
+              <annotation>
+                <documentation xml:lang="de">
+                  Weitres bedingungen die der Charakter erfüllen muss. ACHTUNG, zu diesem Zeitpunkt gab es noch keine möglichkeit Vorteile und Fertigkeiten zu erwerben.
+                </documentation>
+              </annotation>
+            </element>
+
+          </sequence>
+        </complexType>
+      </element>
+      <choice maxOccurs="unbounded" minOccurs="0">
+        <element ref="fertigkeit:Fertigkeit" />
+        <element name="Talent">
+          <complexType>
+            <attribute name="EP" type="positiveInteger" use="required" />
+            <attributeGroup ref="misc:NamedElement" />
+          </complexType>
+        </element>
+        <element ref="besonderheit:Besonderheit" />
+        <element ref="misc:Tag" />
+      </choice>
+    </sequence>
+    <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
+    <attribute name="Id" type="string" use="required">
+      <annotation>
+        <documentation xml:lang="de">
+          Die Id des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)
+        </documentation>
+      </annotation>
+    </attribute>
+
+  </complexType>
+
   <element name="Levels">
     <complexType>
       <annotation>
@@ -59,77 +126,12 @@
         </documentation>
       </annotation>
       <sequence>
-        <element name="Level" maxOccurs="unbounded">
+        <element name="Level" maxOccurs="unbounded" type="misc:LevelDefinition">
           <annotation>
             <documentation xml:lang="de">
               Das einzelen Level, welches erlernt werden kann. Diese beinhaltet die erlernten Fertigkeiten und Talente, sowie voraussetzungen.
             </documentation>
           </annotation>
-          <complexType>
-            <sequence>
-              <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-              <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
-                <unique name="SpracheUnique2">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0">
-                <unique name="SpracheUnique3">
-                  <selector xpath="misc:Lokalisirung" />
-                  <field xpath="./@Sprache" />
-                  <field xpath="./@Geschlecht" />
-                </unique>
-              </element>
-              <element name="Bedingungen" minOccurs="0">
-                <annotation>
-                  <documentation xml:lang="de">
-                    Die voraussetzungenm welche zum erlernen des Levels gegeben sein müssen.
-                  </documentation>
-                </annotation>
-                <complexType>
-                  <sequence>
-                    <element name="LevelVoraussetzung" type="misc:LevelAuswahl" minOccurs="0" maxOccurs="1">
-                      <annotation>
-                        <documentation xml:lang="de">
-                          Andere Level die der Charakter bereist besitzen muss um dieses Level zu erlernen.
-                        </documentation>
-                      </annotation>
-                    </element>
-                    <element name="Zusätzlich" type="misc:BedingungsAuswahl" minOccurs="0" maxOccurs="1">
-                      <annotation>
-                        <documentation xml:lang="de">
-                          Weitres bedingungen die der Charakter erfüllen muss. ACHTUNG, zu diesem Zeitpunkt gab es noch keine möglichkeit Vorteile und Fertigkeiten zu erwerben.
-                        </documentation>
-                      </annotation>
-                    </element>
-
-                  </sequence>
-                </complexType>
-              </element>
-              <choice maxOccurs="unbounded" minOccurs="0">
-                <element ref="fertigkeit:Fertigkeit" />
-                <element name="Talent">
-                  <complexType>
-                    <attribute name="EP" type="positiveInteger" use="required" />
-                    <attributeGroup ref="misc:NamedElement" />
-                  </complexType>
-                </element>
-                <element ref="besonderheit:Besonderheit" />
-                <element ref="misc:Tag" />
-              </choice>
-            </sequence>
-            <attribute name="WiederhoteNutzung" type="int" use="optional" default="1" />
-            <attribute name="Id" type="string" use="required">
-              <annotation>
-                <documentation xml:lang="de">
-                  Die Id des Levels, dies wird verwendet damit andere Level auf dieses verweisen können. (Nicht übergreifend)
-                </documentation>
-              </annotation>
-            </attribute>
-
-          </complexType>
 
 
         </element>

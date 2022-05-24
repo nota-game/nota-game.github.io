@@ -1,79 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema"
-        xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
-        xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd"
-        xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
-        xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd"
-        xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
-        xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
-        xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
-        xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
-        targetNamespace="https://nota-game.github.io/schema/vNext/pfad.xsd"
-        elementFormDefault="qualified"
-        >
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/pfad.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
 
-  <element name="PfadGruppen">
-    <complexType>
-      <sequence>
-
-        <element name="Pfade" minOccurs="1" maxOccurs="unbounded">
-          <complexType>
-            <sequence>
-              <element name="Name" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique1">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
-                </unique>
-              </element>
-              <element name="Beschreibung" type="misc:Lokalisierungen">
-                <unique name="SpracheUnique3">
-                  <selector xpath="misc:Lokalisirung"/>
-                  <field xpath="./@Sprache"/>
-                  <field xpath="./@Geschlecht"/>
-                </unique>
-              </element>
-
-              <element name="Pfad" maxOccurs="unbounded" minOccurs="1">
-                <complexType>
-                  <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sprache"/>
-                        <field xpath="./@Geschlecht"/>
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique2">
-                        <selector xpath="misc:Lokalisirung"/>
-                        <field xpath="./@Sprache"/>
-                        <field xpath="./@Geschlecht"/>
-                      </unique>
-                    </element>
-                    <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0"/>
-
-                    
-                    <element ref="misc:Levels" />
-                  </sequence>
-                  <attributeGroup ref="misc:NamedElement"/>
-                </complexType>
-              </element>
-            </sequence>
-            <attributeGroup ref="misc:NamedElement"/>
-          </complexType>
-
-        </element>
-      </sequence>
-    </complexType>
-
-  </element>
-
-  <element name="Pfad" type="misc:NamedType"/>
-  <element name="Pfade" type="misc:NamedType"/>
+  <element name="Pfad" type="misc:NamedType" />
 
 
+  <element name="Pfade" type="pfad:PfadeDefinition" />
+
+  <complexType name="PfadDefinition">
+
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique2">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
+
+
+      <element ref="misc:Levels" />
+    </sequence>
+    <attributeGroup ref="misc:NamedElement" />
+
+  </complexType>
+  <complexType name="PfadeDefinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique1">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique3">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+
+      <element name="Pfad" maxOccurs="unbounded" minOccurs="1" type="pfad:PfadDefinition" />
+    </sequence>
+    <attributeGroup ref="misc:NamedElement" />
+  </complexType>
 
 
 </schema>

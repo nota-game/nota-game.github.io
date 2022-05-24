@@ -23,7 +23,7 @@
         </element>
         <element ref="lebewesen:Organismen" />
 
-        <element ref="pfad:PfadGruppen" />
+        <element ref="pfad:Pfade" maxOccurs="unbounded" />
         <element ref="talent:Talente" maxOccurs="unbounded" />
         <element ref="fertigkeit:Fertigkeiten" maxOccurs="unbounded" />
         <element ref="besonderheit:Besonderheiten" maxOccurs="unbounded" />
@@ -48,7 +48,7 @@
       <field xpath="./@KategorieId"></field>
     </unique>
 
-  
+
     <keyref name="TalentFKAbleitung" refer="nota:TalentPK">
       <selector xpath=".//talent:Ableitung" />
       <field xpath="@Id" />
@@ -61,7 +61,7 @@
 
     <key name="PfadPK">
       <!-- <selector xpath="./pfad:Kulturen/pfad:Kultur"/> -->
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <selector xpath="./pfad:Pfade/pfad:Pfad" />
       <field xpath="@Id" />
     </key>
 
@@ -129,7 +129,7 @@
     </keyref>
 
     <key name="Pfad2PK">
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <selector xpath="./pfad:Pfade/pfad:Pfad" />
       <field xpath="@Id" />
     </key>
     <keyref name="Pfade2FK" refer="nota:Pfad2PK">
@@ -147,7 +147,7 @@
 
 
     <key name="PfadePK">
-      <selector xpath="./pfad:PfadGruppen/pfad:Pfade/pfad:Pfad" />
+      <selector xpath="./pfad:Pfade/pfad:Pfad" />
       <field xpath="@Id" />
     </key>
 
