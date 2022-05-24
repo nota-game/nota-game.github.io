@@ -301,7 +301,6 @@
       <element ref="talent:Talent" />
       <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
-      <element ref="pfad:Pfad" />
     </choice>
   </complexType>
   <complexType name="BedingungsAuswahlen">
@@ -313,7 +312,6 @@
       <element ref="talent:Talent" />
       <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
-      <element ref="pfad:Pfad" />
     </choice>
   </complexType>
 
