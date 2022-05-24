@@ -28,7 +28,7 @@
 
   <element name="Tag" type="misc:NamedType" />
 
-  <complexType name="Tag">
+  <complexType name="TagDefinition">
     <complexContent>
       <extension base="misc:NamedType">
         <sequence>
@@ -152,7 +152,7 @@
   <element name="Tags">
     <complexType>
       <sequence>
-        <element maxOccurs="unbounded" minOccurs="1" name="Tag" type="misc:Tag" />
+        <element maxOccurs="unbounded" minOccurs="1" name="Tag" type="misc:TagDefinition" />
       </sequence>
     </complexType>
   </element>
