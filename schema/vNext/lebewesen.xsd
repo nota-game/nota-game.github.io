@@ -192,6 +192,8 @@
       <element name="Antipathie" type="lebewesen:EigenschaftsWert" />
       <element name="Stärke" type="lebewesen:EigenschaftsWert" />
       <element name="Konstitution" type="lebewesen:EigenschaftsWert" />
+      <element name="Fokus" type="lebewesen:EigenschaftsWert" />
+      <element name="Einfluss" type="lebewesen:EigenschaftsWert" />
     </sequence>
   </complexType>
 
@@ -308,6 +310,8 @@
       <element minOccurs="0" name="Antipathie" type="lebewesen:ModWert" />
       <element minOccurs="0" name="Stärke" type="lebewesen:ModWert" />
       <element minOccurs="0" name="Konstitution" type="lebewesen:ModWert" />
+      <element minOccurs="0" name="Fokus" type="lebewesen:ModWert" />
+      <element minOccurs="0" name="Einfluss" type="lebewesen:ModWert" />
     </sequence>
   </complexType>
   <complexType name="Mods">

@@ -262,6 +262,8 @@
       <enumeration value="Antipathie" />
       <enumeration value="Stärke" />
       <enumeration value="Konstitution" />
+      <enumeration value="Fokus" />
+      <enumeration value="Einfluss" />
     </restriction>
   </simpleType>
 
