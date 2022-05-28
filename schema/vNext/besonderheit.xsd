@@ -36,6 +36,11 @@
           <field xpath="./@Geschlecht" />
         </unique>
       </element>
+      <element name="SubKategorie" type="string" minOccurs="0" maxOccurs="unbounded">
+        <annotation>
+          <documentation>Gibt die art des Vorteis an, z.B. zum filtern.</documentation>
+        </annotation>
+      </element>
       <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
         <complexType>
           <sequence>
