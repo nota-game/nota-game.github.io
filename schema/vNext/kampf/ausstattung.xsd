@@ -8,6 +8,184 @@
   <!--<import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>-->
   <!--<import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>-->
   <!--<import namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" schemaLocation="kampf/aktionen.xsd"></import>-->
+
+  <complexType name="NahkampfWaffenDefinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique7">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique8">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Schaden">
+        <complexType>
+          <sequence>
+            <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
+            <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Eigenschaften" minOccurs="0">
+        <complexType>
+          <sequence maxOccurs="unbounded">
+            <element ref="ausstattung:Eigenschaft" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Talente" minOccurs="0">
+        <complexType>
+          <sequence maxOccurs="unbounded">
+            <element name="Talent">
+              <complexType>
+                <attributeGroup ref="misc:NamedElement" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+    <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
+    <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
+    <attribute name="Distanzklasse" type="int" use="required" />
+    <attributeGroup ref="misc:NamedElement" />
+  </complexType>
+
+  <complexType name="FernkampfwaffenDafinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique5">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique6">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Schaden">
+        <complexType>
+          <sequence>
+            <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
+            <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Schusseigenschaften">
+        <complexType>
+          <attribute name="Schussfrequenz" type="positiveInteger" use="required" />
+          <attribute name="Magazingröße" type="positiveInteger" use="required" />
+        </complexType>
+      </element>
+      <element name="Reichweiten">
+        <complexType>
+          <sequence>
+            <element name="Reichweite" maxOccurs="unbounded">
+              <complexType>
+                <attribute name="Distanz" type="ausstattung:Schussreichweite" use="required" />
+                <attribute name="Modifikator" type="int" use="required" />
+                <attribute name="Schadensreduktion" type="positiveInteger" use="optional" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Nachladezeit">
+        <complexType>
+          <attribute name="Wert" type="positiveInteger" use="required" />
+          <attribute name="Einheit" type="ausstattung:Nachladeeinheit" use="required" />
+        </complexType>
+      </element>
+      <element name="Eigenschaften" minOccurs="0">
+        <complexType>
+          <sequence maxOccurs="unbounded">
+            <element ref="ausstattung:Eigenschaft" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Talente" minOccurs="0">
+        <complexType>
+          <sequence maxOccurs="unbounded">
+            <element name="Talent">
+              <complexType>
+                <attributeGroup ref="misc:NamedElement" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+    <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
+    <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
+    <attributeGroup ref="misc:NamedElement" />
+
+  </complexType>
+
+  <complexType name="RüstungDefinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique2">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique3">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Schutz">
+        <complexType>
+          <sequence>
+            <element name="Flexibilität" type="ausstattung:Rüstwert" minOccurs="0" />
+            <element name="Härte" type="ausstattung:Rüstwert" minOccurs="0" />
+            <element name="Dämpfung" type="ausstattung:Rüstwert" minOccurs="0" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Trefferzonen">
+        <complexType>
+          <sequence>
+            <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="Brust" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="Rücken" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="Bauch" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="LinkerArm" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="RechterArm" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="LinkesBein" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="RechtesBein" type="ausstattung:Schutzwert" minOccurs="0" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Eigenschaften" minOccurs="0">
+        <complexType>
+          <sequence maxOccurs="unbounded">
+            <element ref="ausstattung:Eigenschaft" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+    <attribute name="Erschwernis" type="int" use="required" />
+    <attributeGroup ref="misc:NamedElement" />
+  </complexType>
+
+
   <element name="Ausstattung">
     <complexType>
       <sequence>
@@ -15,132 +193,9 @@
         <element name="Waffen">
           <complexType>
             <sequence>
-              <element name="Nahkampfwaffe" maxOccurs="unbounded" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique7">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique8">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Schaden">
-                      <complexType>
-                        <sequence>
-                          <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
-                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Eigenschaften" minOccurs="0">
-                      <complexType>
-                        <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Talente" minOccurs="0">
-                      <complexType>
-                        <sequence maxOccurs="unbounded">
-                          <element name="Talent">
-                            <complexType>
-                              <attributeGroup ref="misc:NamedElement" />
-                            </complexType>
-                          </element>
-                        </sequence>
-                      </complexType>
-                    </element>
-                  </sequence>
-                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
-                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
-                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
-                  <attribute name="Distanzklasse" type="int" use="required" />
-                  <attributeGroup ref="misc:NamedElement" />
-                </complexType>
+              <element name="Nahkampfwaffe" maxOccurs="unbounded" minOccurs="0" type="ausstattung:NahkampfWaffenDefinition">
               </element>
-              <element name="Fernkampfwaffe" maxOccurs="unbounded" minOccurs="0">
-                <complexType>
-                  <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique5">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique6">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Schaden">
-                      <complexType>
-                        <sequence>
-                          <element name="Wucht" type="ausstattung:Schaden" minOccurs="0" />
-                          <element name="Schnitt" type="ausstattung:Schaden" minOccurs="0" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Schusseigenschaften">
-                      <complexType>
-                        <attribute name="Schussfrequenz" type="positiveInteger" use="required" />
-                        <attribute name="Magazingröße" type="positiveInteger" use="required" />
-                      </complexType>
-                    </element>
-                    <element name="Reichweiten">
-                      <complexType>
-                        <sequence>
-                          <element name="Reichweite" maxOccurs="unbounded">
-                            <complexType>
-                              <attribute name="Distanz" type="ausstattung:Schussreichweite" use="required" />
-                              <attribute name="Modifikator" type="int" use="required" />
-                              <attribute name="Schadensreduktion" type="positiveInteger" use="optional" />
-                            </complexType>
-                          </element>
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Nachladezeit">
-                      <complexType>
-                        <attribute name="Wert" type="positiveInteger" use="required" />
-                        <attribute name="Einheit" type="ausstattung:Nachladeeinheit" use="required" />
-                      </complexType>
-                    </element>
-                    <element name="Eigenschaften" minOccurs="0">
-                      <complexType>
-                        <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Talente" minOccurs="0">
-                      <complexType>
-                        <sequence maxOccurs="unbounded">
-                          <element name="Talent">
-                            <complexType>
-                              <attributeGroup ref="misc:NamedElement" />
-                            </complexType>
-                          </element>
-                        </sequence>
-                      </complexType>
-                    </element>
-                  </sequence>
-                  <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
-                  <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
-                  <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
-                  <attributeGroup ref="misc:NamedElement" />
-
-                </complexType>
+              <element name="Fernkampfwaffe" maxOccurs="unbounded" minOccurs="0" type="ausstattung:FernkampfwaffenDafinition">
               </element>
             </sequence>
           </complexType>
@@ -149,57 +204,7 @@
         <element name="Rüstungen">
           <complexType>
             <sequence>
-              <element name="Rüstung" minOccurs="0" maxOccurs="unbounded">
-                <complexType>
-                  <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique2">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique3">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Schutz">
-                      <complexType>
-                        <sequence>
-                          <element name="Flexibilität" type="ausstattung:Rüstwert" minOccurs="0" />
-                          <element name="Härte" type="ausstattung:Rüstwert" minOccurs="0" />
-                          <element name="Dämpfung" type="ausstattung:Rüstwert" minOccurs="0" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Trefferzonen">
-                      <complexType>
-                        <sequence>
-                          <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="Brust" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="Rücken" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="Bauch" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="LinkerArm" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="RechterArm" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="LinkesBein" type="ausstattung:Schutzwert" minOccurs="0" />
-                          <element name="RechtesBein" type="ausstattung:Schutzwert" minOccurs="0" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                    <element name="Eigenschaften" minOccurs="0">
-                      <complexType>
-                        <sequence maxOccurs="unbounded">
-                          <element ref="ausstattung:Eigenschaft" />
-                        </sequence>
-                      </complexType>
-                    </element>
-                  </sequence>
-                  <attribute name="Erschwernis" type="int" use="required" />
-                  <attributeGroup ref="misc:NamedElement" />
-                </complexType>
+              <element name="Rüstung" minOccurs="0" maxOccurs="unbounded" type="ausstattung:RüstungDefinition">
               </element>
             </sequence>
           </complexType>
@@ -208,26 +213,8 @@
         <element name="Eigenschaften">
           <complexType>
             <sequence>
-              <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded">
-                <complexType>
-                  <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                  </sequence>
-                  <attribute type="string" name="Id" use="required" />
-                </complexType>
+              <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded" type="ausstattung:AusrüstungEigengchaftDefinition">
+                
               </element>
             </sequence>
           </complexType>
@@ -238,8 +225,28 @@
     </complexType>
   </element>
 
+  <complexType name="AusrüstungEigengchaftDefinition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+      <element name="Beschreibung" type="misc:Lokalisierungen">
+        <unique name="SpracheUnique1">
+          <selector xpath="misc:Lokalisirung" />
+          <field xpath="./@Sprache" />
+          <field xpath="./@Geschlecht" />
+        </unique>
+      </element>
+    </sequence>
+    <attribute type="string" name="Id" use="required" />
+  </complexType>
+
   <complexType name="Schaden">
-    <attribute type="ausstattung:SchadensWurf" name="Schaden" />
+    <attribute type="ausstattung:SchadensWurf" name="number" />
   </complexType>
 
   <simpleType name="SchadensWurf">
