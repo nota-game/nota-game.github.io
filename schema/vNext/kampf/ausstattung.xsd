@@ -246,7 +246,7 @@
   </complexType>
 
   <complexType name="Schaden">
-    <attribute type="ausstattung:SchadensWurf" name="number" />
+    <attribute type="positiveInteger" name="Schaden" />
   </complexType>
 
   <simpleType name="SchadensWurf">
