@@ -28,8 +28,8 @@
               </element>
               <element name="Eigenschaften" minOccurs="0">
                 <complexType>
-                  <sequence maxOccurs="unbounded">
-                    <element ref="aktionen:Eigenschaft" />
+                  <sequence>
+                    <element ref="aktionen:Eigenschaft"  maxOccurs="unbounded"/>
                   </sequence>
                 </complexType>
               </element>

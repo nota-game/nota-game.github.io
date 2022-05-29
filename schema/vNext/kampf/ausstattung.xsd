@@ -35,15 +35,15 @@
       </element>
       <element name="Eigenschaften" minOccurs="0">
         <complexType>
-          <sequence maxOccurs="unbounded">
-            <element ref="ausstattung:Eigenschaft" />
+          <sequence>
+            <element ref="ausstattung:Eigenschaft"  maxOccurs="unbounded"/>
           </sequence>
         </complexType>
       </element>
       <element name="Talente" minOccurs="0">
         <complexType>
-          <sequence maxOccurs="unbounded">
-            <element name="Talent">
+          <sequence>
+            <element name="Talent"  maxOccurs="unbounded">
               <complexType>
                 <attributeGroup ref="misc:NamedElement" />
               </complexType>
@@ -110,15 +110,15 @@
       </element>
       <element name="Eigenschaften" minOccurs="0">
         <complexType>
-          <sequence maxOccurs="unbounded">
-            <element ref="ausstattung:Eigenschaft" />
+          <sequence>
+            <element ref="ausstattung:Eigenschaft" maxOccurs="unbounded" />
           </sequence>
         </complexType>
       </element>
       <element name="Talente" minOccurs="0">
         <complexType>
-          <sequence maxOccurs="unbounded">
-            <element name="Talent">
+          <sequence>
+            <element name="Talent" maxOccurs="unbounded">
               <complexType>
                 <attributeGroup ref="misc:NamedElement" />
               </complexType>
@@ -175,8 +175,8 @@
       </element>
       <element name="Eigenschaften" minOccurs="0">
         <complexType>
-          <sequence maxOccurs="unbounded">
-            <element ref="ausstattung:Eigenschaft" />
+          <sequence>
+            <element ref="ausstattung:Eigenschaft" maxOccurs="unbounded" />
           </sequence>
         </complexType>
       </element>
