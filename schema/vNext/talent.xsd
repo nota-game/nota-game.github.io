@@ -65,7 +65,7 @@
       <element name="Level" minOccurs="0" maxOccurs="unbounded">
         <complexType>
           <sequence>
-            <element name="Bedingung" maxOccurs="unbounded" minOccurs="0" type="misc:BedingungsAuswahl"></element>
+            <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
             <element name="Mods" minOccurs="0" type="misc:Mods" />
           </sequence>
           <attribute name="Wert" use="required" type="positiveInteger">

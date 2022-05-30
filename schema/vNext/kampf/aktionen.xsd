@@ -26,6 +26,7 @@
                   <attribute name="ModifierType" use="required" type="aktionen:ModifierType" />
                 </complexType>
               </element>
+              <element name="Voraussetzung" type="misc:BedingungsAuswahl" minOccurs="0" />
               <element name="Eigenschaften" minOccurs="0">
                 <complexType>
                   <sequence>

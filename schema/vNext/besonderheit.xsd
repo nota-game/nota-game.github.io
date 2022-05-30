@@ -59,7 +59,7 @@
               </unique>
             </element>
             <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-            <element name="Bedingung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
+            <element name="Voraussetzung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
             <element name="Mods" minOccurs="0" type="misc:Mods" />
           </sequence>
         </complexType>

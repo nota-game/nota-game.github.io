@@ -70,7 +70,7 @@
           <field xpath="./@Geschlecht" />
         </unique>
       </element>
-      <element name="Bedingungen" minOccurs="0">
+      <element name="Voraussetzung" minOccurs="0">
         <annotation>
           <documentation xml:lang="de">
             Die voraussetzungenm welche zum erlernen des Levels gegeben sein müssen.
