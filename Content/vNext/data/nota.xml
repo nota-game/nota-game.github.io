@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!-- This file represents a fragment of a book store inventory database -->
-<Daten Version='1' xmlns='https://nota-game.github.io/schema/vNext/nota.xsd' xmlns:nota='https://nota-game.github.io/schema/vNext/nota.xsd' xmlns:misc='https://nota-game.github.io/schema/vNext/misc.xsd' xmlns:lebewesen="https://nota-game.github.io/schema/vNext/wesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:Belastung="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io/schema/vNext/nota.xsd ../../nota-schema/nota.xsd https://nota-game.github.io/schema/vNext/lebewesen.xsd ../../nota-schema/Lebewesen.xsd https://nota-game.github.io/schema/vNext/pfad.xsd ../../nota-schema/pfad.xsd https://nota-game.github.io/schema/vNext/talent.xsd ../../nota-schema/talent.xsd https://nota-game.github.io/schema/vNext/fertigkeit.xsd ../../nota-schema/fertigkeit.xsd https://nota-game.github.io/schema/vNext/besonderheit.xsd ../../nota-schema/besonderheit.xsd https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd ../../nota-schema/kampf/aktionen.xsd https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd ../../nota-schema/kampf/ausstattung.xsd https://nota-game.github.io/schema/vNext/misc.xsd ../../nota-schema/misc.xsd">
+<Daten Version='1' xmlns='https://nota-game.github.io/schema/vNext/nota.xsd' xmlns:nota='https://nota-game.github.io/schema/vNext/nota.xsd' xmlns:misc='https://nota-game.github.io/schema/vNext/misc.xsd' xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:Belastung="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io/schema/vNext/nota.xsd ../../nota-schema/nota.xsd https://nota-game.github.io/schema/vNext/lebewesen.xsd ../../nota-schema/Lebewesen.xsd https://nota-game.github.io/schema/vNext/pfad.xsd ../../nota-schema/pfad.xsd https://nota-game.github.io/schema/vNext/talent.xsd ../../nota-schema/talent.xsd https://nota-game.github.io/schema/vNext/fertigkeit.xsd ../../nota-schema/fertigkeit.xsd https://nota-game.github.io/schema/vNext/besonderheit.xsd ../../nota-schema/besonderheit.xsd https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd ../../nota-schema/kampf/aktionen.xsd https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd ../../nota-schema/kampf/ausstattung.xsd https://nota-game.github.io/schema/vNext/misc.xsd ../../nota-schema/misc.xsd">
   <!-- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://nota-game.github.io/schema/vNext/nota.xsd https://nota-game.github.io/schema/vNext/nota.xsd https://nota-game.github.io/schema/vNext/misc.xsd https://nota-game.github.io/schema/vNext/misc.xsd https://nota-game.github.io/schema/vNext/wesen.xsd https://nota-game.github.io/schema/vNext/wesen.xsd https://nota-game.github.io/schema/vNext/pfad.xsd https://nota-game.github.io/schema/vNext/pfad.xsd https://nota-game.github.io/schema/vNext/profession.xsd https://nota-game.github.io/schema/vNext/profession.xsd https://nota-game.github.io/schema/vNext/talent.xsd https://nota-game.github.io/schema/vNext/talent.xsd https://nota-game.github.io/schema/vNext/fertigkeit.xsd https://nota-game.github.io/schema/vNext/fertigkeit.xsd https://nota-game.github.io/schema/vNext/besonderheit.xsd https://nota-game.github.io/schema/vNext/besonderheit.xsd https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" -->
   <!--<Pfade>
     <PfadAuswahl Id="Götter">
@@ -2147,11 +2147,11 @@
         </misc:Lokalisirung>
       </Beschreibung>
       <Verbreitung Wert="7" />
-      <talent:Bedingungen>
-        <talent:Bedingung Wert="1">
+      <talent:Level Wert="1">
+        <talent:Bedingung>
           <misc:Tag Id="Lesen/Schreiben" />
         </talent:Bedingung>
-      </talent:Bedingungen>
+      </talent:Level>
     </Talent>
     <Talent Id="Buchführung" Komplexität="B">
       <Probe>
@@ -2722,11 +2722,11 @@
         </misc:Lokalisirung>
       </Beschreibung>
       <Verbreitung Wert="7" />
-      <Bedingungen>
-        <Bedingung Wert="4">
+      <talent:Level Wert="4">
+        <Bedingung>
           <Talent Id="Backen" Level="2" />
         </Bedingung>
-      </Bedingungen>
+      </talent:Level>
       <Ableitungen>
         <Ableitung Id="Backen" Anzahl="2" />
       </Ableitungen>
@@ -3716,9 +3716,11 @@
           </misc:Lokalisirung>
         </Beschreibung>
         <Verbreitung Wert="7" />
-        <Tags>
-          <misc:Tag Id="Lesen/Schreiben" />
-        </Tags>
+        <fertigkeit:Mods>
+          <misc:Tags>
+            <misc:Tag Id="Lesen/Schreiben" />
+          </misc:Tags>
+        </fertigkeit:Mods>
       </fertigkeit:Stufe>
     </Fertigkeit>
   </Fertigkeiten>

@@ -16,7 +16,12 @@
             <field xpath="./@Geschlecht" />
           </unique>
         </element>
-        <element name="Talent" maxOccurs="unbounded" minOccurs="0" type="talent:TalentDefinition" />
+        <element name="Talent" maxOccurs="unbounded" minOccurs="0" type="talent:TalentDefinition" >
+          <unique name="WertUniqueForBedingung">
+            <selector xpath=".//talent:Level"></selector>
+            <field xpath="@Wert" />
+          </unique>
+        </element>
       </sequence>
       <attribute use="required" type="string" name="KategorieId" />
     </complexType>
@@ -26,22 +31,20 @@
     <sequence>
       <element name="Probe">
         <complexType>
-          <sequence>
-            <choice maxOccurs="3" minOccurs="3">
-              <element name="Stärke" />
-              <element name="Konstitution" />
-              <element name="Gewandtheit" />
-              <element name="Präzision" />
-              <element name="Antipathie" />
-              <element name="Sympathie" />
-              <element name="Klugheit" />
-              <element name="Intuition" />
-              <element name="Fokus" />
-              <element name="Einfluss" />
-              <element name="Mut" />
-              <element name="Glück" />
-            </choice>
-          </sequence>
+          <choice maxOccurs="3" minOccurs="3">
+            <element name="Stärke" />
+            <element name="Konstitution" />
+            <element name="Gewandtheit" />
+            <element name="Präzision" />
+            <element name="Antipathie" />
+            <element name="Sympathie" />
+            <element name="Klugheit" />
+            <element name="Intuition" />
+            <element name="Fokus" />
+            <element name="Einfluss" />
+            <element name="Mut" />
+            <element name="Glück" />
+          </choice>
         </complexType>
       </element>
       <element name="Name" type="misc:Lokalisierungen">
@@ -59,32 +62,24 @@
         </unique>
       </element>
       <element name="Verbreitung" type="misc:Verbreitung" />
-      <element name="Bedingungen" minOccurs="0">
+      <element name="Level" minOccurs="0" maxOccurs="unbounded">
         <complexType>
           <sequence>
-            <element name="Bedingung" maxOccurs="unbounded">
-              <complexType>
-                <complexContent>
-                  <extension base="misc:BedingungsAuswahl">
-                    <attribute name="Wert" use="required" type="positiveInteger">
-                      <annotation>
-                        <documentation xml:lang="de">
-                          Der Wert ab dem die Bedingung erfüllt sein muss.
-                        </documentation>
-                      </annotation>
-                    </attribute>
-                  </extension>
-                </complexContent>
-              </complexType>
-              <unique name="WertUniqueForBedingung">
-                <selector xpath=".//Bedingung"></selector>
-                <field xpath="@Wert" />
-              </unique>
-            </element>
+            <element name="Bedingung" maxOccurs="unbounded" minOccurs="0" type="misc:BedingungsAuswahl"></element>
+            <element name="Mods" minOccurs="0" type="misc:Mods" />
           </sequence>
+          <attribute name="Wert" use="required" type="positiveInteger">
+            <annotation>
+              <documentation xml:lang="de">
+                Der Wert ab dem die Bedingung erfüllt sein muss.
+              </documentation>
+            </annotation>
+          </attribute>
         </complexType>
+        
       </element>
       <element name="Ableitungen" minOccurs="0" maxOccurs="1" type="talent:AbleitungsAuswahl"></element>
+      
     </sequence>
     <attribute type="string" name="Id" use="required" />
     <attribute type="talent:Komplexität" use="required" name="Komplexität" />

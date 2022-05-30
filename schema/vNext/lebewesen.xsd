@@ -46,6 +46,7 @@
         </annotation>
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
+      <element name="Mods" minOccurs="0" type="misc:Mods" />
       <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition">
       </element>
     </sequence>
@@ -83,6 +84,7 @@
         </annotation>
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
+      <element name="Mods" minOccurs="0" type="misc:Mods" />
 
       <element ref="lebewesen:StandardPfade" minOccurs="0" />
 
@@ -91,13 +93,6 @@
           <choice>
             <element name="Morph" minOccurs="1" maxOccurs="unbounded" type="lebewesen:MorphDefinition" />
           </choice>
-        </complexType>
-      </element>
-      <element name="Besonderheiten" minOccurs="0">
-        <complexType>
-          <sequence>
-            <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
-          </sequence>
         </complexType>
       </element>
     </sequence>
@@ -231,13 +226,7 @@
         </annotation>
 
       </element>
-      <element name="Besonderheiten" minOccurs="0">
-        <complexType>
-          <sequence>
-            <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
-          </sequence>
-        </complexType>
-      </element>
+      <element name="Mods" minOccurs="0" type="misc:Mods" />
       <element name="Lebensabschnitte">
         <complexType>
           <sequence>
@@ -262,7 +251,7 @@
       </element>
       <element name="Name" type="misc:Lokalisierungen" />
       <element name="Beschreibung" type="misc:Lokalisierungen" />
-      <element name="Mods" minOccurs="0" type="lebewesen:Mods" />
+      <element name="Mods" minOccurs="0" type="misc:Mods" />
     </sequence>
     <attribute name="startAlter" type="float" use="required" />
     <attribute name="endAlter" type="float" use="required" />
@@ -295,35 +284,40 @@
   </complexType>
 
   <complexType name="ModWert">
-    <attribute name="Mod" type="int" use="required" />
+    <attribute name="Mod" type="float" use="required" />
+    <attribute name="Type"  use="optional"  default="additiv">
+      <simpleType>
+        <restriction base="string">
+          <enumeration value="additiv"></enumeration>
+          <enumeration value="multiplikativ"></enumeration>
+        </restriction>
+      </simpleType>
+    </attribute>
   </complexType>
 
   <complexType name="EigenschaftsMods">
-    <sequence>
-      <element minOccurs="0" name="Mut" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Glück" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Klugheit" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Intuition" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Gewandtheit" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Feinmotorik" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Sympathie" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Antipathie" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Stärke" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Konstitution" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Fokus" type="lebewesen:ModWert" />
-      <element minOccurs="0" name="Einfluss" type="lebewesen:ModWert" />
-    </sequence>
+    <choice maxOccurs="unbounded">
+      <element name="Mut" type="lebewesen:ModWert" />
+      <element name="Glück" type="lebewesen:ModWert" />
+      <element name="Klugheit" type="lebewesen:ModWert" />
+      <element name="Intuition" type="lebewesen:ModWert" />
+      <element name="Gewandtheit" type="lebewesen:ModWert" />
+      <element name="Feinmotorik" type="lebewesen:ModWert" />
+      <element name="Sympathie" type="lebewesen:ModWert" />
+      <element name="Antipathie" type="lebewesen:ModWert" />
+      <element name="Stärke" type="lebewesen:ModWert" />
+      <element name="Konstitution" type="lebewesen:ModWert" />
+      <element name="Fokus" type="lebewesen:ModWert" />
+      <element name="Einfluss" type="lebewesen:ModWert" />
+      <!-- Abgeleitet -->
+      <element name="Kraft" type="lebewesen:ModWert" />
+      <element name="Geschwindigkeit" type="lebewesen:ModWert" />
+      <element name="Initiative" type="lebewesen:ModWert" />
+      <element name="Ausdauer" type="lebewesen:ModWert" />
+      <!-- Sonstiges -->
+      <element name="GlücksPunkte" type="lebewesen:ModWert" />
+      <element name="Gewicht" type="lebewesen:ModWert" />
+    </choice>
   </complexType>
-  <complexType name="Mods">
-    <sequence>
-      <element name="Eigenschaften" type="lebewesen:EigenschaftsMods" minOccurs="0" />
-      <element name="Besonderheiten" minOccurs="0">
-        <complexType>
-          <sequence>
-            <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
-          </sequence>
-        </complexType>
-      </element>
-    </sequence>
-  </complexType>
+
 </schema>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/misc.xsd" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/misc.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd"></import>
   <import namespace="https://nota-game.github.io/schema/vNext/nota.xsd" schemaLocation="nota.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
 
   <complexType name="NamedType">
     <attributeGroup ref="misc:NamedElement" />
@@ -345,4 +346,23 @@
   </simpleType>
 
 
+  <complexType name="Mods">
+    <sequence>
+      <element name="Eigenschaften" type="lebewesen:EigenschaftsMods" minOccurs="0" />
+      <element name="Besonderheiten" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element ref="besonderheit:Besonderheit" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Tags" maxOccurs="1" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element ref="misc:Tag" minOccurs="1" maxOccurs="unbounded" />
+          </sequence>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
 </schema>
