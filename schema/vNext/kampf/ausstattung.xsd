@@ -164,8 +164,7 @@
           <sequence>
             <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
             <element name="Brust" type="ausstattung:Schutzwert" minOccurs="0" />
-            <element name="Rücken" type="ausstattung:Schutzwert" minOccurs="0" />
-            <element name="Bauch" type="ausstattung:Schutzwert" minOccurs="0" />
+            <element name="Hüfte" type="ausstattung:Schutzwert" minOccurs="0" />
             <element name="LinkerArm" type="ausstattung:Schutzwert" minOccurs="0" />
             <element name="RechterArm" type="ausstattung:Schutzwert" minOccurs="0" />
             <element name="LinkesBein" type="ausstattung:Schutzwert" minOccurs="0" />
