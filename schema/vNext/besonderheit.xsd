@@ -17,10 +17,6 @@
         </element>
 
         <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0" type="besonderheit:BesonderheitDefinition">
-          <unique name="BesonderheitUniqness">
-            <selector xpath=".//besonderheit:Besonderheit" />
-            <field xpath="@Id" />
-          </unique>
         </element>
       </sequence>
       <attribute use="required" type="string" name="KategorieId" />
@@ -87,26 +83,23 @@
 
   <complexType name="BedingungsAuswahl">
     <choice>
-      <element ref="besonderheit:Or"></element>
-      <element ref="besonderheit:And"></element>
-      <element ref="besonderheit:Not"></element>
-      <element ref="besonderheit:Besonderheit" />
+      <element name="Or" type="besonderheit:BedingungsAuswahlen" />
+      <element name="And" type="besonderheit:BedingungsAuswahlen" />
+      <element name="Not" type="besonderheit:BedingungsAuswahl" />
+          <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
     </choice>
   </complexType>
   <complexType name="BedingungsAuswahlen">
     <choice maxOccurs="unbounded">
-      <element ref="besonderheit:Or"></element>
-      <element ref="besonderheit:And"></element>
-      <element ref="besonderheit:Not"></element>
-      <element ref="besonderheit:Besonderheit" />
+      <element name="Or" type="besonderheit:BedingungsAuswahlen" />
+      <element name="And" type="besonderheit:BedingungsAuswahlen" />
+      <element name="Not" type="besonderheit:BedingungsAuswahl" />
+          <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
     </choice>
   </complexType>
 
-  <element name="Or" type="besonderheit:BedingungsAuswahlen" />
-  <element name="And" type="besonderheit:BedingungsAuswahlen" />
-  <element name="Not" type="besonderheit:BedingungsAuswahl" />
 
 
 </schema>

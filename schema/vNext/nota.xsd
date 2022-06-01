@@ -48,6 +48,11 @@
       <field xpath="./@KategorieId"></field>
     </unique>
 
+    <unique name="BesonderheitUniqness">
+      <selector xpath="./besonderheit:Besonderheiten/besonderheit:Besonderheit" />
+      <field xpath="@Id" />
+    </unique>
+
 
     <keyref name="TalentFKAbleitung" refer="nota:TalentPK">
       <selector xpath=".//talent:Ableitung" />

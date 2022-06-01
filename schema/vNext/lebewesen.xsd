@@ -15,8 +15,7 @@
             </documentation>
           </annotation>
         </element>
-        <element name="Gattung" minOccurs="1" maxOccurs="unbounded" type="lebewesen:GattungDefinition">
-        </element>
+        <element name="Gattung" minOccurs="1" maxOccurs="unbounded" type="lebewesen:GattungDefinition"></element>
       </sequence>
     </complexType>
   </element>
@@ -47,8 +46,7 @@
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
-      <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition">
-      </element>
+      <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition"></element>
     </sequence>
     <attributeGroup ref="misc:NamedElement" />
   </complexType>
@@ -156,24 +154,21 @@
 
   <complexType name="LebewesenAuswahl">
     <choice>
-      <element ref="lebewesen:Or"></element>
-      <element ref="lebewesen:And"></element>
-      <element ref="lebewesen:Not"></element>
+      <element name="Or" type="lebewesen:LebewesenAuswahlen" />
+      <element name="And" type="lebewesen:LebewesenAuswahlen" />
+      <element name="Not" type="lebewesen:LebewesenAuswahl" />
       <element ref="lebewesen:Art" />
     </choice>
   </complexType>
   <complexType name="LebewesenAuswahlen">
     <choice maxOccurs="unbounded">
-      <element ref="lebewesen:Or"></element>
-      <element ref="lebewesen:And"></element>
-      <element ref="lebewesen:Not"></element>
+      <element name="Or" type="lebewesen:LebewesenAuswahlen" />
+      <element name="And" type="lebewesen:LebewesenAuswahlen" />
+      <element name="Not" type="lebewesen:LebewesenAuswahl" />
       <element ref="lebewesen:Art" />
     </choice>
   </complexType>
 
-  <element name="Or" type="lebewesen:LebewesenAuswahlen" />
-  <element name="And" type="lebewesen:LebewesenAuswahlen" />
-  <element name="Not" type="lebewesen:LebewesenAuswahl" />
 
   <complexType name="StartEigenschaftswerte">
     <sequence>
@@ -285,7 +280,7 @@
 
   <complexType name="ModWert">
     <attribute name="Mod" type="float" use="required" />
-    <attribute name="Type"  use="optional"  default="additiv">
+    <attribute name="Type" use="optional" default="additiv">
       <simpleType>
         <restriction base="string">
           <enumeration value="additiv"></enumeration>

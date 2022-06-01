@@ -283,7 +283,7 @@
     <sequence>
       <element name="Schutz" minOccurs="1" maxOccurs="unbounded">
         <complexType>
-          <attribute name="Von">
+          <attribute name="Von" use="required">
             <simpleType>
               <restriction base="int">
                 <minInclusive value="1" />
@@ -291,7 +291,7 @@
               </restriction>
             </simpleType>
           </attribute>
-          <attribute name="Bis">
+          <attribute name="Bis" use="required">
             <simpleType>
               <restriction base="int">
                 <minInclusive value="1" />
