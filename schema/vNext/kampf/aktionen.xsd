@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:aktionen="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="..\misc.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="..\misc.xsd" />
 
   <element name="Taktiken">
     <complexType>
@@ -57,20 +57,8 @@
               <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded">
                 <complexType>
                   <sequence>
-                    <element name="Name" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
-                    <element name="Beschreibung" type="misc:Lokalisierungen">
-                      <unique name="SpracheUnique1">
-                        <selector xpath="misc:Lokalisirung" />
-                        <field xpath="./@Sprache" />
-                        <field xpath="./@Geschlecht" />
-                      </unique>
-                    </element>
+                    <element ref="misc:Name" />
+                    <element ref="misc:Beschreibung" />
                   </sequence>
                   <attribute type="string" name="Id" use="required" />
                 </complexType>

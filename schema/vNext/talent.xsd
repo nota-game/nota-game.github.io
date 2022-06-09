@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/talent.xsd" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />
 
   <element name="Talente">
     <complexType>
@@ -18,7 +18,7 @@
         </element>
         <element name="Talent" maxOccurs="unbounded" minOccurs="0" type="talent:TalentDefinition" >
           <unique name="WertUniqueForBedingung">
-            <selector xpath=".//talent:Level"></selector>
+            <selector xpath=".//talent:Level" />
             <field xpath="@Wert" />
           </unique>
         </element>
@@ -47,20 +47,8 @@
           </choice>
         </complexType>
       </element>
-      <element name="Name" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
-      <element name="Beschreibung" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique1">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Name" />
+      <element ref="misc:Beschreibung" />
       <element name="Verbreitung" type="misc:Verbreitung" />
       <element name="Level" minOccurs="0" maxOccurs="unbounded">
         <complexType>
@@ -78,7 +66,7 @@
         </complexType>
         
       </element>
-      <element name="Ableitungen" minOccurs="0" maxOccurs="1" type="talent:AbleitungsAuswahl"></element>
+      <element name="Ableitungen" minOccurs="0" maxOccurs="1" type="talent:AbleitungsAuswahl" />
       
     </sequence>
     <attribute type="string" name="Id" use="required" />

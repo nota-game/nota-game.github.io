@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:aktion="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/nota.xsd" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" schemaLocation="kampf/aktionen.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" schemaLocation="kampf/ausstattung.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" schemaLocation="kampf/aktionen.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" schemaLocation="kampf/ausstattung.xsd" />
   <element name="Daten">
     <complexType>
       <sequence>
@@ -32,20 +32,20 @@
         <element ref="misc:Tags" />
 
       </sequence>
-      <attribute name="Version" use="required" type="misc:positiveInt"></attribute>
+      <attribute name="Version" use="required" type="misc:positiveInt" />
     </complexType>
 
     <unique name="BesonderheitenKategorie">
-      <selector xpath="./besonderheit:Besonderheiten"></selector>
-      <field xpath="./@KategorieId"></field>
+      <selector xpath="./besonderheit:Besonderheiten" />
+      <field xpath="./@KategorieId" />
     </unique>
     <unique name="FertigkeitenKategorie">
-      <selector xpath="./fertigkeit:Fertigkeiten"></selector>
-      <field xpath="./@KategorieId"></field>
+      <selector xpath="./fertigkeit:Fertigkeiten" />
+      <field xpath="./@KategorieId" />
     </unique>
     <unique name="TalentKategorie">
-      <selector xpath="./talent:Talente"></selector>
-      <field xpath="./@KategorieId"></field>
+      <selector xpath="./talent:Talente" />
+      <field xpath="./@KategorieId" />
     </unique>
 
     <unique name="BesonderheitUniqness">

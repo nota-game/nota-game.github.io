@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/misc.xsd" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/nota.xsd" schemaLocation="nota.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/nota.xsd" schemaLocation="nota.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="lebewesen.xsd" />
 
   <complexType name="NamedType">
     <attributeGroup ref="misc:NamedElement" />
@@ -33,20 +33,8 @@
     <complexContent>
       <extension base="misc:NamedType">
         <sequence>
-          <element name="Name" type="misc:Lokalisierungen">
-            <unique name="SpracheUnique">
-              <selector xpath="misc:Lokalisirung" />
-              <field xpath="./@Sprache" />
-              <field xpath="./@Geschlecht" />
-            </unique>
-          </element>
-          <element name="Beschreibung" type="misc:Lokalisierungen">
-            <unique name="SpracheUnique1">
-              <selector xpath="misc:Lokalisirung" />
-              <field xpath="./@Sprache" />
-              <field xpath="./@Geschlecht" />
-            </unique>
-          </element>
+          <element ref="misc:Name" />
+          <element ref="misc:Beschreibung" />
         </sequence>
       </extension>
     </complexContent>
@@ -56,20 +44,8 @@
   <complexType name="LevelDefinition">
     <sequence>
       <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-      <element name="Name" type="misc:Lokalisierungen" minOccurs="0">
-        <unique name="SpracheUnique2">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
-      <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0">
-        <unique name="SpracheUnique3">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Name" minOccurs="0" />
+      <element ref="misc:Beschreibung" minOccurs="0" />
       <element name="Voraussetzung" minOccurs="0">
         <annotation>
           <documentation xml:lang="de">
@@ -180,10 +156,10 @@
   </simpleType>
 
   <attributeGroup name="NamedElement">
-    <attribute name="Id" use="required" type="string"></attribute>
+    <attribute name="Id" use="required" type="string" />
   </attributeGroup>
 
-  <element name="Kosten" type="misc:KostenDefinition"></element>
+  <element name="Kosten" type="misc:KostenDefinition" />
   <complexType name="KostenDefinition">
     <attributeGroup ref="misc:NamedElement" />
     <attribute name="Wert" use="required" type="float" />
@@ -195,13 +171,7 @@
       <element name="KostenDefinition" maxOccurs="unbounded">
         <complexType>
           <sequence>
-            <element name="Name" type="misc:Lokalisierungen">
-              <unique name="SpracheUnique4">
-                <selector xpath="misc:Lokalisirung" />
-                <field xpath="./@Sprache" />
-                <field xpath="./@Geschlecht" />
-              </unique>
-            </element>
+            <element ref="misc:Name" />
             <element name="Abkürzung" type="misc:Lokalisierungen">
               <unique name="SpracheUnique6">
                 <selector xpath="misc:Lokalisirung" />
@@ -209,20 +179,14 @@
                 <field xpath="./@Geschlecht" />
               </unique>
             </element>
-            <element name="Beschreibung" type="misc:Lokalisierungen">
-              <unique name="SpracheUnique5">
-                <selector xpath="misc:Lokalisirung" />
-                <field xpath="./@Sprache" />
-                <field xpath="./@Geschlecht" />
-              </unique>
-            </element>
+            <element ref="misc:Beschreibung" />
           </sequence>
           <attribute name="StandardKosten" use="optional" default="false" type="boolean">
             <annotation>
               <documentation>Diese werden verwendet zum steigern von Talenten und fertigkeiten. Und werden nach sessions vergeben.</documentation>
             </annotation>
           </attribute>
-          <attributeGroup ref="misc:NamedElement"></attributeGroup>
+          <attributeGroup ref="misc:NamedElement" />
         </complexType>
       </element>
       <element name="TalentKostenFunktion">
@@ -232,7 +196,7 @@
               <annotation>
                 <documentation>Die Formel kann folgende Variabeln enthalten: KOMPLEXITÄT, KOMPLEXITÄT_NUM, LEVEL. Das Ergebnis ist eine Zahl. </documentation>
               </annotation>
-              <attribute name="KostenArt" type="token" use="required"></attribute>
+              <attribute name="KostenArt" type="token" use="required" />
               <attribute name="ResultType" use="required">
                 <annotation>
                   <documentation>Gibt an ob das ergebnis der Funktion die differenz zum vorherigen angibt oder die gesamtkosten von 0.</documentation>
@@ -276,7 +240,7 @@
       <element name="Level">
         <complexType>
           <attributeGroup ref="misc:NamedElement" />
-          <attribute type="int" use="optional" default="1" name="mindestVorkommen"></attribute>
+          <attribute type="int" use="optional" default="1" name="mindestVorkommen" />
         </complexType>
       </element>
     </choice>
@@ -289,7 +253,7 @@
       <element name="Level">
         <complexType>
           <attributeGroup ref="misc:NamedElement" />
-          <attribute type="int" use="optional" default="1" name="mindestVorkommen"></attribute>
+          <attribute type="int" use="optional" default="1" name="mindestVorkommen" />
         </complexType>
       </element>
 
@@ -320,6 +284,21 @@
     </choice>
   </complexType>
 
+  <element name="Name" type="misc:Lokalisierungen">
+    <unique name="SpracheUnique">
+      <selector xpath="misc:Lokalisirung" />
+      <field xpath="./@Sprache" />
+      <field xpath="./@Geschlecht" />
+    </unique>
+  </element>
+  <element name="Beschreibung" type="misc:Lokalisierungen">
+    <unique name="SpracheUnique1">
+      <selector xpath="misc:Lokalisirung" />
+      <field xpath="./@Sprache" />
+      <field xpath="./@Geschlecht" />
+    </unique>
+  </element>
+
 
   <complexType name="Lokalisierungen">
     <sequence>
@@ -339,7 +318,7 @@
   <simpleType name="Geschlecht">
     <restriction base="string">
       <enumeration value="Neutral" />
-      <enumeration value="Mänlich" />
+      <enumeration value="Männlich" />
       <enumeration value="Weiblich" />
       <enumeration value="Unspezifiziert" />
     </restriction>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:lebewesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:pfad="https://nota-game.github.io/schema/vNext/pfad.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" elementFormDefault="qualified">
-  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd"></import>
-  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd"></import>
+  <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="misc.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/pfad.xsd" schemaLocation="pfad.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="talent.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />
+  <import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />
+
   <element name="Organismen">
     <complexType>
       <sequence>
@@ -15,7 +16,7 @@
             </documentation>
           </annotation>
         </element>
-        <element name="Gattung" minOccurs="1" maxOccurs="unbounded" type="lebewesen:GattungDefinition"></element>
+        <element name="Gattung" minOccurs="1" maxOccurs="unbounded" type="lebewesen:GattungDefinition" />
       </sequence>
     </complexType>
   </element>
@@ -23,20 +24,8 @@
 
   <complexType name="GattungDefinition">
     <sequence>
-      <element name="Name" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique6">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
-      <element name="Beschreibung" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique5">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Name" />
+      <element ref="misc:Beschreibung" />
       <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
         <annotation>
           <documentation xml:lang='de-de'>
@@ -46,20 +35,14 @@
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
-      <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition"></element>
+      <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition" />
     </sequence>
     <attributeGroup ref="misc:NamedElement" />
   </complexType>
 
   <complexType name="ArtDefinition">
     <sequence>
-      <element name="Name" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Name" />
       <element name="Art" type="misc:Lokalisierungen">
         <unique name="SpracheUnique7">
           <selector xpath="misc:Lokalisirung" />
@@ -67,13 +50,7 @@
           <field xpath="./@Geschlecht" />
         </unique>
       </element>
-      <element name="Beschreibung" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique1">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Beschreibung" />
       <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
         <annotation>
           <documentation xml:lang='de-de'>
@@ -189,20 +166,8 @@
 
   <complexType name="MorphDefinition">
     <sequence>
-      <element name="Name" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique2">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
-      <element name="Beschreibung" type="misc:Lokalisierungen">
-        <unique name="SpracheUnique3">
-          <selector xpath="misc:Lokalisirung" />
-          <field xpath="./@Sprache" />
-          <field xpath="./@Geschlecht" />
-        </unique>
-      </element>
+      <element ref="misc:Name" />
+      <element ref="misc:Beschreibung" />
       <element name="EigenschaftsKosten" type="lebewesen:Eigenschaftskosten" minOccurs="0">
         <annotation>
           <documentation xml:lang='de-de'>
@@ -222,10 +187,69 @@
 
       </element>
       <element name="Mods" minOccurs="0" type="misc:Mods" />
+      <element name="Entwiklung">
+        <complexType>
+          <choice maxOccurs="unbounded">
+            <element name="Reihe">
+              <complexType>
+                <sequence>
+                  <sequence>
+                    <element ref="misc:Name" />
+                    <element ref="misc:Beschreibung" minOccurs="0" />
+                    <element name="Spalte">
+                      <complexType>
+                        <sequence>
+                          <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+                          <element name="Mods" minOccurs="0" type="misc:Mods" />
+                          <element name="Wert" maxOccurs="unbounded" type="int" />
+                        </sequence>
+                        <attribute name="Quantil" use="required">
+                          <simpleType>
+                            <restriction base="int">
+                              <maxInclusive value="100" />
+                              <minInclusive value="0" />
+                            </restriction>
+                          </simpleType>
+                        </attribute>
+                      </complexType>
+                    </element>
+                  </sequence>
+                </sequence>
+                <attribute name="step" type="float" use="optional" default="1" />
+                <attribute name="einheit" type="string" use="optional" default="" />
+                <attribute name="id" type="string" use="required" />
+              </complexType>
+            </element>
+            <element name="Punkt">
+              <complexType>
+                <sequence>
+                  <element ref="misc:Name" />
+                  <element ref="misc:Beschreibung" minOccurs="0" />
+                  <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+                  <element name="Mods" minOccurs="0" type="misc:Mods" />
+                  <element name="Zeitpunkt">
+                    <complexType>
+                      <attribute name="alter" type="float" />
+                      <attribute name="Quantil" use="required">
+                        <simpleType>
+                          <restriction base="int">
+                            <maxInclusive value="100" />
+                            <minInclusive value="0" />
+                          </restriction>
+                        </simpleType>
+                      </attribute>
+                    </complexType>
+                  </element>
+                </sequence>
+              </complexType>
+            </element>
+          </choice>
+        </complexType>
+      </element>
       <element name="Lebensabschnitte">
         <complexType>
           <sequence>
-            <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition"></element>
+            <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition" />
           </sequence>
         </complexType>
       </element>
@@ -283,8 +307,8 @@
     <attribute name="Type" use="optional" default="additiv">
       <simpleType>
         <restriction base="string">
-          <enumeration value="additiv"></enumeration>
-          <enumeration value="multiplikativ"></enumeration>
+          <enumeration value="additiv" />
+          <enumeration value="multiplikativ" />
         </restriction>
       </simpleType>
     </attribute>
