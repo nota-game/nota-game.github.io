@@ -190,59 +190,8 @@
       <element name="Entwiklung">
         <complexType>
           <choice maxOccurs="unbounded">
-            <element name="Reihe">
-              <complexType>
-                <sequence>
-                  <sequence>
-                    <element ref="misc:Name" />
-                    <element ref="misc:Beschreibung" minOccurs="0" />
-                    <element name="Spalte">
-                      <complexType>
-                        <sequence>
-                          <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-                          <element name="Mods" minOccurs="0" type="misc:Mods" />
-                          <element name="Wert" maxOccurs="unbounded" type="int" />
-                        </sequence>
-                        <attribute name="Quantil" use="required">
-                          <simpleType>
-                            <restriction base="int">
-                              <maxInclusive value="100" />
-                              <minInclusive value="0" />
-                            </restriction>
-                          </simpleType>
-                        </attribute>
-                      </complexType>
-                    </element>
-                  </sequence>
-                </sequence>
-                <attribute name="step" type="float" use="optional" default="1" />
-                <attribute name="einheit" type="string" use="optional" default="" />
-                <attribute name="id" type="string" use="required" />
-              </complexType>
-            </element>
-            <element name="Punkt">
-              <complexType>
-                <sequence>
-                  <element ref="misc:Name" />
-                  <element ref="misc:Beschreibung" minOccurs="0" />
-                  <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
-                  <element name="Mods" minOccurs="0" type="misc:Mods" />
-                  <element name="Zeitpunkt">
-                    <complexType>
-                      <attribute name="alter" type="float" />
-                      <attribute name="Quantil" use="required">
-                        <simpleType>
-                          <restriction base="int">
-                            <maxInclusive value="100" />
-                            <minInclusive value="0" />
-                          </restriction>
-                        </simpleType>
-                      </attribute>
-                    </complexType>
-                  </element>
-                </sequence>
-              </complexType>
-            </element>
+            <element name="Reihe" type="lebewesen:ReiheDefinition" />
+            <element name="Punkt" type="lebewesen:PunktDefintion" />
           </choice>
         </complexType>
       </element>
@@ -312,6 +261,57 @@
         </restriction>
       </simpleType>
     </attribute>
+  </complexType>
+
+  <complexType name="PunktDefintion">
+    <sequence>
+      <element ref="misc:Name" />
+      <element ref="misc:Beschreibung" minOccurs="0" />
+      <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+      <element name="Mods" minOccurs="0" type="misc:Mods" />
+      <element name="Zeitpunkt" maxOccurs="unbounded">
+        <complexType>
+          <attribute name="alter" type="float" />
+          <attribute name="Quantil" use="required">
+            <simpleType>
+              <restriction base="int">
+                <maxInclusive value="100" />
+                <minInclusive value="0" />
+              </restriction>
+            </simpleType>
+          </attribute>
+        </complexType>
+      </element>
+    </sequence>
+  </complexType>
+
+  <complexType name="ReiheDefinition">
+    <sequence>
+      <sequence>
+        <element ref="misc:Name" />
+        <element ref="misc:Beschreibung" minOccurs="0" />
+        <element name="Spalte" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
+              <element name="Mods" minOccurs="0" type="misc:Mods" />
+              <element name="Wert" maxOccurs="unbounded" type="int" />
+            </sequence>
+            <attribute name="Quantil" use="required">
+              <simpleType>
+                <restriction base="int">
+                  <maxInclusive value="100" />
+                  <minInclusive value="0" />
+                </restriction>
+              </simpleType>
+            </attribute>
+          </complexType>
+        </element>
+      </sequence>
+    </sequence>
+    <attribute name="step" type="float" use="optional" default="1" />
+    <attribute name="einheit" type="string" use="optional" default="" />
+    <attribute name="id" type="string" use="required" />
   </complexType>
 
   <complexType name="EigenschaftsMods">
