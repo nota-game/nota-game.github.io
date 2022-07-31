@@ -310,6 +310,7 @@
       </sequence>
     </sequence>
     <attribute name="step" type="float" use="optional" default="1" />
+    <attribute name="startAlter" type="float" use="optional" default="1" />
     <attribute name="einheit" type="string" use="optional" default="" />
     <attribute name="id" type="string" use="required" />
   </complexType>
