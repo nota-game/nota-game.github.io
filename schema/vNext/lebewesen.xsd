@@ -269,7 +269,7 @@
       <element ref="misc:Beschreibung" minOccurs="0" />
       <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
-      <element name="Zeitpunkt" maxOccurs="unbounded">
+      <element name="Zeitpunkt" maxOccurs="2" minOccurs="1">
         <complexType>
           <attribute name="alter" type="float" />
           <attribute name="Quantil" use="required">
@@ -295,7 +295,7 @@
             <sequence>
               <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
               <element name="Mods" minOccurs="0" type="misc:Mods" />
-              <element name="Wert" maxOccurs="unbounded" type="int" />
+              <element name="Wert" maxOccurs="unbounded" type="float" />
             </sequence>
             <attribute name="Quantil" use="required">
               <simpleType>
