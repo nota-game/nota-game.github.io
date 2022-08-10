@@ -272,6 +272,11 @@
       <element name="Zeitpunkt" maxOccurs="2" minOccurs="1">
         <complexType>
           <attribute name="alter" type="float" />
+        </complexType>
+      </element>
+      <element name="Verteilung" maxOccurs="unbounded" minOccurs="0">
+        <complexType>
+          <attribute name="alter" type="float" />
           <attribute name="Quantil" use="required">
             <simpleType>
               <restriction base="int">
@@ -290,11 +295,28 @@
       <sequence>
         <element ref="misc:Name" />
         <element ref="misc:Beschreibung" minOccurs="0" />
-        <element name="Spalte" maxOccurs="unbounded">
+        <element name="Schwelle" maxOccurs="unbounded">
           <complexType>
             <sequence>
+              <element ref="misc:Name"  />
+              <element ref="misc:Beschreibung" minOccurs="0" />
               <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
               <element name="Mods" minOccurs="0" type="misc:Mods" />
+              <element name="Wert" maxOccurs="unbounded" type="float" />
+            </sequence>
+            <attribute name="Quantil" use="optional">
+              <simpleType>
+                <restriction base="int">
+                  <maxInclusive value="100" />
+                  <minInclusive value="0" />
+                </restriction>
+              </simpleType>
+            </attribute>
+          </complexType>
+        </element>
+        <element name="Verteilung" minOccurs="0" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
               <element name="Wert" maxOccurs="unbounded" type="float" />
             </sequence>
             <attribute name="Quantil" use="required">
