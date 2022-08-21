@@ -53,6 +53,11 @@
       <field xpath="@Id" />
     </unique>
 
+    <unique name="MorphUniqness">
+      <selector xpath=".//lebewesen:Morph" />
+      <field xpath="@Id" />
+    </unique>
+
 
     <keyref name="TalentFKAbleitung" refer="nota:TalentPK">
       <selector xpath=".//talent:Ableitung" />

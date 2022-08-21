@@ -304,14 +304,7 @@
               <element name="Mods" minOccurs="0" type="misc:Mods" />
               <element name="Wert" maxOccurs="unbounded" type="float" />
             </sequence>
-            <attribute name="Quantil" use="optional">
-              <simpleType>
-                <restriction base="int">
-                  <maxInclusive value="100" />
-                  <minInclusive value="0" />
-                </restriction>
-              </simpleType>
-            </attribute>
+           
           </complexType>
         </element>
         <element name="Verteilung" minOccurs="0" maxOccurs="unbounded">
