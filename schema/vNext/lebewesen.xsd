@@ -298,7 +298,7 @@
         <element name="Schwelle" maxOccurs="unbounded">
           <complexType>
             <sequence>
-              <element ref="misc:Name"  />
+              <element ref="misc:Name" minOccurs="0" />
               <element ref="misc:Beschreibung" minOccurs="0" />
               <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
               <element name="Mods" minOccurs="0" type="misc:Mods" />
