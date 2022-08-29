@@ -166,6 +166,14 @@
   </complexType>
   <element name="KostenDefinitionen" type="misc:KostenDefinitions" />
 
+<simpleType name="kostenType">
+  <restriction base="string">
+    <enumeration value="over zero"></enumeration>
+    <enumeration value="epual zero"></enumeration>
+    <enumeration value="below zero"></enumeration>
+  </restriction>
+</simpleType>
+
   <complexType name="KostenDefinitions">
     <sequence>
       <element name="KostenDefinition" maxOccurs="unbounded">
@@ -186,6 +194,7 @@
               <documentation>Diese werden verwendet zum steigern von Talenten und fertigkeiten. Und werden nach sessions vergeben.</documentation>
             </annotation>
           </attribute>
+          <attribute name="type" type="misc:kostenType" default="over zero" use="optional" />
           <attributeGroup ref="misc:NamedElement" />
         </complexType>
       </element>
