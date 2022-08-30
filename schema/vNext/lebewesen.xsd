@@ -35,6 +35,13 @@
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
+      <element name="Lebensabschnitte" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition" />
     </sequence>
     <attributeGroup ref="misc:NamedElement" />
@@ -62,7 +69,13 @@
       <element name="Mods" minOccurs="0" type="misc:Mods" />
 
       <element ref="lebewesen:StandardPfade" minOccurs="0" />
-
+      <element name="Lebensabschnitte" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition" />
+          </sequence>
+        </complexType>
+      </element>
       <element name="Morphe">
         <complexType>
           <choice>
@@ -217,29 +230,13 @@
           </sequence>
         </complexType>
       </element>
-      <element name="Name" type="misc:Lokalisierungen" />
-      <element name="Beschreibung" type="misc:Lokalisierungen" />
+      <element name="Name" type="misc:Lokalisierungen" minOccurs="0" />
+      <element name="Beschreibung" type="misc:Lokalisierungen" minOccurs="0" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
     </sequence>
     <attribute name="startAlter" type="float" use="required" />
-    <attribute name="endAlter" type="float" use="required" />
-    <attributeGroup ref="misc:NamedElement" />
-    <attribute name="minGröße" type="float" use="required">
-      <annotation>
-        <documentation xml:lang="de">
-          Die minimale Größe in m.
-        </documentation>
-      </annotation>
-    </attribute>
-    <attribute name="minBMI" type="float" use="required" />
-    <attribute name="maxGröße" type="float" use="required">
-      <annotation>
-        <documentation xml:lang="de">
-          Die maximale Größe in m.
-        </documentation>
-      </annotation>
-    </attribute>
-    <attribute name="maxBMI" type="float" use="required" />
+    <attribute name="endAlter" type="float" use="optional" />
+
     <!-- Anhaltspunkte für Jugendliche (Menschen) -->
     <!-- http://www.bmi-online-rechner.de/bmi_tabelle_kinder_jugendliche.php -->
     <!-- http://www.netmoms.de/magazin/kinder/kinder-entwicklung/kinder-wachstumstabelle-2-19-jahre/ -->
