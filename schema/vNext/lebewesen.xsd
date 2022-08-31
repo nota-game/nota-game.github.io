@@ -74,6 +74,7 @@
           <sequence>
             <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition" />
           </sequence>
+          <attribute name="IgnoriereHöhere" default="false" use="optional" type="boolean" />
         </complexType>
       </element>
       <element name="Morphe">
@@ -213,6 +214,7 @@
           <sequence>
             <element name="Lebensabschnitt" maxOccurs="unbounded" type="lebewesen:LebensabschnittDefinition" />
           </sequence>
+          <attribute name="IgnoriereHöhere" default="false" use="optional" type="boolean" />
         </complexType>
       </element>
     </sequence>
