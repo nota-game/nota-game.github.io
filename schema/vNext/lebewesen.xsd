@@ -35,6 +35,7 @@
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
+      <element name="Entwiklung" minOccurs="0" type="lebewesen:EntwicklungDefinition" />
       <element name="Lebensabschnitte" minOccurs="0">
         <complexType>
           <sequence>
@@ -67,6 +68,9 @@
       </element>
       <element name="Eigenschaften" minOccurs="0" type="lebewesen:StartEigenschaftswerte" />
       <element name="Mods" minOccurs="0" type="misc:Mods" />
+
+      <element name="Entwiklung" minOccurs="0" type="lebewesen:EntwicklungDefinition" />
+
 
       <element ref="lebewesen:StandardPfade" minOccurs="0" />
       <element name="Lebensabschnitte" minOccurs="0">
@@ -201,14 +205,7 @@
 
       </element>
       <element name="Mods" minOccurs="0" type="misc:Mods" />
-      <element name="Entwiklung">
-        <complexType>
-          <choice maxOccurs="unbounded">
-            <element name="Reihe" type="lebewesen:ReiheDefinition" />
-            <element name="Punkt" type="lebewesen:PunktDefintion" />
-          </choice>
-        </complexType>
-      </element>
+      <element name="Entwiklung" type="lebewesen:EntwicklungDefinition" />
       <element name="Lebensabschnitte">
         <complexType>
           <sequence>
@@ -222,6 +219,15 @@
     <attribute type="misc:Geschlecht" name="Geschlecht" default="Unspezifiziert" use="optional" />
   </complexType>
 
+  <complexType name="EntwicklungDefinition">
+    <sequence>
+      <element name="Berechnung" type="lebewesen:FormelDefintion" minOccurs="0" maxOccurs="unbounded" />
+      <choice maxOccurs="unbounded" minOccurs="0">
+        <element name="Reihe" type="lebewesen:ReiheDefinition" />
+        <element name="Punkt" type="lebewesen:PunktDefintion" />
+      </choice>
+    </sequence>
+  </complexType>
 
   <complexType name="LebensabschnittDefinition">
     <sequence>
@@ -287,6 +293,24 @@
         </complexType>
       </element>
     </sequence>
+    <attribute name="id" type="string" use="required" />
+    <attribute name="Reihenfolge" type="float" use="optional" default="0" />
+  </complexType>
+
+  <complexType name="FormelDefintion">
+    <sequence>
+      <element ref="misc:Name" />
+      <element ref="misc:Beschreibung" minOccurs="0" />
+      <element name="Formel" type="string">
+        <annotation>
+          <documentation>Die Formel kann folgende Variabeln enthalten: MU, KL, etc…. Zusätzlich eine Funkttion für alle anderen Entwicklungseigenschaften mit ihrer Id Das Ergebnis ist eine Zahl. </documentation>
+        </annotation>
+      </element>
+
+    </sequence>
+    <attribute name="einheit" type="string" use="optional" default="" />
+    <attribute name="Reihenfolge" type="float" use="optional" default="0" />
+    <attribute name="id" type="string" use="required" />
   </complexType>
 
   <complexType name="ReiheDefinition">
@@ -328,12 +352,13 @@
 
           </complexType>
         </element>
-    
+
       </sequence>
     </sequence>
     <attribute name="step" type="float" use="optional" default="1" />
     <attribute name="startAlter" type="float" use="optional" default="1" />
     <attribute name="einheit" type="string" use="optional" default="" />
+    <attribute name="Reihenfolge" type="float" use="optional" default="0" />
     <attribute name="id" type="string" use="required" />
   </complexType>
 
