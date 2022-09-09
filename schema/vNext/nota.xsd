@@ -90,6 +90,11 @@
       <field xpath="@Id" />
     </keyref>
 
+    <keyref name="TalentFK2" refer="nota:TalentPK">
+      <selector xpath=".//misc:Talent" />
+      <field xpath="@Id" />
+    </keyref>
+
 
     <key name="FertigkeitPK">
       <selector xpath="./fertigkeit:Fertigkeiten/fertigkeit:Fertigkeit" />
