@@ -32,6 +32,8 @@
   <complexType name="FertigkeitDefinition">
     <sequence>
       <element ref="misc:Name" />
+      <element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="misc:ParameterDefinition" />  
+
       <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
         <complexType>
           <sequence>

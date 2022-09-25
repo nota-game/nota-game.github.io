@@ -16,8 +16,7 @@
           </unique>
         </element>
 
-        <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0" type="besonderheit:BesonderheitDefinition">
-        </element>
+        <element name="Besonderheit" maxOccurs="unbounded" minOccurs="0" type="besonderheit:BesonderheitDefinition"></element>
       </sequence>
       <attribute use="required" type="string" name="KategorieId" />
     </complexType>
@@ -31,13 +30,14 @@
           <documentation>Gibt die art des Vorteis an, z.B. zum filtern.</documentation>
         </annotation>
       </element>
+      <element name="Parameter" minOccurs="0" maxOccurs="unbounded" type="misc:ParameterDefinition" />  
       <element name="Stufe" maxOccurs="unbounded" minOccurs="1">
         <complexType>
           <sequence>
             <element ref="misc:Name" minOccurs="0" />
-           
+
             <element ref="misc:Beschreibung" />
-            
+
             <element ref="misc:Kosten" minOccurs="0" maxOccurs="unbounded" />
             <element name="Voraussetzung" type="besonderheit:BedingungsAuswahl" minOccurs="0" />
             <element name="Mods" minOccurs="0" type="misc:Mods" />
@@ -70,7 +70,7 @@
       <element name="Or" type="besonderheit:BedingungsAuswahlen" />
       <element name="And" type="besonderheit:BedingungsAuswahlen" />
       <element name="Not" type="besonderheit:BedingungsAuswahl" />
-          <element ref="besonderheit:Besonderheit" />
+      <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
     </choice>
   </complexType>
@@ -79,11 +79,10 @@
       <element name="Or" type="besonderheit:BedingungsAuswahlen" />
       <element name="And" type="besonderheit:BedingungsAuswahlen" />
       <element name="Not" type="besonderheit:BedingungsAuswahl" />
-          <element ref="besonderheit:Besonderheit" />
+      <element ref="besonderheit:Besonderheit" />
       <element ref="misc:Tag" />
     </choice>
   </complexType>
-
 
 
 </schema>

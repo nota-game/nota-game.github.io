@@ -333,6 +333,72 @@
     </restriction>
   </simpleType>
 
+  <complexType name="ParameterDefinition">
+    <choice>
+      <element name="Talent">
+        <complexType>
+          <sequence>
+            <element name="Input" minOccurs="0" maxOccurs="unbounded">
+              <complexType>
+                <attribute name="identifier" use="required"></attribute>
+                <attribute name="type" use="optional">
+                  <simpleType>
+                    <restriction base="string">
+                      <enumeration value="TaB"></enumeration>
+                      <enumeration value="TaA"></enumeration>
+                      <enumeration value="TaW"></enumeration>
+                      <enumeration value="Komplexität"></enumeration>
+                    </restriction>
+                  </simpleType>
+                </attribute>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Text">
+        <complexType>
+          <sequence>
+            <element name="Input" maxOccurs="1" minOccurs="0">
+              <complexType>
+                <attribute name="identifier" use="required"></attribute>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Zahl">
+        <complexType>
+          <sequence>
+            <element name="Input" maxOccurs="1" minOccurs="0">
+              <complexType>
+                <attribute name="identifier" use="required"></attribute>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+      <element name="Auswahl">
+        <complexType>
+          <sequence>
+            <element name="Input" maxOccurs="1" minOccurs="1">
+              <complexType>
+                <sequence>
+                  <element name="Wahl">
+                    <complexType>
+                      <attribute name="Wert" type="string"></attribute>
+                    </complexType>
+                  </element>
+                </sequence>
+                <attribute name="identifier" use="required"></attribute>
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+    </choice>
+  </complexType>
+
 
   <complexType name="Mods">
     <sequence>
