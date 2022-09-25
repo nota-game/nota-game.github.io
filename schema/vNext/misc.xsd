@@ -162,7 +162,7 @@
   <element name="Kosten" type="misc:KostenDefinition" />
   <complexType name="KostenDefinition">
     <attributeGroup ref="misc:NamedElement" />
-    <attribute name="Wert" use="required" type="float" />
+    <attribute name="Berechnung" use="required" type="string" />
   </complexType>
   <element name="KostenDefinitionen" type="misc:KostenDefinitions" />
 
