@@ -16,7 +16,7 @@
             <field xpath="./@Geschlecht" />
           </unique>
         </element>
-        <element name="Talent" maxOccurs="unbounded" minOccurs="0" type="talent:TalentDefinition" >
+        <element name="Talent" maxOccurs="unbounded" minOccurs="0" type="talent:TalentDefinition">
           <unique name="WertUniqueForBedingung">
             <selector xpath=".//talent:Level" />
             <field xpath="@Wert" />
@@ -29,22 +29,15 @@
 
   <complexType name="TalentDefinition">
     <sequence>
-      <element name="Probe">
+      <element name="Probe" minOccurs="1" maxOccurs="unbounded">
         <complexType>
-          <choice maxOccurs="3" minOccurs="3">
-            <element name="Stärke" />
-            <element name="Konstitution" />
-            <element name="Gewandtheit" />
-            <element name="Feinmotorik" />
-            <element name="Antipathie" />
-            <element name="Sympathie" />
-            <element name="Klugheit" />
-            <element name="Intuition" />
-            <element name="Fokus" />
-            <element name="Einfluss" />
-            <element name="Mut" />
-            <element name="Glück" />
-          </choice>
+          <sequence>
+            <element name="Eigenschaft" maxOccurs="unbounded">
+              <complexType>
+                <attribute type="string" name="Name" />
+              </complexType>
+            </element>
+          </sequence>
         </complexType>
       </element>
       <element ref="misc:Name" />
@@ -64,10 +57,10 @@
             </annotation>
           </attribute>
         </complexType>
-        
+
       </element>
       <element name="Ableitungen" minOccurs="0" maxOccurs="1" type="talent:AbleitungsAuswahl" />
-      
+
     </sequence>
     <attribute type="string" name="Id" use="required" />
     <attribute type="talent:Komplexität" use="required" name="Komplexität" />
