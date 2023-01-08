@@ -141,7 +141,7 @@
   <complexType name="EntwicklungDefinition">
     <sequence>
       <choice maxOccurs="unbounded" minOccurs="0">
-        <element name="Berechnung" type="lebewesen:FormelDefintion" minOccurs="0" maxOccurs="unbounded" />
+        <element name="Berechnung" type="lebewesen:FormelDefintion" />
         <element name="Reihe" type="lebewesen:ReiheDefinition" />
         <element name="Punkt" type="lebewesen:PunktDefintion" />
       </choice>
