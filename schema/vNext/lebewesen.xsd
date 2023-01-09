@@ -290,6 +290,7 @@
     </sequence>
     <attribute name="minInklusiv" type="float" use="required" />
     <attribute name="maxInklusiv" type="float" use="required" />
+    <attribute name="default" type="float" use="required" />
     <attribute name="gruppe" type="string" use="optional" />
     <attribute name="step" type="float" use="optional" default="1" />
     <attribute name="diskret" type="boolean" use="optional" default="true" />
