@@ -26,7 +26,7 @@
                     <element ref="misc:Name" />
                     <element ref="misc:Beschreibung" />
                   </sequence>
-                  <attribute name="id"></attribute>
+                  <attribute name="id" use="required" />
                 </complexType>
               </element>
             </sequence>
