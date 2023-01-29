@@ -1,0 +1,130 @@
+<Fertigkeiten xmlns="https://nota-game.github.io/schema//fertigkeit.xsd" KategorieId="Sprachen"
+
+xmlns:nota='https://nota-game.github.io/schema//nota.xsd' xmlns:misc='https://nota-game.github.io/schema//misc.xsd'
+xmlns:lebewesen="https://nota-game.github.io/schema//lebewesen.xsd"
+xmlns:pfad="https://nota-game.github.io/schema//pfad.xsd" xmlns:talent="https://nota-game.github.io/schema//talent.xsd"
+xmlns:fertigkeit="https://nota-game.github.io/schema//fertigkeit.xsd"
+xmlns:besonderheit="https://nota-game.github.io/schema//besonderheit.xsd"
+xmlns:Belastung="https://nota-game.github.io/schema//kampf/aktionen.xsd"
+xmlns:ausstattung="https://nota-game.github.io/schema//kampf/ausstattung.xsd"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+>
+    <fertigkeit:Kategorie>
+      <misc:Lokalisirung Sprache="de">
+        <![CDATA[Sprachen]]>
+      </misc:Lokalisirung>
+    </fertigkeit:Kategorie>
+
+
+    <Fertigkeit Id="Uranisch">
+      <misc:Name>
+        <misc:Lokalisirung Sprache="de">
+          <![CDATA[Uranisch]]>
+        </misc:Lokalisirung>
+      </misc:Name>
+      <fertigkeit:Stufe Kosten="5">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Uranisch erkennen]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+
+      <fertigkeit:Stufe Kosten="10">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Einige Uranisch Wörter. Wie essen ja,nein, etc… ]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+      <fertigkeit:Stufe Kosten="35">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Gebrochenes Uranisch]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+    </Fertigkeit>
+
+
+    <Fertigkeit Id="Garich">
+      <misc:Name>
+        <misc:Lokalisirung Sprache="de">
+          <![CDATA[Garich]]>
+        </misc:Lokalisirung>
+      </misc:Name>
+      <fertigkeit:Stufe Kosten="40">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Garich mit Aktzent]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+        <fertigkeit:Voraussetzung>
+          <fertigkeit:Fertigkeit Id="Uranisch" Stufe="3" />
+        </fertigkeit:Voraussetzung>
+      </fertigkeit:Stufe>
+      <fertigkeit:Stufe Kosten="60">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Garich Aktzent frei]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+    </Fertigkeit>
+
+
+    <Fertigkeit Id="Arjunisch">
+      <misc:Name>
+        <misc:Lokalisirung Sprache="de">
+          <![CDATA[Arjunisch]]>
+        </misc:Lokalisirung>
+      </misc:Name>
+      <fertigkeit:Stufe Kosten="5">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Arjunisch erkennen]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+
+      <fertigkeit:Stufe Kosten="10">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Einige Arjunisch Wörter. Wie essen ja,nein, etc… ]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+      <fertigkeit:Stufe Kosten="35">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Gebrochenes Arjunisch]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+      <fertigkeit:Stufe Kosten="40">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Arjunisch mit Aktzent]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+      <fertigkeit:Stufe Kosten="60">
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Arjunisch Aktzent frei]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <Verbreitung Wert="7" />
+      </fertigkeit:Stufe>
+    </Fertigkeit>
+  </Fertigkeiten>

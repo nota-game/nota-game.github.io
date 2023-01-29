@@ -1,0 +1,34 @@
+
+  <Fertigkeiten xmlns="https://nota-game.github.io/schema//fertigkeit.xsd" KategorieId="Handwerk"
+  
+  xmlns:nota='https://nota-game.github.io/schema//nota.xsd' xmlns:misc='https://nota-game.github.io/schema//misc.xsd'
+  xmlns:lebewesen="https://nota-game.github.io/schema//lebewesen.xsd"
+  xmlns:pfad="https://nota-game.github.io/schema//pfad.xsd" xmlns:talent="https://nota-game.github.io/schema//talent.xsd"
+  xmlns:fertigkeit="https://nota-game.github.io/schema//fertigkeit.xsd"
+  xmlns:besonderheit="https://nota-game.github.io/schema//besonderheit.xsd"
+  xmlns:Belastung="https://nota-game.github.io/schema//kampf/aktionen.xsd"
+  xmlns:ausstattung="https://nota-game.github.io/schema//kampf/ausstattung.xsd"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+  >
+    <fertigkeit:Kategorie>
+      <misc:Lokalisirung Sprache="de">
+        <![CDATA[Handwerk]]>
+      </misc:Lokalisirung>
+    </fertigkeit:Kategorie>
+
+    <fertigkeit:Fertigkeit Id="Konditor">
+      <misc:Name>
+        <misc:Lokalisirung Sprache="de">Konditor</misc:Lokalisirung>
+      </misc:Name>
+      <fertigkeit:Stufe Kosten="30">
+
+        <misc:Beschreibung>
+          <misc:Lokalisirung Sprache="de">
+            <![CDATA[Die kunst Süßes zu erstellen]]>
+          </misc:Lokalisirung>
+        </misc:Beschreibung>
+        <fertigkeit:Verbreitung Wert="4"></fertigkeit:Verbreitung>
+      </fertigkeit:Stufe>
+    </fertigkeit:Fertigkeit>
+  </Fertigkeiten>
