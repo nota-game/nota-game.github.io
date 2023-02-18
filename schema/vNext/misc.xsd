@@ -387,7 +387,7 @@
                       <sequence>
                         <element ref="misc:Name" />
                       </sequence>
-                      <attribute name="Wert" type="string"></attribute>
+                      <attribute name="Id" type="string" use="required"></attribute>
                     </complexType>
                   </element>
                 </sequence>
