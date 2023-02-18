@@ -54,10 +54,12 @@
           </sequence>
         </complexType>
       </element>
-      <element name="Art" maxOccurs="unbounded" minOccurs="1" type="lebewesen:ArtDefinition" />
+      <element ref="lebewesen:Art" maxOccurs="unbounded" minOccurs="1" />
     </sequence>
     <attributeGroup ref="misc:NamedElement" />
   </complexType>
+
+  <element name="Art" type="lebewesen:ArtDefinition" />
 
   <complexType name="ArtDefinition">
     <sequence>
@@ -98,10 +100,10 @@
   </complexType>
 
 
-  <element name="Gattung" type="misc:NamedType" />
-  <element name="Art" type="misc:NamedType" />
-  <element name="Morph" type="misc:NamedType" />
-  <element name="Lebensabschnitt" type="misc:NamedType" />
+  <element name="GattungRef" type="misc:NamedType" />
+  <element name="ArtRef" type="misc:NamedType" />
+  <element name="MorphRef" type="misc:NamedType" />
+  <element name="LebensabschnittRef" type="misc:NamedType" />
 
   <element name="StandardPfade">
     <annotation>
@@ -119,7 +121,7 @@
       <element name="Or" type="lebewesen:LebewesenAuswahlen" />
       <element name="And" type="lebewesen:LebewesenAuswahlen" />
       <element name="Not" type="lebewesen:LebewesenAuswahl" />
-      <element ref="lebewesen:Art" />
+      <element ref="lebewesen:ArtRef" />
     </choice>
   </complexType>
   <complexType name="LebewesenAuswahlen">
@@ -127,7 +129,7 @@
       <element name="Or" type="lebewesen:LebewesenAuswahlen" />
       <element name="And" type="lebewesen:LebewesenAuswahlen" />
       <element name="Not" type="lebewesen:LebewesenAuswahl" />
-      <element ref="lebewesen:Art" />
+      <element ref="lebewesen:ArtRef" />
     </choice>
   </complexType>
 
@@ -163,14 +165,19 @@
   <complexType name="EntwicklungDefinition">
     <sequence>
       <choice maxOccurs="unbounded" minOccurs="0">
-        <element name="Berechnung" type="lebewesen:FormelDefintion" />
-        <element name="Bereich" type="lebewesen:StaticheDefinition" />
-        <element name="Reihe" type="lebewesen:ReiheDefinition" />
-        <element name="Punkt" type="lebewesen:PunktDefintion" />
+        <element ref="lebewesen:Berechnung"  />
+        <element ref="lebewesen:Bereich"  />
+        <element ref="lebewesen:Reihe"  />
+        <element ref="lebewesen:Punkt"  />
       </choice>
     </sequence>
   </complexType>
-
+  
+  <element name="Berechnung" type="lebewesen:FormelDefintion" />
+  <element name="Bereich" type="lebewesen:StaticheDefinition" />
+  <element name="Reihe" type="lebewesen:ReiheDefinition" />
+  <element name="Punkt" type="lebewesen:PunktDefintion" />
+  
   <complexType name="LebensabschnittDefinition">
     <sequence>
       <element name="Spielbar" minOccurs="0">
