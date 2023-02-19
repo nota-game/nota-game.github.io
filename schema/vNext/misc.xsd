@@ -350,6 +350,7 @@
               </complexType>
             </element>
           </sequence>
+          <attribute name="identifier" use="required" />
         </complexType>
       </element>
       <element name="Text">
@@ -361,19 +362,14 @@
               </complexType>
             </element>
           </sequence>
+          <attribute name="identifier" use="required" />
         </complexType>
       </element>
       <element name="Zahl">
         <complexType>
-          <sequence>
-            <element name="Input" maxOccurs="1" minOccurs="0">
-              <complexType>
-                <attribute name="identifier" use="required"></attribute>
-              </complexType>
-            </element>
-          </sequence>
           <attribute name="min" use="required" type="int"></attribute>
           <attribute name="max" use="required" type="int"></attribute>
+          <attribute name="identifier" use="required" />
         </complexType>
       </element>
       <element name="Auswahl">
@@ -395,6 +391,7 @@
               </complexType>
             </element>
           </sequence>
+          <attribute name="identifier" use="required" />
         </complexType>
       </element>
     </choice>
