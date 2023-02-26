@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd" xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd" xmlns:kultur="https://nota-game.github.io/schema/vNext/kultur.xsd" xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd" xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd" xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd" xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" targetNamespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" elementFormDefault="qualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:nota="https://nota-game.github.io/schema/vNext/nota.xsd"
+  xmlns:misc="https://nota-game.github.io/schema/vNext/misc.xsd" xmlns:wesen="https://nota-game.github.io/schema/vNext/lebewesen.xsd"
+  xmlns:kultur="https://nota-game.github.io/schema/vNext/kultur.xsd"
+  xmlns:profession="https://nota-game.github.io/schema/vNext/profession.xsd"
+  xmlns:talent="https://nota-game.github.io/schema/vNext/talent.xsd"
+  xmlns:fertigkeit="https://nota-game.github.io/schema/vNext/fertigkeit.xsd"
+  xmlns:besonderheit="https://nota-game.github.io/schema/vNext/besonderheit.xsd"
+  xmlns:ausstattung="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd"
+  targetNamespace="https://nota-game.github.io/schema/vNext/kampf/ausstattung.xsd" elementFormDefault="qualified">
   <import namespace="https://nota-game.github.io/schema/vNext/lebewesen.xsd" schemaLocation="../lebewesen.xsd" />
-  <!--<import namespace="https://nota-game.github.io/schema/vNext/kultur.xsd" schemaLocation="kultur.xsd" />-->
-  <!--<import namespace="https://nota-game.github.io/schema/vNext/profession.xsd" schemaLocation="profession.xsd" />-->
+  <!--<import
+  namespace="https://nota-game.github.io/schema/vNext/kultur.xsd" schemaLocation="kultur.xsd" />-->
+  <!--<import
+  namespace="https://nota-game.github.io/schema/vNext/profession.xsd" schemaLocation="profession.xsd" />-->
   <import namespace="https://nota-game.github.io/schema/vNext/misc.xsd" schemaLocation="..\misc.xsd" />
   <import namespace="https://nota-game.github.io/schema/vNext/talent.xsd" schemaLocation="../talent.xsd" />
-  <!--<import namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />-->
-  <!--<import namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />-->
-  <!--<import namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" schemaLocation="kampf/aktionen.xsd" />-->
+  <!--<import
+  namespace="https://nota-game.github.io/schema/vNext/fertigkeit.xsd" schemaLocation="fertigkeit.xsd" />-->
+  <!--<import
+  namespace="https://nota-game.github.io/schema/vNext/besonderheit.xsd" schemaLocation="besonderheit.xsd" />-->
+  <!--<import
+  namespace="https://nota-game.github.io/schema/vNext/kampf/aktionen.xsd" schemaLocation="kampf/aktionen.xsd" />-->
 
   <complexType name="NahkampfWaffenDefinition">
     <sequence>
@@ -24,14 +37,14 @@
       <element name="Eigenschaften" minOccurs="0">
         <complexType>
           <sequence>
-            <element ref="ausstattung:Eigenschaft"  maxOccurs="unbounded"/>
+            <element ref="ausstattung:Eigenschaft" maxOccurs="unbounded" />
           </sequence>
         </complexType>
       </element>
       <element name="Talente" minOccurs="0">
         <complexType>
           <sequence>
-            <element name="Talent"  maxOccurs="unbounded">
+            <element name="Talent" maxOccurs="unbounded">
               <complexType>
                 <attributeGroup ref="misc:NamedElement" />
               </complexType>
@@ -40,7 +53,8 @@
         </complexType>
       </element>
     </sequence>
-    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional"
+      default="Offensiv|Defensiv" />
     <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
     <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
     <attribute name="Distanzklasse" type="int" use="required" />
@@ -103,7 +117,8 @@
         </complexType>
       </element>
     </sequence>
-    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional" default="Offensiv|Defensiv" />
+    <attribute name="WaffenTyp" type="ausstattung:WaffenTyp" use="optional"
+      default="Offensiv|Defensiv" />
     <attribute name="DefensivModifizierer" type="int" use="optional" default="0" />
     <attribute name="OffensivModifizierer" type="int" use="optional" default="0" />
     <attributeGroup ref="misc:NamedElement" />
@@ -156,9 +171,11 @@
         <element name="Waffen">
           <complexType>
             <sequence>
-              <element name="Nahkampfwaffe" maxOccurs="unbounded" minOccurs="0" type="ausstattung:NahkampfWaffenDefinition">
+              <element name="Nahkampfwaffe" maxOccurs="unbounded" minOccurs="0"
+                type="ausstattung:NahkampfWaffenDefinition">
               </element>
-              <element name="Fernkampfwaffe" maxOccurs="unbounded" minOccurs="0" type="ausstattung:FernkampfwaffenDafinition">
+              <element name="Fernkampfwaffe" maxOccurs="unbounded" minOccurs="0"
+                type="ausstattung:FernkampfwaffenDafinition">
               </element>
             </sequence>
           </complexType>
@@ -167,7 +184,8 @@
         <element name="Rüstungen">
           <complexType>
             <sequence>
-              <element name="Rüstung" minOccurs="0" maxOccurs="unbounded" type="ausstattung:RüstungDefinition">
+              <element name="Rüstung" minOccurs="0" maxOccurs="unbounded"
+                type="ausstattung:RüstungDefinition">
               </element>
             </sequence>
           </complexType>
@@ -176,8 +194,9 @@
         <element name="Eigenschaften">
           <complexType>
             <sequence>
-              <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded" type="ausstattung:AusrüstungEigengchaftDefinition">
-                
+              <element name="Eigenschaft" minOccurs="0" maxOccurs="unbounded"
+                type="ausstattung:AusrüstungEigengchaftDefinition">
+
               </element>
             </sequence>
           </complexType>
@@ -251,6 +270,7 @@
               </restriction>
             </simpleType>
           </attribute>
+          <attribute name="Unzuverlässig" use="optional" type="boolean" default="false" />
         </complexType>
       </element>
     </sequence>
