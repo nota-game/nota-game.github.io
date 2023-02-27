@@ -154,8 +154,8 @@ body > main {
         }
 
         @media (max-width: $narrow-width) {
-            margin-left: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2);
-            margin-right: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2);
+            margin-left: calc((100% - var(--main-content-width) - 2rem /*padding*/) / 2);
+            margin-right: calc((100% - var(--main-content-width) - 2rem /*padding*/) / 2);
         }
 
         @media (max-width: $smalest-width) {
