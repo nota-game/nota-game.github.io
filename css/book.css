@@ -97,8 +97,8 @@ body > main {
         margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - (2 * var(--info-main-margin))) / 2); } }
     @media (max-width: 992px) {
       body > main > .edit-box {
-        margin-left: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2);
-        margin-right: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2); } }
+        margin-left: calc((100% - var(--main-content-width) - 2rem /*padding*/) / 2);
+        margin-right: calc((100% - var(--main-content-width) - 2rem /*padding*/) / 2); } }
     @media (max-width: 592px) {
       body > main > .edit-box {
         margin-left: 1rem;
