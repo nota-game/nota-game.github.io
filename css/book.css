@@ -89,16 +89,16 @@ body > main {
     border-right: 1px #A13646 solid;
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2);
-    margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2); }
+    margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - (2 * var(--info-main-margin))) / 2);
+    margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - (2 * var(--info-main-margin))) / 2); }
     @media (max-width: 1312px) {
       body > main > .edit-box {
-        margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2);
-        margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - var(--info-main-margin)) / 2); } }
+        margin-left: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - (2 * var(--info-main-margin))) / 2);
+        margin-right: calc((100% - var(--main-content-width) - var(--info-content-width) - var(--edit-box-padding) - var(--edit-box-padding) - (2 * var(--info-main-margin))) / 2); } }
     @media (max-width: 992px) {
       body > main > .edit-box {
-        margin-left: calc((100% - var(--main-content-width)) / 2);
-        margin-right: calc((100% - var(--main-content-width)) / 2); } }
+        margin-left: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2);
+        margin-right: calc((100% - var(--main-content-width) - 1rem /*padding*/) / 2); } }
     @media (max-width: 592px) {
       body > main > .edit-box {
         margin-left: 1rem;
