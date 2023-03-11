@@ -164,20 +164,38 @@
 
   <complexType name="EntwicklungDefinition">
     <sequence>
+      <element name="Trefferzonen" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element name="Trefferzone" maxOccurs="unbounded" minOccurs="0">
+              <complexType>
+                <sequence>
+                  <element name="Name" type="misc:Lokalisierungen" />
+                  <element name="Beschreibung" type="misc:Lokalisierungen" />
+                </sequence>
+
+                <attribute name="Zone" type="string" use="required" />
+                <attribute name="Anzahl" type="positiveInteger" use="required" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
+
       <choice maxOccurs="unbounded" minOccurs="0">
-        <element ref="lebewesen:Berechnung"  />
-        <element ref="lebewesen:Bereich"  />
-        <element ref="lebewesen:Reihe"  />
-        <element ref="lebewesen:Punkt"  />
+        <element ref="lebewesen:Berechnung" />
+        <element ref="lebewesen:Bereich" />
+        <element ref="lebewesen:Reihe" />
+        <element ref="lebewesen:Punkt" />
       </choice>
     </sequence>
   </complexType>
-  
+
   <element name="Berechnung" type="lebewesen:FormelDefintion" />
   <element name="Bereich" type="lebewesen:StaticheDefinition" />
   <element name="Reihe" type="lebewesen:ReiheDefinition" />
   <element name="Punkt" type="lebewesen:PunktDefintion" />
-  
+
   <complexType name="LebensabschnittDefinition">
     <sequence>
       <element name="Spielbar" minOccurs="0">

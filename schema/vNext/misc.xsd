@@ -415,6 +415,19 @@
           </sequence>
         </complexType>
       </element>
+      <element name="Trefferzonen" maxOccurs="1" minOccurs="0">
+        <complexType>
+          <sequence>
+            <element name="Zone" minOccurs="1" maxOccurs="unbounded">
+              <complexType>
+                <attribute name="Name" type="string" use="required" />
+                <attribute name="Modifier" type="int" use="required" />
+                <attribute name="Minimum" type="int" use="optional" default="1" />
+              </complexType>
+            </element>
+          </sequence>
+        </complexType>
+      </element>
     </sequence>
   </complexType>
 </schema>
