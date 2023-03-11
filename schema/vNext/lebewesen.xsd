@@ -167,17 +167,7 @@
       <element name="Trefferzonen" minOccurs="0">
         <complexType>
           <sequence>
-            <element name="Trefferzone" maxOccurs="unbounded" minOccurs="0">
-              <complexType>
-                <sequence>
-                  <element name="Name" type="misc:Lokalisierungen" />
-                  <element name="Beschreibung" type="misc:Lokalisierungen" />
-                </sequence>
-
-                <attribute name="Zone" type="string" use="required" />
-                <attribute name="Anzahl" type="positiveInteger" use="required" />
-              </complexType>
-            </element>
+            <element name="Trefferzone" maxOccurs="unbounded" minOccurs="0" type="lebewesen:Trefferzone_Definition" />
           </sequence>
         </complexType>
       </element>
@@ -189,6 +179,16 @@
         <element ref="lebewesen:Punkt" />
       </choice>
     </sequence>
+  </complexType>
+
+  <complexType name="Trefferzone_Definition">
+    <sequence>
+      <element name="Name" type="misc:Lokalisierungen" />
+      <element name="Beschreibung" type="misc:Lokalisierungen" />
+    </sequence>
+
+    <attribute name="Zone" type="string" use="required" />
+    <attribute name="Anzahl" type="positiveInteger" use="required" />
   </complexType>
 
   <element name="Berechnung" type="lebewesen:FormelDefintion" />
