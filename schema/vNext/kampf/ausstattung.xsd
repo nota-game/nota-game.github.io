@@ -138,7 +138,7 @@
           </sequence>
         </complexType>
       </element>
-      <element name="Trefferzonen" type="ausstattung:Trefferzonen_Definition"/>
+      <element name="Trefferzonen" type="ausstattung:Trefferzonen_Definition" />
       <element name="Eigenschaften" minOccurs="0">
         <complexType>
           <sequence>
@@ -150,17 +150,26 @@
     <attribute name="Erschwernis" type="int" use="required" />
     <attributeGroup ref="misc:NamedElement" />
   </complexType>
-  
-  
+
+
   <complexType name="Trefferzonen_Definition">
     <sequence>
-      <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
+      <element name="Zone" maxOccurs="unbounded">
+        <complexType>
+          <complexContent>
+            <extension base="ausstattung:Schutzwert">
+              <attribute name="Name" type="string" use="required" />
+            </extension>
+          </complexContent>
+        </complexType>
+      </element>
+      <!-- <element name="Kopf" type="ausstattung:Schutzwert" minOccurs="0" />
       <element name="Brust" type="ausstattung:Schutzwert" minOccurs="0" />
       <element name="Hüfte" type="ausstattung:Schutzwert" minOccurs="0" />
       <element name="LinkerArm" type="ausstattung:Schutzwert" minOccurs="0" />
       <element name="RechterArm" type="ausstattung:Schutzwert" minOccurs="0" />
       <element name="LinkesBein" type="ausstattung:Schutzwert" minOccurs="0" />
-      <element name="RechtesBein" type="ausstattung:Schutzwert" minOccurs="0" />
+      <element name="RechtesBein" type="ausstattung:Schutzwert" minOccurs="0" /> -->
     </sequence>
   </complexType>
 
